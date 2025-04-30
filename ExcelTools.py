@@ -1,11 +1,9 @@
 import os
 import openpyxl
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Alignment
-from openpyxl.styles import PatternFill, Font, NamedStyle
 from openpyxl.utils import get_column_letter
-from typing import List, Union
 from Style.StyleDefiner import 表格样式类型, 样式生成器
+from typing import Any
 
 class 表格工具:
     @staticmethod
@@ -13,7 +11,7 @@ class 表格工具:
         """更新或创建工作表，并返回工作簿、工作表、表头样式名和数据样式名"""
         if os.path.exists(file_path):
             wb = load_workbook(file_path)
-            # 如果工作表已存在，先删除它
+            # 如果工作表已存在，先删除它，并放在第一位
             if sheet_name in wb.sheetnames:
                 del wb[sheet_name]
             # 在索引0的位置创建新工作表
@@ -51,10 +49,29 @@ class 表格工具:
             ws.column_dimensions[column].width = adjusted_width
 
     @staticmethod
-    def 列表元素依次写入指定单元格(ws, row, col, 列表, 分隔符=","):
+    def 列表元素字符串拼接(列表, 分隔符=","):
         """将列表元素依次写入指定单元格"""
-        cell = ws.cell(row=row, column=col, value=分隔符.join(列表))
-        return cell
+        cell_value = 分隔符.join(str(item) for item in 列表)
+        return cell_value
+
+    @staticmethod
+    def 找到类字段(目标类: type, 字段名称: str) -> Any:
+        """根据字段名称获取类中的字段值
+        
+        Args:
+            目标类: 要查找的类
+            字段名称: 要查找的字段名称
+            
+        Returns:
+            Any: 字段的值
+            
+        Raises:
+            AttributeError: 如果字段不存在
+        """
+        if not hasattr(目标类, 字段名称):
+            raise AttributeError(f"类 {目标类.__name__} 中不存在变量名 '{字段名称}'")
+            
+        return getattr(目标类, 字段名称)
 
     @classmethod
     def 注册表格样式(cls, wb, 表格样式: 表格样式类型 = 表格样式类型.默认样式):
@@ -76,4 +93,15 @@ class 表格工具:
         wb.add_named_style(样式生成器.创建样式(data_config))
 
         return header_style_name, data_style_name
+    
+    # @classmethod
+    # def 找到类字段(cls, target_name: str):
+    # # 获取类的所有变量（排除特殊属性）
+    #     class_vars = vars(cls)
+    #     valid_vars = {k: v for k, v in class_vars.items() if not k.startswith("__")}
+    
+    #     if target_name in valid_vars:
+    #         return valid_vars[target_name]
+    #     else:
+    #         raise AttributeError(f"类 {cls.__name__} 中不存在变量名 '{target_name}'")
 

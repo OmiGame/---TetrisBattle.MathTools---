@@ -1,10 +1,11 @@
 import os
 from typing import Type, Any
 from ExcelTools import 表格工具
+from LubanData import 全局参数
 from Style.StyleDefiner import 表格样式类型
-from TableData import 角色成长表
+from TableData import 角色成长表, 阵容战力成长表
 
-# 清屏
+# 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
 # -------------------------------------
@@ -14,7 +15,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 save_folder_path = r"H:\悠手好闲\铁头工作室\方块项目设计案\《冲王》数值_cursor\图表生成"
 
 # -------------------------------------
-# 3. 生成表格的定义函数
+# 2. 生成表格的定义函数
 # -------------------------------------
 class 生成表:
     @classmethod
@@ -44,34 +45,21 @@ class 生成表:
             file_path, sheet_name, 表格样式
         )
 
-        # 生成表头
+        # 生成表头，表头都是从第一行开始
         表格工具.生成表头(ws, 表格定义.headers, 表头样式名)
 
         # 获取列函数映射
         column_functions = 表格定义.获取列函数映射()
 
-        # 获取最大等级
-        max_level = 表格定义.获取最大等级()
+        # 获取行数据范围
+        起始值, 结束值 = 表格定义.获取行数据范围()
 
-        # 生成数据行
-        for level in range(1, max_level + 1):
-            row_num = level + 1
+        # 生成数据行，当前值为数据行的索引
+        for 当前值 in range(起始值, 结束值 + 1):
+            row_num = 当前值 - 起始值 + 2  # +2是因为第一行是表头
             
-            # 写入固定列数据（角色名称和等级）
-            cell = ws.cell(row=row_num, column=1, value=ws.title)
-            cell.style = 数据样式名
-            cell = ws.cell(row=row_num, column=2, value=level)
-            cell.style = 数据样式名
-
-            # 验证表头数量
-            if len(表格定义.headers) != 表格定义.固定列数据数量 + len(column_functions):
-                raise ValueError(
-                    f"表头数量不匹配！应有{表格定义.固定列数据数量 + len(column_functions)}列，"
-                    f"实际{len(表格定义.headers)}列"
-                )
-
             # 创建行参数，等于创建了实际键的映射表
-            row_params = 表格定义.创建行参数(ws, ws.title, level, row_num)
+            row_params = 表格定义.创建行参数(ws, ws.title, 当前值, row_num)
 
             # 生成每列数据
             for col_num, 列定义 in column_functions.items():
@@ -122,5 +110,33 @@ if __name__ == "__main__":
         save_folder=save_folder_path,
         表格样式=表格样式类型.角色成长表
     )
+
+    print("\n正在生成弓箭手表格...")
+    生成表.生成表格(
+        表格定义=角色成长表,
+        sheet_name="弓",
+        save_folder=save_folder_path,
+        表格样式=表格样式类型.角色成长表
+    )
+
+    print("\n正在生成阵容战力成长表...")
+    生成表.生成表格(
+        表格定义=阵容战力成长表,
+        sheet_name="标准阵容列表",
+        save_folder=save_folder_path,
+        表格样式=表格样式类型.默认样式
+    )
+    
+    
+    print("\n正在生成阵容战力成长表...")
+    生成表.生成表格(
+        表格定义=阵容战力成长表,
+        sheet_name="测试阵容列表",
+        save_folder=save_folder_path,
+        表格样式=表格样式类型.默认样式
+    )
+
+
+
     
     print("\n所有表格生成完成！")
