@@ -126,6 +126,43 @@ class 角色技能倍率 :
         self.技能名称 = _json_['技能名称']
         self.技能描述 = _json_['技能描述']
 
+class 生成数据_角色成长数据 :
+    def __init__(self, _json_):
+        self.角色名称 = _json_['角色名称']
+        self.等级 = _json_['等级']
+        self.血量 = _json_['血量']
+        self.攻击力 = _json_['攻击力']
+        self.攻击速度（/S） = _json_['攻击速度（/S）']
+        self.攻击范围（格） = _json_['攻击范围（格）']
+        self.移速（格/S） = _json_['移速（格/S）']
+        self.基础DPS = _json_['基础DPS']
+        self.血量战力 = _json_['血量战力']
+        self.DPS战力 = _json_['DPS战力']
+        self.血量特效战力 = _json_['血量特效战力']
+        self.DPS特效战力 = _json_['DPS特效战力']
+        self.基础总战力 = _json_['基础总战力']
+        self.解锁技能数 = _json_['解锁技能数']
+        self.技能列表 = _json_['技能列表']
+        self.技能解锁后的总战力 = _json_['技能解锁后的总战力']
+
+class 生成数据_肉鸽技能选择节奏 :
+    def __init__(self, _json_):
+        self.肉鸽技能升级次数 = _json_['肉鸽技能升级次数']
+        self.理论所需经验值 = _json_['理论所需经验值']
+        self.玩家消除行数 = _json_['玩家消除行数']
+        self.玩家获得的经验总值 = _json_['玩家获得的经验总值']
+        self.获得经验的时间(s) = _json_['获得经验的时间(s)']
+        self.时间取整每30s = _json_['时间取整每30s']
+        self.根据时间计数 = _json_['根据时间计数']
+
+class 生成数据_阵容战力成长表 :
+    def __init__(self, _json_):
+        self.阵容组合名称 = _json_['阵容组合名称']
+        self.平均等级 = _json_['平均等级']
+        self.初始战力 = _json_['初始战力']
+        self.终点战力 = _json_['终点战力']
+        self.终点战力产出效率 = _json_['终点战力产出效率']
+
 class vector2 :
     def __init__(self, _json_):
         self.x = _json_['x']
@@ -257,6 +294,54 @@ class 基础数据_Tb角色技能数据表:
 
     def get(self, key) : return self._dataMap.get(key)
 
+class 生成数据_Tb肉鸽技能选择节奏:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_肉鸽技能选择节奏(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.肉鸽技能升级次数] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 生成数据_Tb角色成长数据:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_角色成长数据(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.角色名称] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 生成数据_Tb阵容战力成长表:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_阵容战力成长表(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.阵容组合名称] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 
 
 class cfg_Tables:
@@ -268,4 +353,7 @@ class cfg_Tables:
         self.Tb肉鸽技能数据表 = 基础数据_Tb肉鸽技能数据表(loader('基础数据_tb肉鸽技能数据表')); 
         self.Tb角色初始属性表 = 基础数据_Tb角色初始属性表(loader('基础数据_tb角色初始属性表')); 
         self.Tb角色技能数据表 = 基础数据_Tb角色技能数据表(loader('基础数据_tb角色技能数据表')); 
+        self.Tb肉鸽技能选择节奏 = 生成数据_Tb肉鸽技能选择节奏(loader('生成数据_tb肉鸽技能选择节奏')); 
+        self.Tb角色成长数据 = 生成数据_Tb角色成长数据(loader('生成数据_tb角色成长数据')); 
+        self.Tb阵容战力成长表 = 生成数据_Tb阵容战力成长表(loader('生成数据_tb阵容战力成长表')); 
 

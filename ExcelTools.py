@@ -1,9 +1,10 @@
 import os
 import openpyxl
 from openpyxl import Workbook, load_workbook
+from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from Style.StyleDefiner import 表格样式类型, 样式生成器
-from typing import Any
+from typing import Any, Dict
 
 class 表格工具:
     @staticmethod
@@ -27,15 +28,35 @@ class 表格工具:
         return wb, ws, 表头样式名, 数据样式名
 
     @staticmethod
-    def 生成表头(ws, headers, 表头样式名):
-        """生成表头"""
-        for col, header in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col, value=header)
-            cell.style = 表头样式名
+    def 生成表头(ws: Worksheet, headers: Dict[str, str], style_name: str, start_row: int = 1, start_col: int = 2) -> None:
+        """生成表头
+        生成三行表头：第一行是变量名，第二行是数据类型，第三行是显示名称
+        
+        Args:
+            ws: 工作表对象
+            headers: 表头字典，key为显示名称，value为数据类型
+            style_name: 样式名称
+            start_row: 起始行号
+            start_col: 起始列号
+        """
+        # 生成第一行（变量名）
+        for col, (header, _) in enumerate(headers.items(), start_col):
+            cell = ws.cell(row=start_row, column=col, value=header)
+            cell.style = style_name
+            
+        # 生成第二行（数据类型）
+        for col, (_, data_type) in enumerate(headers.items(), start_col):
+            cell = ws.cell(row=start_row + 1, column=col, value=data_type)
+            cell.style = style_name
+            
+        # 生成第三行（显示名称）
+        for col, (header, _) in enumerate(headers.items(), start_col):
+            cell = ws.cell(row=start_row + 2, column=col, value=header)
+            cell.style = style_name
 
     @staticmethod
-    def 按中文调整列宽(ws, start_col, end_col):
-        # 处理首列：遍历所有行，找最大值
+    def 按中文调整列宽(ws, start_row , start_col, end_col):
+        """处理数据的起始列：遍历所有行，找最大值"""
         first_column = get_column_letter(start_col)
         max_length = 0
         for cell in ws[first_column]:  # 遍历该列所有单元格
@@ -46,9 +67,9 @@ class 表格工具:
         adjusted_width = (max_length + 2) * 2.2  # 调整系数为 2.2
         ws.column_dimensions[first_column].width = adjusted_width
 
-        # 处理其他列：仅用第一行
+        """处理其他列： 需要传入表头的起始行"""
         for col in range(start_col + 1, end_col + 1):
-            cell = ws.cell(row=1, column=col)
+            cell = ws.cell(row= start_row, column=col)
             content_length = len(str(cell.value)) if cell.value else 0
             adjusted_width = (content_length + 2) * 2.2  # 同样调整系数
             column_letter = get_column_letter(col)

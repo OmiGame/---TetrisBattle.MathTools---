@@ -1,7 +1,6 @@
 import os
 from typing import Type, Any
 from ExcelTools import 表格工具
-from LubanData import 全局参数
 from Style.StyleDefiner import 表格样式类型
 from TableData import 肉鸽技能节奏, 角色成长表, 阵容战力成长表
 
@@ -12,7 +11,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 # 1. 定义全局变量
 # -------------------------------------
 # 保存文件夹的地址
-save_folder_path = r"H:\悠手好闲\铁头工作室\方块项目设计案\《冲王》数值_cursor\图表生成"
+save_folder_path = r"H:\悠手好闲\铁头工作室\方块项目设计案\《冲王》数值_cursor\新数据生成"
 
 # -------------------------------------
 # 2. 生成表格的定义函数
@@ -45,8 +44,13 @@ class 生成表:
             file_path, sheet_name, 表格样式
         )
 
-        # 生成表头，表头都是从第一行开始
-        表格工具.生成表头(ws, 表格定义.headers, 表头样式名)
+        # 写入特殊的第一列数据
+        ws.cell(row=1, column=1, value="##var").style = 表头样式名
+        ws.cell(row=2, column=1, value="##type").style = 表头样式名
+        ws.cell(row=3, column=1, value="##").style = 表头样式名
+
+        # 生成表头，从B3位置开始
+        表格工具.生成表头(ws, 表格定义.headers, 表头样式名, start_row=1, start_col=2)
 
         # 获取列函数映射
         column_functions = 表格定义.获取列函数映射()
@@ -54,15 +58,15 @@ class 生成表:
         # 获取行数据范围
         起始值, 结束值 = 表格定义.获取行数据范围()
 
-        # 生成数据行，当前值为数据行的索引
+        # 生成数据行，从B4位置开始
         for 当前值 in range(起始值, 结束值 + 1):
-            row_num = 当前值 - 起始值 + 2  # +2是因为第一行是表头
+            row_num = 当前值 - 起始值 + 4  # +4是因为前3行是表头
             
             # 创建行参数，等于创建了实际键的映射表
             row_params = 表格定义.创建行参数(ws, ws.title, 当前值, row_num)
 
             # 创建列名到列号的映射
-            列号映射 = {列名: 列号 for 列号, 列名 in enumerate(表格定义.headers, 1)}
+            列号映射 = {列名: 列号 for 列号, 列名 in enumerate(表格定义.headers, 2)}  # 从2开始，因为第一列是特殊的
 
             # 生成每列数据
             for col_num, 列定义 in column_functions.items():
@@ -70,7 +74,7 @@ class 生成表:
                 实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
                 
                 # 计算并写入单元格值
-                raw_value = 列定义.计算值(实际参数, ws, row_num, 列号映射, 2)  # 2是数据起始行号（表头占1行）
+                raw_value = 列定义.计算值(实际参数, ws, row_num, 列号映射, 4)  # 4是数据起始行号
                 
                 # 确保值是基本类型（字符串、数字等），而不是单元格对象
                 if isinstance(raw_value, (int, float)):
@@ -78,11 +82,11 @@ class 生成表:
                 else:
                     cell_value = str(raw_value)
                 
-                cell = ws.cell(row=row_num, column=col_num, value=cell_value)
+                cell = ws.cell(row=row_num, column=col_num + 1, value=cell_value)  # +1是因为第一列是特殊的
                 cell.style = 数据样式名
 
         # 调整列宽并保存文件
-        表格工具.按中文调整列宽(ws, 1, len(表格定义.headers))
+        表格工具.按中文调整列宽(ws, 3, 2, len(表格定义.headers) + 1)  # 从第2列开始，因为第1列是特殊的
         wb.save(file_path)
         print(f"Excel文件已生成在：{file_path}")
 
