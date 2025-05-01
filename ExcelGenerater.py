@@ -3,7 +3,7 @@ from typing import Type, Any
 from ExcelTools import 表格工具
 from LubanData import 全局参数
 from Style.StyleDefiner import 表格样式类型
-from TableData import 角色成长表, 阵容战力成长表
+from TableData import 肉鸽技能节奏, 角色成长表, 阵容战力成长表
 
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
@@ -61,23 +61,28 @@ class 生成表:
             # 创建行参数，等于创建了实际键的映射表
             row_params = 表格定义.创建行参数(ws, ws.title, 当前值, row_num)
 
+            # 创建列名到列号的映射
+            列号映射 = {列名: 列号 for 列号, 列名 in enumerate(表格定义.headers, 1)}
+
             # 生成每列数据
             for col_num, 列定义 in column_functions.items():
                 # 根据参数映射创建实际的参数字典，等于重新定义了字典
                 实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
                 
                 # 计算并写入单元格值
-                raw_value = 列定义.列函数(实际参数)
+                raw_value = 列定义.计算值(实际参数, ws, row_num, 列号映射, 2)  # 2是数据起始行号（表头占1行）
+                
                 # 确保值是基本类型（字符串、数字等），而不是单元格对象
                 if isinstance(raw_value, (int, float)):
                     cell_value = round(float(raw_value), 1)
                 else:
                     cell_value = str(raw_value)
+                
                 cell = ws.cell(row=row_num, column=col_num, value=cell_value)
                 cell.style = 数据样式名
 
         # 调整列宽并保存文件
-        表格工具.按中文调整列宽(ws, 1, 10)
+        表格工具.按中文调整列宽(ws, 1, len(表格定义.headers))
         wb.save(file_path)
         print(f"Excel文件已生成在：{file_path}")
 
@@ -103,22 +108,6 @@ if __name__ == "__main__":
         表格样式=表格样式类型.角色成长表
     )
 
-    print("\n正在生成弓箭手表格...")
-    生成表.生成表格(
-        表格定义=角色成长表,
-        sheet_name="弓箭手",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.角色成长表
-    )
-
-    print("\n正在生成弓箭手表格...")
-    生成表.生成表格(
-        表格定义=角色成长表,
-        sheet_name="弓",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.角色成长表
-    )
-
     print("\n正在生成阵容战力成长表...")
     生成表.生成表格(
         表格定义=阵容战力成长表,
@@ -126,17 +115,14 @@ if __name__ == "__main__":
         save_folder=save_folder_path,
         表格样式=表格样式类型.默认样式
     )
-    
-    
-    print("\n正在生成阵容战力成长表...")
+    print("\n正在生成肉鸽技能节奏表...")
     生成表.生成表格(
-        表格定义=阵容战力成长表,
-        sheet_name="测试阵容列表",
+        表格定义=肉鸽技能节奏,
+        sheet_name="肉鸽技能节奏",
         save_folder=save_folder_path,
         表格样式=表格样式类型.默认样式
     )
-
-
+    
 
     
     print("\n所有表格生成完成！")

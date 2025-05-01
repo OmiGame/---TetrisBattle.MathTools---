@@ -33,6 +33,9 @@ class 全局参数:
     属性换算比例 = tables.Tb游戏基本参数.getDataList()[0].属性换算比例
     血量战力价值 = tables.Tb游戏基本参数.getDataList()[0].血量战力价值
     DPS战力价值 = tables.Tb游戏基本参数.getDataList()[0].DPS战力价值
+    每行经验值 = tables.Tb游戏基本参数.getDataList()[0].每行经验值
+    最大行数 = tables.Tb游戏基本参数.getDataList()[0].最大行数
+    最大列数 = tables.Tb游戏基本参数.getDataList()[0].最大列数
 
     # 玩家操作评估
     平均一个方块下几秒 = tables.Tb玩家操作评估.getDataList()[0].平均一个方块下几秒

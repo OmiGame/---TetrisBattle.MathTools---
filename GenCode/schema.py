@@ -113,6 +113,9 @@ class 基础数据_游戏基本参数 :
         self.属性换算比例 = _json_['属性换算比例']
         self.血量战力价值 = _json_['血量战力价值']
         self.DPS战力价值 = _json_['DPS战力价值']
+        self.最大行数 = _json_['最大行数']
+        self.最大列数 = _json_['最大列数']
+        self.每行经验值 = _json_['每行经验值']
 
 class 角色技能倍率 :
     def __init__(self, _json_):

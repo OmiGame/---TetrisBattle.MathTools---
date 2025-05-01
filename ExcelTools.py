@@ -35,18 +35,24 @@ class 表格工具:
 
     @staticmethod
     def 按中文调整列宽(ws, start_col, end_col):
-        """根据中文长度调整列宽"""
-        for col in range(start_col, end_col + 1):
-            max_length = 0
-            column = get_column_letter(col)
-            for cell in ws[column]:
-                try:
-                    if len(str(cell.value)) > max_length:
-                        max_length = len(str(cell.value))
-                except:
-                    pass
-            adjusted_width = (max_length + 2) * 2
-            ws.column_dimensions[column].width = adjusted_width
+        # 处理首列：遍历所有行，找最大值
+        first_column = get_column_letter(start_col)
+        max_length = 0
+        for cell in ws[first_column]:  # 遍历该列所有单元格
+            if cell.value:
+                cell_length = len(str(cell.value))
+                if cell_length > max_length:
+                    max_length = cell_length  # 保留最大值
+        adjusted_width = (max_length + 2) * 2.2  # 调整系数为 2.2
+        ws.column_dimensions[first_column].width = adjusted_width
+
+        # 处理其他列：仅用第一行
+        for col in range(start_col + 1, end_col + 1):
+            cell = ws.cell(row=1, column=col)
+            content_length = len(str(cell.value)) if cell.value else 0
+            adjusted_width = (content_length + 2) * 2.2  # 同样调整系数
+            column_letter = get_column_letter(col)
+            ws.column_dimensions[column_letter].width = adjusted_width
 
     @staticmethod
     def 列表元素字符串拼接(列表, 分隔符=","):
@@ -57,14 +63,11 @@ class 表格工具:
     @staticmethod
     def 找到类字段(目标类: type, 字段名称: str) -> Any:
         """根据字段名称获取类中的字段值
-        
         Args:
             目标类: 要查找的类
             字段名称: 要查找的字段名称
-            
         Returns:
             Any: 字段的值
-            
         Raises:
             AttributeError: 如果字段不存在
         """
