@@ -154,6 +154,9 @@ class 生成数据_肉鸽技能选择节奏 :
         self.获得经验的时间_s = _json_['获得经验的时间_s']
         self.时间取整每30s = _json_['时间取整每30s']
         self.根据时间计数 = _json_['根据时间计数']
+        self.怪物波次模拟 = _json_['怪物波次模拟']
+        self.选择技能次数 = _json_['选择技能次数']
+        self.总次数 = _json_['总次数']
 
 class 生成数据_阵容战力成长表 :
     def __init__(self, _json_):

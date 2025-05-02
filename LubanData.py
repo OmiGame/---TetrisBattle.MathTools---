@@ -1,5 +1,7 @@
 import os
 import sys
+
+# from BattleFormula import 战斗公式，会导致循环导入报错
 sys.path.append(os.path.abspath('Gen'))
 import json
 from GenCode import schema as schema
