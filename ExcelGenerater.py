@@ -3,7 +3,7 @@ from typing import Type, Any
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
 from TableData import 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
-
+from BattleFormula import 战斗公式
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -91,6 +91,23 @@ class 生成表:
         表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(表格定义.headers) + 特殊列数)  # 从特殊列之后开始
         wb.save(file_path)
         print(f"Excel文件已生成在：{file_path}")
+
+        
+
+        # 将公式转换为值
+        # cls.将公式转换为值(file_path)
+
+
+
+    @classmethod
+    def 将公式转换为值(cls, file_path: str) -> None:
+        """将Excel文件中的所有公式转换为实际值"""
+        from openpyxl import load_workbook
+        # 加载工作簿，使用data_only=True来获取公式计算后的值
+        wb = load_workbook(file_path, data_only=True)
+        # 保存文件，这会覆盖原文件，但只包含值而不包含公式
+        wb.save(file_path)
+        print(f"已将公式转换为值：{file_path}")
 
 # 调用示例
 if __name__ == "__main__":
