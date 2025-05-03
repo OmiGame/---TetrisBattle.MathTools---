@@ -65,9 +65,26 @@ class PlayerConfig:
     spawn_range: float  # 生成范围
 
 @dataclass
+class RogueSkill:
+    """肉鸽技能数据类"""
+    name: str
+    hp_multiplier: float
+    attack_multiplier: float
+    attack_speed_multiplier: float
+    spawn_speed_multiplier: float
+    duration: float
+    is_permanent: bool = True
+    start_time: float = field(default=0.0)  # 将在技能触发时设置
+
+    def is_expired(self, current_time: float) -> bool:
+        """检查技能是否过期"""
+        if self.is_permanent:
+            return False
+        return current_time - self.start_time >= self.duration
+
+@dataclass
 class BattleState:
     """战斗状态数据类"""
-    start_time: float = field(default_factory=time.time)
     player_units: List[Unit]
     enemy_units: List[Unit]
     player_tower: Optional[Unit]
@@ -77,6 +94,7 @@ class BattleState:
     current_wave: int
     wave_configs: List[WaveConfig]
     player_config: PlayerConfig
+    start_time: float = field(default_factory=time.time)
     last_spawn_time: Dict[str, float] = field(default_factory=dict)
     last_enhance_time: float = 0.0
     units_spawned_since_enhance: int = 0
@@ -86,7 +104,7 @@ class BattleState:
     unit_spawn_order: List[int] = field(default_factory=list)  # 单位生成顺序
     rogue_skill_timeline: List[float] = field(default_factory=list)
     next_rogue_skill_time: float = 0.0
-    active_rogue_skills: Dict[str, Dict] = field(default_factory=dict)
+    active_rogue_skills: Dict[str, RogueSkill] = field(default_factory=dict)
     keyboard_spawn_cooldown: float = 0.0
     
     def to_dict(self) -> Dict[str, Any]:
@@ -119,7 +137,6 @@ class BattleState:
     def from_dict(cls, data: Dict[str, Any]) -> 'BattleState':
         """从字典创建实例"""
         return cls(
-            start_time=data['start_time'],
             player_units=[Unit(**unit_data) for unit_data in data['player_units']],
             enemy_units=[Unit(**unit_data) for unit_data in data['enemy_units']],
             player_tower=Unit(**data['player_tower']) if data['player_tower'] else None,
@@ -129,6 +146,7 @@ class BattleState:
             current_wave=data['current_wave'],
             wave_configs=[WaveConfig(**wave_data) for wave_data in data['wave_configs']],
             player_config=PlayerConfig(**data['player_config']),
+            start_time=data['start_time'],
             last_spawn_time=data['last_spawn_time'],
             last_enhance_time=data['last_enhance_time'],
             units_spawned_since_enhance=data['units_spawned_since_enhance'],

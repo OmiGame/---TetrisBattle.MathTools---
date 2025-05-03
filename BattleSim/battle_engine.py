@@ -8,10 +8,11 @@ import time
 import uuid
 from typing import Dict, List, Any, Optional, Tuple
 from .models.battle_state import (
-    BattleState, Unit, UnitType, UnitState, Position, WaveConfig, PlayerConfig
+    BattleState, Unit, UnitType, UnitState, Position, WaveConfig, PlayerConfig, RogueSkill
 )
 from .models.battle_result import BattleResult
-from .config import BATTLE_ENGINE_CONFIG, ROGUE_SKILLS, AVERAGE_ROGUE_SKILL, ROGUE_SKILL_TRIGGER
+from .battle_configs.battle_config import  ROGUE_SKILLS, AVERAGE_ROGUE_SKILL, ROGUE_SKILL_TRIGGER
+from .global_config import BATTLE_ENGINE_CONFIG
 from .utils import set_random_seed, format_battle_log
 
 class BattleEngine:
@@ -95,6 +96,9 @@ class BattleEngine:
         # 检查肉鸽技能触发
         self._check_rogue_skill_trigger(battle_state, current_time)
         
+        # 更新肉鸽技能状态
+        self._update_rogue_skills(battle_state, current_time)
+        
         # 生成单位
         self._spawn_units(battle_state, delta_time)
         
@@ -129,41 +133,48 @@ class BattleEngine:
         """触发肉鸽技能"""
         # 随机选择一个肉鸽技能
         skill_name = random.choice(list(ROGUE_SKILLS.keys()))
-        skill = ROGUE_SKILLS[skill_name]
+        skill_config = ROGUE_SKILLS[skill_name]
+        
+        # 创建技能实例
+        skill = RogueSkill(
+            name=skill_config["name"],
+            hp_multiplier=skill_config["hp_multiplier"],
+            attack_multiplier=skill_config["attack_multiplier"],
+            attack_speed_multiplier=skill_config["attack_speed_multiplier"],
+            spawn_speed_multiplier=skill_config["spawn_speed_multiplier"],
+            duration=skill_config["duration"],
+            is_permanent=skill_config["is_permanent"],
+            start_time=time.time()
+        )
         
         # 应用技能效果到所有玩家单位
         for unit in battle_state.player_units:
             if unit.state != UnitState.DEAD:
                 # 基于初始属性计算强化后的属性
-                unit.hp += unit.initial_attrs["hp"] * skill["hp_multiplier"]
-                unit.max_hp += unit.initial_attrs["max_hp"] * skill["hp_multiplier"]
-                unit.attack += unit.initial_attrs["attack"] * skill["attack_multiplier"]
-                unit.attack_speed += unit.initial_attrs["attack_speed"] * skill["attack_speed_multiplier"]
+                unit.hp += unit.initial_attrs["hp"] * skill.hp_multiplier
+                unit.max_hp += unit.initial_attrs["max_hp"] * skill.hp_multiplier
+                unit.attack += unit.initial_attrs["attack"] * skill.attack_multiplier
+                unit.attack_speed += unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
                 
                 # 记录当前技能效果
                 unit.buffs[skill_name] = {
                     "multipliers": {
-                        "hp": skill["hp_multiplier"],
-                        "attack": skill["attack_multiplier"],
-                        "attack_speed": skill["attack_speed_multiplier"]
+                        "hp": skill.hp_multiplier,
+                        "attack": skill.attack_multiplier,
+                        "attack_speed": skill.attack_speed_multiplier
                     },
-                    "duration": skill["duration"],
-                    "start_time": time.time()
+                    "duration": skill.duration,
+                    "start_time": skill.start_time
                 }
         
         # 应用生成速度倍率
         battle_state.player_config.spawn_interval = {
-            "min": battle_state.player_config.spawn_interval["min"] / skill["spawn_speed_multiplier"],
-            "max": battle_state.player_config.spawn_interval["max"] / skill["spawn_speed_multiplier"]
+            "min": battle_state.player_config.spawn_interval["min"] / skill.spawn_speed_multiplier,
+            "max": battle_state.player_config.spawn_interval["max"] / skill.spawn_speed_multiplier
         }
         
-        battle_state.active_rogue_skills[skill_name] = {
-            "start_time": time.time(),
-            "duration": skill["duration"],
-            "spawn_speed_multiplier": skill["spawn_speed_multiplier"]
-        }
-        
-        battle_state.battle_log.append(f"触发肉鸽技能: {skill['name']} (生成速度提升 {skill['spawn_speed_multiplier']}倍)")
+        battle_state.active_rogue_skills[skill_name] = skill
+        battle_state.battle_log.append(f"触发肉鸽技能: {skill.name} (生成速度提升 {skill.spawn_speed_multiplier}倍)")
     
     def handle_keyboard_input(self, battle_state: BattleState, key: str) -> None:
         """处理键盘输入"""
@@ -178,39 +189,47 @@ class BattleEngine:
     
     def _trigger_average_rogue_skill(self, battle_state: BattleState) -> None:
         """触发平均肉鸽技能"""
-        skill = AVERAGE_ROGUE_SKILL
+        skill_config = AVERAGE_ROGUE_SKILL
+        
+        # 创建技能实例
+        skill = RogueSkill(
+            name=skill_config["name"],
+            hp_multiplier=skill_config["hp_multiplier"],
+            attack_multiplier=skill_config["attack_multiplier"],
+            attack_speed_multiplier=skill_config["attack_speed_multiplier"],
+            spawn_speed_multiplier=skill_config["spawn_speed_multiplier"],
+            duration=skill_config["duration"],
+            is_permanent=skill_config["is_permanent"],
+            start_time=time.time()
+        )
         
         # 应用技能效果到所有玩家单位
         for unit in battle_state.player_units:
             if unit.state != UnitState.DEAD:
                 # 基于初始属性计算强化后的属性
-                unit.hp += unit.initial_attrs["hp"] * skill["hp_multiplier"]
-                unit.max_hp += unit.initial_attrs["max_hp"] * skill["hp_multiplier"]
-                unit.attack += unit.initial_attrs["attack"] * skill["attack_multiplier"]
-                unit.attack_speed += unit.initial_attrs["attack_speed"] * skill["attack_speed_multiplier"]
+                unit.hp += unit.initial_attrs["hp"] * skill.hp_multiplier
+                unit.max_hp += unit.initial_attrs["max_hp"] * skill.hp_multiplier
+                unit.attack += unit.initial_attrs["attack"] * skill.attack_multiplier
+                unit.attack_speed += unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
                 
                 # 记录当前技能效果
                 unit.buffs["average_rogue_skill"] = {
                     "multipliers": {
-                        "hp": skill["hp_multiplier"],
-                        "attack": skill["attack_multiplier"],
-                        "attack_speed": skill["attack_speed_multiplier"]
+                        "hp": skill.hp_multiplier,
+                        "attack": skill.attack_multiplier,
+                        "attack_speed": skill.attack_speed_multiplier
                     },
-                    "duration": skill["duration"],
-                    "start_time": time.time()
+                    "duration": skill.duration,
+                    "start_time": skill.start_time
                 }
         
         # 应用生成速度倍率
         battle_state.player_config.spawn_interval = {
-            "min": battle_state.player_config.spawn_interval["min"] / skill["spawn_speed_multiplier"],
-            "max": battle_state.player_config.spawn_interval["max"] / skill["spawn_speed_multiplier"]
+            "min": battle_state.player_config.spawn_interval["min"] / skill.spawn_speed_multiplier,
+            "max": battle_state.player_config.spawn_interval["max"] / skill.spawn_speed_multiplier
         }
         
-        battle_state.active_rogue_skills["average_rogue_skill"] = {
-            "start_time": time.time(),
-            "duration": skill["duration"],
-            "spawn_speed_multiplier": skill["spawn_speed_multiplier"]
-        }
+        battle_state.active_rogue_skills["average_rogue_skill"] = skill
     
     def _spawn_units(self, battle_state: BattleState, delta_time: float) -> None:
         """生成单位"""
@@ -328,10 +347,10 @@ class BattleEngine:
                 del unit.buffs[skill_name]
                 # 恢复生成速度
                 if skill_name in battle_state.active_rogue_skills:
-                    skill = ROGUE_SKILLS[skill_name]
+                    skill = battle_state.active_rogue_skills[skill_name]
                     battle_state.player_config.spawn_interval = {
-                        "min": battle_state.player_config.spawn_interval["min"] * skill["spawn_speed_multiplier"],
-                        "max": battle_state.player_config.spawn_interval["max"] * skill["spawn_speed_multiplier"]
+                        "min": battle_state.player_config.spawn_interval["min"] * skill.spawn_speed_multiplier,
+                        "max": battle_state.player_config.spawn_interval["max"] * skill.spawn_speed_multiplier
                     }
                     del battle_state.active_rogue_skills[skill_name]
             
@@ -480,4 +499,24 @@ class BattleEngine:
             'attack': unit.attack * 1.2,
             'hp': unit.hp * 1.2,
             'max_hp': unit.max_hp * 1.2
-        } 
+        }
+
+    def _update_rogue_skills(self, battle_state: BattleState, current_time: float) -> None:
+        """更新肉鸽技能状态"""
+        # 检查是否有技能过期
+        expired_skills = []
+        for skill_name, skill in battle_state.active_rogue_skills.items():
+            if not skill.is_permanent and skill.is_expired(current_time):
+                expired_skills.append(skill_name)
+                # 移除技能效果
+                for unit in battle_state.player_units:
+                    if unit.state != UnitState.DEAD:
+                        unit.hp -= unit.initial_attrs["hp"] * skill.hp_multiplier
+                        unit.max_hp -= unit.initial_attrs["max_hp"] * skill.hp_multiplier
+                        unit.attack -= unit.initial_attrs["attack"] * skill.attack_multiplier
+                        unit.attack_speed -= unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
+                battle_state.battle_log.append(f"肉鸽技能 {skill.name} 已过期")
+
+        # 移除过期的技能
+        for skill_name in expired_skills:
+            del battle_state.active_rogue_skills[skill_name] 

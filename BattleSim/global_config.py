@@ -1,8 +1,25 @@
 """
-战斗模拟配置模块
+战斗模拟器全局配置
 """
-
 from typing import Dict, Any
+
+# 战斗模拟器全局配置
+SIMULATOR_CONFIG: Dict[str, Any] = {
+    "max_frames": 1000,  # 最大帧数
+    "frame_rate": 60,    # 帧率
+    "debug_mode": False, # 调试模式
+    "visualization_enabled": True,  # 是否启用可视化
+    "log_level": "INFO",  # 日志级别
+}
+
+# 战斗系统配置
+BATTLE_SYSTEM_CONFIG: Dict[str, Any] = {
+    "tower_hp": 1000,    # 防御塔生命值
+    "tower_attack": 50,  # 防御塔攻击力
+    "tower_range": 5.0,  # 防御塔攻击范围
+    "unit_spawn_interval": 1.0,  # 单位生成间隔
+    "wave_interval": 10.0,  # 波次间隔
+}
 
 # 战斗引擎配置
 BATTLE_ENGINE_CONFIG: Dict[str, Any] = {

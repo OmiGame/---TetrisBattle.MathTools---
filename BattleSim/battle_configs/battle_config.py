@@ -94,29 +94,32 @@ TOWER_CONFIG = {
 
 # 肉鸽技能配置
 ROGUE_SKILLS = {
-    "技能1": {
-        "name": "力量爆发",
-        "hp_multiplier": 0.2,  # 生命值倍率
-        "attack_multiplier": 0.3,  # 攻击力倍率
-        "attack_speed_multiplier": 0.2,  # 攻速倍率
-        "spawn_speed_multiplier": 1.02,  # 生成速度倍率
-        "duration": 1000
-    },
-    "技能2": {
-        "name": "生命强化",
+    "permanent_boost": {
+        "name": "永久强化",
         "hp_multiplier": 1.5,
-        "attack_multiplier": 1.1,
-        "attack_speed_multiplier": 1.1,
-        "spawn_speed_multiplier": 1.5,
-        "duration": 1000
+        "attack_multiplier": 1.5,
+        "attack_speed_multiplier": 1.2,
+        "spawn_speed_multiplier": 1.0,
+        "duration": 0,  # 这个值会被忽略
+        "is_permanent": True
     },
-    "技能3": {
+    "temporary_boost": {
+        "name": "临时强化",
+        "hp_multiplier": 2.0,
+        "attack_multiplier": 2.0,
+        "attack_speed_multiplier": 1.5,
+        "spawn_speed_multiplier": 1.0,
+        "duration": 10.0,
+        "is_permanent": True
+    },
+    "speed_boost": {
         "name": "速度提升",
-        "hp_multiplier": 1.1,
-        "attack_multiplier": 1.1,
-        "attack_speed_multiplier": 1.3,
-        "spawn_speed_multiplier": 2.0,
-        "duration": 1000
+        "hp_multiplier": 1.0,
+        "attack_multiplier": 1.0,
+        "attack_speed_multiplier": 2.0,
+        "spawn_speed_multiplier": 1.5,
+        "duration": 15.0,
+        "is_permanent": True
     }
 }
 
@@ -127,7 +130,8 @@ AVERAGE_ROGUE_SKILL = {
     "attack_multiplier": 1.2,
     "attack_speed_multiplier": 1.2,
     "spawn_speed_multiplier": 1.5,
-    "duration": 1000
+    "duration": 10.0,
+    "is_permanent": True
 }
 
 # 肉鸽技能触发配置
