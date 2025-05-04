@@ -38,12 +38,14 @@ class Unit:
     attack_speed: float
     attack_range: float
     move_speed: float
+    tower_damage: int
     position: Position
     target_id: Optional[str] = None
     state: UnitState = UnitState.IDLE
     effects: List[Dict[str, Any]] = field(default_factory=list)
     buffs: Dict[str, Dict] = field(default_factory=dict)
     initial_attrs: Dict[str, float] = field(default_factory=dict)  # 初始属性
+    last_attack_time: float = field(default=0.0)  # 上次攻击时间
 
 @dataclass
 class WaveConfig:

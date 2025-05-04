@@ -6,7 +6,7 @@
 import random
 import time
 import uuid
-from typing import Dict, List, Any, Optional, Tuple
+from typing import Dict, List, Any, Optional, Tuple, Callable
 from .models.battle_state import (
     BattleState, Unit, UnitType, UnitState, Position, WaveConfig, PlayerConfig, RogueSkill
 )
@@ -14,6 +14,12 @@ from .models.battle_result import BattleResult
 from .battle_configs.battle_config import  ROGUE_SKILLS, AVERAGE_ROGUE_SKILL, ROGUE_SKILL_TRIGGER
 from .global_config import BATTLE_ENGINE_CONFIG
 from .utils import set_random_seed, format_battle_log
+from .battle_events import (
+    BattleEvent, PlayerUnitSpawnEvent, EnemyUnitSpawnEvent, UnitDeathEvent,
+    DamageEvent, RogueSkillEvent, BattleEndEvent
+)
+from .statistics import BattleStatistics
+from .data_export import BattleDataExporter
 
 class BattleEngine:
     def __init__(self, config: Optional[Dict[str, Any]] = None):
@@ -23,6 +29,19 @@ class BattleEngine:
         self.last_update_time = time.time()
         self.unit_id_counter = 0
         self.keyboard_spawn_cooldown = 0.5   # 键盘生成冷却时间（秒）
+        self.event_handlers: List[Callable] = []
+        self.battle_state = BattleState()
+        self.statistics = BattleStatistics()
+        self.data_exporter = BattleDataExporter()
+    
+    def register_event_handler(self, handler: Callable) -> None:
+        """注册事件处理器"""
+        self.event_handlers.append(handler)
+    
+    def _emit_event(self, event: BattleEvent) -> None:
+        """触发事件"""
+        for handler in self.event_handlers:
+            handler(event)
     
     def _generate_unit_id(self, unit_type: str) -> str:
         """生成唯一的单位ID"""
@@ -148,6 +167,7 @@ class BattleEngine:
         )
         
         # 应用技能效果到所有玩家单位
+        affected_units = []
         for unit in battle_state.player_units:
             if unit.state != UnitState.DEAD:
                 # 基于初始属性计算强化后的属性
@@ -155,17 +175,7 @@ class BattleEngine:
                 unit.max_hp += unit.initial_attrs["max_hp"] * skill.hp_multiplier
                 unit.attack += unit.initial_attrs["attack"] * skill.attack_multiplier
                 unit.attack_speed += unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
-                
-                # 记录当前技能效果
-                unit.buffs[skill_name] = {
-                    "multipliers": {
-                        "hp": skill.hp_multiplier,
-                        "attack": skill.attack_multiplier,
-                        "attack_speed": skill.attack_speed_multiplier
-                    },
-                    "duration": skill.duration,
-                    "start_time": skill.start_time
-                }
+                affected_units.append(unit)
         
         # 应用生成速度倍率
         battle_state.player_config.spawn_interval = {
@@ -175,11 +185,20 @@ class BattleEngine:
         
         battle_state.active_rogue_skills[skill_name] = skill
         battle_state.battle_log.append(f"触发肉鸽技能: {skill.name} (生成速度提升 {skill.spawn_speed_multiplier}倍)")
+        
+        # 触发肉鸽技能事件
+        self._emit_event(RogueSkillEvent(
+            event_type="rogue_skill",
+            timestamp=time.time(),
+            data={},
+            skill_name=skill_name,
+            affected_units=affected_units
+        ))
     
     def handle_keyboard_input(self, battle_state: BattleState, key: str) -> None:
         """处理键盘输入"""
         if key == " " and battle_state.keyboard_spawn_cooldown <= 0:
-            self._spawn_player_unit(battle_state)
+            self._spawn_player_unit(battle_state)  # 这里会触发我方单位生成事件
             battle_state.keyboard_spawn_cooldown = self.keyboard_spawn_cooldown
             battle_state.battle_log.append("通过键盘输入生成玩家单位")
         elif key == "\r":  # 回车键
@@ -204,6 +223,7 @@ class BattleEngine:
         )
         
         # 应用技能效果到所有玩家单位
+        affected_units = []
         for unit in battle_state.player_units:
             if unit.state != UnitState.DEAD:
                 # 基于初始属性计算强化后的属性
@@ -211,17 +231,7 @@ class BattleEngine:
                 unit.max_hp += unit.initial_attrs["max_hp"] * skill.hp_multiplier
                 unit.attack += unit.initial_attrs["attack"] * skill.attack_multiplier
                 unit.attack_speed += unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
-                
-                # 记录当前技能效果
-                unit.buffs["average_rogue_skill"] = {
-                    "multipliers": {
-                        "hp": skill.hp_multiplier,
-                        "attack": skill.attack_multiplier,
-                        "attack_speed": skill.attack_speed_multiplier
-                    },
-                    "duration": skill.duration,
-                    "start_time": skill.start_time
-                }
+                affected_units.append(unit)
         
         # 应用生成速度倍率
         battle_state.player_config.spawn_interval = {
@@ -230,6 +240,27 @@ class BattleEngine:
         }
         
         battle_state.active_rogue_skills["average_rogue_skill"] = skill
+        
+        # 记录技能属性
+        skill_attrs = {
+            "hp_multiplier": skill.hp_multiplier,
+            "attack_multiplier": skill.attack_multiplier,
+            "attack_speed_multiplier": skill.attack_speed_multiplier,
+            "spawn_speed_multiplier": skill.spawn_speed_multiplier,
+            "duration": skill.duration
+        }
+        
+        # 触发肉鸽技能事件
+        self._emit_event(RogueSkillEvent(
+            event_type="rogue_skill",
+            timestamp=time.time(),
+            data={},
+            skill_name="average_rogue_skill",
+            affected_units=affected_units,
+            skill_attributes=skill_attrs
+        ))
+        
+        battle_state.battle_log.append(f"触发肉鸽技能: {skill.name} (生成速度提升 {skill.spawn_speed_multiplier}倍)")
     
     def _spawn_units(self, battle_state: BattleState, delta_time: float) -> None:
         """生成单位"""
@@ -265,8 +296,18 @@ class BattleEngine:
             battle_state.units_spawned_since_enhance += 1
     
     def _spawn_enemy_unit(self, battle_state: BattleState, wave: WaveConfig) -> None:
-        """生成敌方单位之前，从波次配置中读取单位属性，创建敌方单位实例，添加到敌方单位列表"""
+        """生成敌方单位"""
         unit_config = wave.unit_config
+        
+        # 记录单位属性
+        unit_attrs = {
+            "hp": unit_config['hp'],
+            "max_hp": unit_config['hp'],
+            "attack": unit_config['attack'],
+            "attack_speed": unit_config['attack_speed'],
+            "attack_range": unit_config['attack_range'],
+            "move_speed": unit_config['move_speed']
+        }
         
         unit = Unit(
             id=self._generate_unit_id("enemy"),
@@ -282,6 +323,15 @@ class BattleEngine:
         )
         battle_state.enemy_units.append(unit)
         battle_state.battle_log.append(f"敌方单位 {unit.id} 已生成")
+        
+        # 触发敌方单位生成事件
+        self._emit_event(EnemyUnitSpawnEvent(
+            event_type="enemy_unit_spawn",
+            timestamp=time.time(),
+            data={},
+            unit=unit,
+            unit_attributes=unit_attrs.copy()
+        ))
     
     def _spawn_player_unit(self, battle_state: BattleState) -> None:
         """生成玩家单位"""
@@ -304,7 +354,9 @@ class BattleEngine:
             "hp": unit_config['hp'],
             "max_hp": unit_config['hp'],
             "attack": unit_config['attack'],
-            "attack_speed": unit_config['attack_speed']
+            "attack_speed": unit_config['attack_speed'],
+            "attack_range": unit_config['attack_range'],
+            "move_speed": unit_config['move_speed']
         }
         
         unit = Unit(
@@ -318,13 +370,30 @@ class BattleEngine:
             attack_range=unit_config['attack_range'],
             move_speed=unit_config['move_speed'],
             position=Position(spawn_x, spawn_y),
-            initial_attrs=initial_attrs  # 记录初始属性
+            initial_attrs=initial_attrs
         )
+        
+        # 应用所有当前激活的肉鸽技能效果
+        for skill_name, skill in battle_state.active_rogue_skills.items():
+            unit.hp += unit.initial_attrs["hp"] * skill.hp_multiplier
+            unit.max_hp += unit.initial_attrs["max_hp"] * skill.hp_multiplier
+            unit.attack += unit.initial_attrs["attack"] * skill.attack_multiplier
+            unit.attack_speed += unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
+        
         battle_state.player_units.append(unit)
         battle_state.battle_log.append(f"玩家单位 {unit.id} 已生成")
+        
+        # 触发我方单位生成事件
+        self._emit_event(PlayerUnitSpawnEvent(
+            event_type="player_unit_spawn",
+            timestamp=time.time(),
+            data={},
+            unit=unit,
+            unit_attributes=initial_attrs.copy()
+        ))
     
     def _update_units(self, battle_state: BattleState, delta_time: float) -> None:
-        """更新单位状态"""
+        """更新单位身上的Buff状态"""
         current_time = time.time()
         
         # 更新玩家单位
@@ -365,48 +434,115 @@ class BattleEngine:
     
     def _update_unit_behavior(self, unit: Unit, battle_state: BattleState, delta_time: float) -> None:
         """更新单位行为"""
-        # 寻找目标
-        if not unit.target_id or unit.state == UnitState.IDLE:
-            self._find_target(unit, battle_state)
+        # 获取敌方防御塔
+        if unit.type == UnitType.PLAYER:
+            enemy_tower = battle_state.enemy_tower
+        else:
+            enemy_tower = battle_state.player_tower
         
-        # 移动或攻击
-        if unit.target_id:
-            target = self._get_unit_by_id(unit.target_id, battle_state)
-            if target:
-                distance = self._calculate_distance(unit.position, target.position)
-                if distance <= unit.attack_range:
-                    self._attack_target(unit, target, battle_state)
-                else:
-                    self._move_towards_target(unit, target, delta_time)
+        # 如果防御塔存在且未死亡
+        if enemy_tower and enemy_tower.state != UnitState.DEAD:
+            # 计算到防御塔的距离
+            distance_to_tower = self._calculate_distance(unit.position, enemy_tower.position)
+            
+            # 如果到达防御塔位置
+            if distance_to_tower <= 0.1:  # 使用一个很小的阈值来判断是否到达
+                # 对防御塔造成伤害
+                tower_damage = unit.tower_damage  # 使用单位的攻击力作为对塔伤害
+                enemy_tower.hp -= tower_damage
+                
+                battle_state.battle_log.append(
+                    f"{unit.id} 到达防御塔位置，造成 {tower_damage} 点伤害"
+                )
+                
+                # 单位消失
+                unit.state = UnitState.DEAD
+                battle_state.battle_log.append(f"{unit.id} 撞塔后消失")
+                
+                # 检查防御塔是否被摧毁
+                if enemy_tower.hp <= 0:
+                    enemy_tower.state = UnitState.DEAD
+                    battle_state.battle_log.append(f"防御塔被摧毁！")
             else:
-                unit.target_id = None
-                unit.state = UnitState.IDLE
+                # 如果没有目标或处于空闲状态，寻找新目标
+                if not unit.target_id or unit.state == UnitState.IDLE:
+                    self._find_target(unit, battle_state)
+                
+                # 如果有当前目标，处理移动或攻击
+                if unit.target_id:
+                    target = self._get_unit_by_id(unit.target_id, battle_state)
+                    if target:
+                        distance = self._calculate_distance(unit.position, target.position)
+                        if distance <= unit.attack_range:
+                            self._attack_target(unit, target, battle_state)
+                            # 如果目标死亡，继续向防御塔移动
+                            if target.state == UnitState.DEAD:
+                                unit.target_id = enemy_tower.id
+                                unit.state = UnitState.MOVING
+                        else:
+                            self._move_towards_target(unit, target, delta_time)
+                    else:
+                        # 如果目标不存在，继续向防御塔移动
+                        unit.target_id = enemy_tower.id
+                        unit.state = UnitState.MOVING
+        else:
+            # 如果没有防御塔或防御塔已死亡，单位直接消失
+            unit.state = UnitState.DEAD
+            battle_state.battle_log.append(f"{unit.id} 发现目标已不存在，消失")
     
     def _find_target(self, unit: Unit, battle_state: BattleState) -> None:
-        """寻找目标"""
+        """寻找目标（防御塔或其他单位）"""
+        # 获取敌方防御塔
         if unit.type == UnitType.PLAYER:
+            enemy_tower = battle_state.enemy_tower
             potential_targets = battle_state.enemy_units
         else:
+            enemy_tower = battle_state.player_tower
             potential_targets = battle_state.player_units
         
-        # 找到最近的目标
-        closest_target = None
-        min_distance = float('inf')
-        
-        for target in potential_targets:
-            if target.state != UnitState.DEAD:
-                distance = self._calculate_distance(unit.position, target.position)
-                if distance < min_distance:
-                    min_distance = distance
-                    closest_target = target
-        
-        if closest_target:
-            unit.target_id = closest_target.id
-            unit.state = UnitState.MOVING
+        # 如果防御塔存在且未死亡
+        if enemy_tower and enemy_tower.state != UnitState.DEAD:
+            # 寻找攻击范围内的目标
+            targets_in_range = []
+            for target in potential_targets:
+                if target.state != UnitState.DEAD and target != enemy_tower:  # 排除防御塔
+                    distance = self._calculate_distance(unit.position, target.position)
+                    if distance <= unit.attack_range:
+                        targets_in_range.append(target)
+            
+            # 如果找到目标
+            if targets_in_range:
+                # 如果只有一个目标，直接选择它
+                if len(targets_in_range) == 1:
+                    unit.target_id = targets_in_range[0].id
+                else:
+                    # 如果有多个目标，随机选择一个
+                    selected_target = random.choice(targets_in_range)
+                    unit.target_id = selected_target.id
+                
+                unit.state = UnitState.MOVING
+                battle_state.battle_log.append(f"{unit.id} 发现目标 {unit.target_id}")
+            else:
+                # 如果没有找到目标，选择防御塔
+                unit.target_id = enemy_tower.id
+                unit.state = UnitState.MOVING
+                battle_state.battle_log.append(f"{unit.id} 开始向防御塔移动")
+        else:
+            # 如果没有防御塔或防御塔已死亡，单位直接消失
+            unit.state = UnitState.DEAD
+            battle_state.battle_log.append(f"{unit.id} 发现目标已不存在，消失")
     
     def _attack_target(self, unit: Unit, target: Unit, battle_state: BattleState) -> None:
         """攻击目标"""
+        current_time = time.time()
+        
+        # 检查攻击冷却
+        if current_time - unit.last_attack_time < 1.0 / unit.attack_speed:
+            return  # 如果还在冷却中，不执行攻击
+            
         unit.state = UnitState.ATTACKING
+        unit.last_attack_time = current_time
+        
         damage = unit.attack  # 使用战斗公式计算伤害
         target.hp -= damage
         
@@ -414,9 +550,29 @@ class BattleEngine:
             f"{unit.id} 对 {target.id} 造成 {damage} 点伤害"
         )
         
+        # 触发伤害事件
+        self._emit_event(DamageEvent(
+            event_type="damage",
+            timestamp=current_time,
+            data={},
+            attacker=unit,
+            target=target,
+            damage=damage
+        ))
+        
         if target.hp <= 0:
             target.state = UnitState.DEAD
             battle_state.battle_log.append(f"{target.id} 已死亡")
+            
+            # 触发单位死亡事件
+            self._emit_event(UnitDeathEvent(
+                event_type="unit_death",
+                timestamp=current_time,
+                data={},
+                unit=target,
+                killer_id=unit.id
+            ))
+            
             unit.target_id = None
             unit.state = UnitState.IDLE
     
@@ -450,17 +606,20 @@ class BattleEngine:
         if battle_state.player_tower and battle_state.player_tower.hp <= 0:
             battle_state.game_over = True
             battle_state.winner = "enemy"
+            self._emit_battle_end_event(battle_state)
             return
         
         if battle_state.enemy_tower and battle_state.enemy_tower.hp <= 0:
             battle_state.game_over = True
             battle_state.winner = "player"
+            self._emit_battle_end_event(battle_state)
             return
         
         # 检查单位
         if not battle_state.player_units and not battle_state.enemy_units:
             battle_state.game_over = True
             battle_state.winner = "draw"
+            self._emit_battle_end_event(battle_state)
             return
     
     def _generate_battle_result(self, battle_state: BattleState) -> BattleResult:
@@ -481,26 +640,6 @@ class BattleEngine:
             battle_log=battle_state.battle_log
         )
     
-    def enhance_unit(self, unit: Unit, battle_state: BattleState) -> None:
-        """强化单位"""
-        # 使用战斗公式计算强化后的属性
-        enhanced_attributes = self._calculate_enhancement(unit)
-        
-        # 更新单位属性
-        for attr, value in enhanced_attributes.items():
-            setattr(unit, attr, value)
-        
-        battle_state.battle_log.append(f"{unit.id} 已强化")
-    
-    def _calculate_enhancement(self, unit: Unit) -> Dict[str, float]:
-        """计算强化后的属性"""
-        # 这里需要调用战斗公式模块
-        return {
-            'attack': unit.attack * 1.2,
-            'hp': unit.hp * 1.2,
-            'max_hp': unit.max_hp * 1.2
-        }
-
     def _update_rogue_skills(self, battle_state: BattleState, current_time: float) -> None:
         """更新肉鸽技能状态"""
         # 检查是否有技能过期
@@ -519,4 +658,17 @@ class BattleEngine:
 
         # 移除过期的技能
         for skill_name in expired_skills:
-            del battle_state.active_rogue_skills[skill_name] 
+            del battle_state.active_rogue_skills[skill_name]
+    
+    def _emit_battle_end_event(self, battle_state: BattleState) -> None:
+        """触发战斗结束事件"""
+        self._emit_event(BattleEndEvent(
+            event_type="battle_end",
+            timestamp=time.time(),
+            data={},
+            winner=battle_state.winner,
+            duration=time.time() - battle_state.start_time
+        ))
+        self.statistics.end_battle(battle_state.winner)
+        stats = self.statistics.calculate_statistics()
+        self.data_exporter.save_battle_data(stats) 

@@ -48,7 +48,8 @@ PLAYER_CONFIG = PlayerConfig(
             "attack": 15,
             "attack_speed": 1.2,
             "attack_range": 2.5,
-            "move_speed": 1.2
+            "move_speed": 1.2,
+            "tower_damage": 1
         },
         {
             "level": 1,
@@ -56,7 +57,8 @@ PLAYER_CONFIG = PlayerConfig(
             "attack": 20,
             "attack_speed": 1.5,
             "attack_range": 2.0,
-            "move_speed": 1.5
+            "move_speed": 1.5,
+            "tower_damage": 1
         },
         {
             "level": 1,
@@ -64,7 +66,8 @@ PLAYER_CONFIG = PlayerConfig(
             "attack": 10,
             "attack_speed": 1.0,
             "attack_range": 3.0,
-            "move_speed": 1.0
+            "move_speed": 1.0,
+            "tower_damage": 1
         }
     ],
     spawn_interval={"min": 1.0, "max": 2.0},

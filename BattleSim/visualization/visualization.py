@@ -5,6 +5,7 @@
 import pygame
 from typing import List, Dict, Any
 from ..models.battle_state import BattleState, Unit, UnitState
+from ..statistics import BattleStatistics
 from .battle_info import BattleInfoCalculator
 
 class BattleVisualizer:
@@ -17,7 +18,7 @@ class BattleVisualizer:
         self.font = pygame.font.Font(None, 24)
         self.width = width
         self.height = height
-        self.info_calculator = BattleInfoCalculator()
+        self.statistics = BattleStatistics()
 
     def render(self, battle_state: BattleState, fps: int = 60):
         """渲染当前战斗状态"""
@@ -68,8 +69,8 @@ class BattleVisualizer:
 
     def _draw_battle_info(self, battle_state: BattleState):
         """绘制战斗信息"""
-        battle_stats = self.info_calculator.calculate_battle_stats(battle_state)
-        info_texts = self.info_calculator.format_battle_info(battle_stats)
+        battle_stats = self.statistics.calculate_battle_stats(battle_state)
+        info_texts = BattleInfoCalculator.format_battle_info(battle_stats)
 
         for i, text in enumerate(info_texts):
             text_surface = self.font.render(text, True, (0, 0, 0))
@@ -96,7 +97,7 @@ class BattleVisualizer:
             self.screen.fill((255, 255, 255))
 
             # 显示战斗结果
-            header_texts, log_texts = self.info_calculator.format_battle_result(battle_result)
+            header_texts, log_texts = BattleInfoCalculator.format_battle_result(battle_result)
             
             # 显示标题文本
             for i, text in enumerate(header_texts):

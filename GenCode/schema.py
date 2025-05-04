@@ -43,6 +43,7 @@ class 基础数据_角色初始属性表 :
         self.移速成长倍率 = _json_['移速成长倍率']
         self.血量特效战力系数 = _json_['血量特效战力系数']
         self.DPS特效战力系数 = _json_['DPS特效战力系数']
+        self.对塔伤害 = _json_['对塔伤害']
 
 class 基础数据_角色技能数据表 :
     def __init__(self, _json_):
@@ -144,6 +145,7 @@ class 生成数据_角色成长数据_1导 :
         self.解锁技能数 = _json_['解锁技能数']
         self.技能列表 = _json_['技能列表']
         self.技能解锁后的总战力 = _json_['技能解锁后的总战力']
+        self.对塔伤害 = _json_['对塔伤害']
 
 class 生成数据_肉鸽技能选择节奏_1导 :
     def __init__(self, _json_):
