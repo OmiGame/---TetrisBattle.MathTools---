@@ -1,0 +1,89 @@
+{
+  "battle_info": {
+    "duration": 0.0,
+    "winner": "draw",
+    "timestamp": "20250505_013424"
+  },
+  "unit_stats": {
+    "player": {
+      "spawn_count": 0,
+      "death_count": 0,
+      "unit_details": []
+    },
+    "enemy": {
+      "spawn_count": 0,
+      "death_count": 0,
+      "unit_details": []
+    }
+  },
+  "damage_stats": {
+    "player": {
+      "dealt": 0.0,
+      "taken": 0.0
+    },
+    "enemy": {
+      "dealt": 0.0,
+      "taken": 0.0
+    }
+  },
+  "rogue_skills": {
+    "count": 0,
+    "details": []
+  },
+  "time_series": {
+    "unit_counts": {
+      "player": [
+        [
+          0.0,
+          0
+        ]
+      ],
+      "enemy": [
+        [
+          0.0,
+          0
+        ]
+      ]
+    },
+    "power": {
+      "player": [
+        [
+          0.0,
+          0
+        ]
+      ],
+      "enemy": [
+        [
+          0.0,
+          0
+        ]
+      ]
+    },
+    "damage": {
+      "player_dealt": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "player_taken": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "enemy_dealt": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "enemy_taken": [
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    }
+  }
+}

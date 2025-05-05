@@ -3,7 +3,8 @@
 """
 
 from typing import Dict, Any, List
-from ..models.battle_state import Position, WaveConfig, PlayerConfig
+from BattleSim.models.battle_state import Position, WaveConfig, PlayerConfig
+import path_config  # 导入路径配置
 
 # 波次配置
 WAVE_CONFIGS: List[WaveConfig] = [
@@ -19,7 +20,8 @@ WAVE_CONFIGS: List[WaveConfig] = [
             "attack": 10,
             "attack_speed": 1.0,
             "attack_range": 2.0,
-            "move_speed": 1.0
+            "move_speed": 1.0,
+            "tower_damage": 1
         }
     ),
     WaveConfig(
@@ -34,7 +36,8 @@ WAVE_CONFIGS: List[WaveConfig] = [
             "attack": 20,
             "attack_speed": 1.2,
             "attack_range": 2.5,
-            "move_speed": 1.2
+            "move_speed": 1.2,
+            "tower_damage": 1
         }
     )
 ]
@@ -83,7 +86,8 @@ TOWER_CONFIG = {
         "attack_speed": 0,
         "attack_range": 0,
         "move_speed": 0,
-        "position": Position(x=0, y=0)
+        "position": Position(x=0, y=300),  # 左侧中间
+        "tower_damage" : 0
     },
     "enemy_tower": {
         "hp": 1000,
@@ -91,7 +95,8 @@ TOWER_CONFIG = {
         "attack_speed": 0,
         "attack_range": 0,
         "move_speed": 0,
-        "position": Position(x=40, y=0)
+        "position": Position(x=40, y=300),  # 右侧中间
+        "tower_damage" : 0
     }
 }
 

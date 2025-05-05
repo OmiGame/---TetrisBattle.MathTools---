@@ -9,25 +9,14 @@ import os
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
+import path_config  # 导入路径配置
+
 from BattleSim.battle_engine import BattleEngine
 from BattleSim.models.battle_state import Unit, UnitState, UnitType
 from BattleSim.battle_configs.battle_config import WAVE_CONFIGS, PLAYER_CONFIG, TOWER_CONFIG, ROGUE_SKILL_TRIGGER
 from BattleSim.visualization.visualization import BattleVisualizer
 import time
 
-def calculate_total_power(units: list) -> float:
-    """计算单位总战力"""
-    return sum(unit.attack * unit.hp for unit in units if unit.state != UnitState.DEAD)
-
-def calculate_spawn_rate(battle_state) -> float:
-    """计算当前出兵速度（每秒）"""
-    if not battle_state.last_spawn_time.get('player_spawn'):
-        return 0
-    current_time = time.time()
-    time_since_last_spawn = current_time - battle_state.last_spawn_time['player_spawn']
-    if time_since_last_spawn == 0:
-        return 0
-    return 1 / time_since_last_spawn
 
 def main():
     # 创建战斗引擎实例
@@ -44,7 +33,8 @@ def main():
         attack_speed=TOWER_CONFIG["player_tower"]["attack_speed"],
         attack_range=TOWER_CONFIG["player_tower"]["attack_range"],
         move_speed=TOWER_CONFIG["player_tower"]["move_speed"],
-        position=TOWER_CONFIG["player_tower"]["position"]
+        position=TOWER_CONFIG["player_tower"]["position"],
+        tower_damage=TOWER_CONFIG["player_tower"]["tower_damage"]
     )
     
     enemy_tower = Unit(
@@ -57,7 +47,8 @@ def main():
         attack_speed=TOWER_CONFIG["enemy_tower"]["attack_speed"],
         attack_range=TOWER_CONFIG["enemy_tower"]["attack_range"],
         move_speed=TOWER_CONFIG["enemy_tower"]["move_speed"],
-        position=TOWER_CONFIG["enemy_tower"]["position"]
+        position=TOWER_CONFIG["enemy_tower"]["position"],
+        tower_damage=TOWER_CONFIG["enemy_tower"]["tower_damage"]
     )
     
     # 初始化战斗状态
@@ -73,7 +64,20 @@ def main():
     
     # 主循环
     running = True
+    last_update_time = time.time()
     while running and not battle_state.game_over:
+        # 计算时间间隔
+        current_time = time.time()
+        delta_time = current_time - last_update_time
+        last_update_time = current_time
+        
+        # 输出调试信息
+        print(f"\n当前时间: {current_time:.2f}")
+        print(f"时间间隔: {delta_time:.2f}")
+        print(f"我方单位数量: {len(battle_state.player_units)}")
+        print(f"敌方单位数量: {len(battle_state.enemy_units)}")
+        print(f"当前波次: {battle_state.current_wave + 1}/{len(battle_state.wave_configs)}")
+        
         # 更新战斗状态
         engine._update_battle(battle_state)
         
@@ -83,6 +87,9 @@ def main():
             running = False
         elif result == "space":  # 空格键触发
             engine.handle_keyboard_input(battle_state, " ")
+        
+        # 添加小延迟，确保单位有足够时间生成
+        time.sleep(0.1)
     
     # 输出战斗结果
     battle_result = engine._generate_battle_result(battle_state)

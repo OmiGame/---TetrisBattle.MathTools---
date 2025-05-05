@@ -146,12 +146,33 @@ class BattleStatistics:
         """计算并返回完整的统计数据"""
         return StatisticsData(
             battle_duration=self.end_time - self.start_time,
-            winner=self.winner,
+            total_battles=1,  # 当前只统计单场战斗
+            win_rate=1.0 if self.winner == "player" else 0.0,  # 当前只统计单场战斗
+            average_turns=0.0,  # 当前未实现回合统计
+            damage_distribution={
+                "player": [self.damage_dealt["player"]],
+                "enemy": [self.damage_dealt["enemy"]]
+            },
+            survival_rates={
+                "player": (self.player_unit_spawns - self.unit_deaths["player"]) / self.player_unit_spawns if self.player_unit_spawns > 0 else 0.0,
+                "enemy": (self.enemy_unit_spawns - self.unit_deaths["enemy"]) / self.enemy_unit_spawns if self.enemy_unit_spawns > 0 else 0.0
+            },
+            turn_statistics={},  # 当前未实现回合统计
+            battle_results=[{
+                "winner": self.winner,
+                "duration": self.end_time - self.start_time,
+                "player_units": self.player_unit_spawns,
+                "enemy_units": self.enemy_unit_spawns,
+                "player_deaths": self.unit_deaths["player"],
+                "enemy_deaths": self.unit_deaths["enemy"],
+                "player_damage": self.damage_dealt["player"],
+                "enemy_damage": self.damage_dealt["enemy"]
+            }],
             player_unit_spawns=self.player_unit_spawns,
             enemy_unit_spawns=self.enemy_unit_spawns,
-            unit_deaths=self.unit_deaths,
             player_unit_details=self.player_unit_details,
             enemy_unit_details=self.enemy_unit_details,
+            unit_deaths=self.unit_deaths,
             damage_dealt=self.damage_dealt,
             damage_taken=self.damage_taken,
             rogue_skill_count=self.rogue_skill_count,
@@ -160,6 +181,27 @@ class BattleStatistics:
             power_time_series=self.power_time_series,
             damage_time_series=self.damage_time_series
         )
+    
+    def calculate_battle_stats(self) -> Dict[str, any]:
+        """计算当前战斗状态的信息"""
+        player_alive = self.player_unit_spawns - self.unit_deaths["player"]
+        enemy_alive = self.enemy_unit_spawns - self.unit_deaths["enemy"]
+        
+        # 计算总战力
+        player_power = sum(unit["attack"] * unit["health"] for unit in self.player_unit_details)
+        enemy_power = sum(unit["attack"] * unit["health"] for unit in self.enemy_unit_details)
+        
+        return {
+            "player": {
+                "alive_units": player_alive,
+                "total_power": player_power
+            },
+            "enemy": {
+                "alive_units": enemy_alive,
+                "total_power": enemy_power
+            },
+            "rogue_skill_count": self.rogue_skill_count
+        }
     
    
     

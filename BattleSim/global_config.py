@@ -18,7 +18,7 @@ BATTLE_SYSTEM_CONFIG: Dict[str, Any] = {
     "tower_attack": 50,  # 防御塔攻击力
     "tower_range": 5.0,  # 防御塔攻击范围
     "unit_spawn_interval": 1.0,  # 单位生成间隔
-    "wave_interval": 10.0,  # 波次间隔
+    "wave_interval": 30.0,  # 波次间隔
 }
 
 # 战斗引擎配置

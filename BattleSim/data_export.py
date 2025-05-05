@@ -30,7 +30,7 @@ class BattleDataExporter:
         return {
             "battle_info": {
                 "duration": stats.battle_duration,
-                "winner": stats.winner,
+                "winner": stats.battle_results[0]["winner"] if stats.battle_results else None,
                 "timestamp": self._get_timestamp()
             },
             "unit_stats": {
@@ -65,7 +65,6 @@ class BattleDataExporter:
                 "damage": stats.damage_time_series
             }
         }
-    
     def save_battle_data(self, stats: StatisticsData, filename: Optional[str] = None) -> str:
         """
         保存战斗数据到JSON文件

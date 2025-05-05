@@ -30,9 +30,9 @@ class BattleEngine:
         self.unit_id_counter = 0
         self.keyboard_spawn_cooldown = 0.5   # 键盘生成冷却时间（秒）
         self.event_handlers: List[Callable] = []
-        self.battle_state = BattleState()
         self.statistics = BattleStatistics()
         self.data_exporter = BattleDataExporter()
+        self.battle_state = None  # 初始化为None，等待initialize_battle时创建
     
     def register_event_handler(self, handler: Callable) -> None:
         """注册事件处理器"""
@@ -66,7 +66,8 @@ class BattleEngine:
         if ROGUE_SKILL_TRIGGER["use_timeline"]:
             rogue_skill_timeline = ROGUE_SKILL_TRIGGER["timeline"].copy()
         
-        return BattleState(
+        # 创建新的战斗状态
+        self.battle_state = BattleState(
             start_time=time.time(),
             player_units=[],
             enemy_units=[],
@@ -89,6 +90,8 @@ class BattleEngine:
             active_rogue_skills={},
             keyboard_spawn_cooldown=0.5
         )
+        
+        return self.battle_state
     
     def run_battle(self, battle_state: BattleState) -> BattleResult:
         """执行战斗过程"""
@@ -108,6 +111,12 @@ class BattleEngine:
         delta_time = current_time - self.last_update_time
         self.last_update_time = current_time
         
+        # 输出当前战斗状态
+        print(f"\n当前战斗状态:")
+        print(f"我方单位数量: {len(battle_state.player_units)}")
+        print(f"敌方单位数量: {len(battle_state.enemy_units)}")
+        print(f"当前波次: {battle_state.current_wave + 1}/{len(battle_state.wave_configs)}")
+        
         # 更新键盘生成冷却
         if battle_state.keyboard_spawn_cooldown > 0:
             battle_state.keyboard_spawn_cooldown = max(0, battle_state.keyboard_spawn_cooldown - delta_time)
@@ -126,6 +135,12 @@ class BattleEngine:
         
         # 检查战斗结束条件
         self._check_battle_end(battle_state)
+        
+        # 输出战斗日志
+        if battle_state.battle_log:
+            print("\n战斗日志:")
+            for log in battle_state.battle_log[-5:]:  # 只显示最近的5条日志
+                print(log)
     
     def _check_rogue_skill_trigger(self, battle_state: BattleState, current_time: float) -> None:
         """检查肉鸽技能触发条件"""
@@ -186,13 +201,24 @@ class BattleEngine:
         battle_state.active_rogue_skills[skill_name] = skill
         battle_state.battle_log.append(f"触发肉鸽技能: {skill.name} (生成速度提升 {skill.spawn_speed_multiplier}倍)")
         
+        # 记录技能属性
+        skill_attrs = {
+            "hp_multiplier": skill.hp_multiplier,
+            "attack_multiplier": skill.attack_multiplier,
+            "attack_speed_multiplier": skill.attack_speed_multiplier,
+            "spawn_speed_multiplier": skill.spawn_speed_multiplier,
+            "duration": skill.duration,
+            "is_permanent": skill.is_permanent
+        }
+        
         # 触发肉鸽技能事件
         self._emit_event(RogueSkillEvent(
             event_type="rogue_skill",
             timestamp=time.time(),
             data={},
             skill_name=skill_name,
-            affected_units=affected_units
+            affected_units=affected_units,
+            skill_attributes=skill_attrs
         ))
     
     def handle_keyboard_input(self, battle_state: BattleState, key: str) -> None:
@@ -247,7 +273,8 @@ class BattleEngine:
             "attack_multiplier": skill.attack_multiplier,
             "attack_speed_multiplier": skill.attack_speed_multiplier,
             "spawn_speed_multiplier": skill.spawn_speed_multiplier,
-            "duration": skill.duration
+            "duration": skill.duration,
+            "is_permanent": skill.is_permanent
         }
         
         # 触发肉鸽技能事件
@@ -272,8 +299,9 @@ class BattleEngine:
             if wave.unit_count > 0:
                 if 'enemy_spawn' not in battle_state.last_spawn_time:
                     battle_state.last_spawn_time['enemy_spawn'] = current_time
-                
-                if current_time - battle_state.last_spawn_time['enemy_spawn'] >= wave.spawn_interval:
+                    self._spawn_enemy_unit(battle_state, wave)
+                    wave.unit_count -= 1
+                elif current_time - battle_state.last_spawn_time['enemy_spawn'] >= wave.spawn_interval:
                     self._spawn_enemy_unit(battle_state, wave)
                     wave.unit_count -= 1
                     battle_state.last_spawn_time['enemy_spawn'] = current_time
@@ -284,16 +312,17 @@ class BattleEngine:
         # 生成玩家单位
         if 'player_spawn' not in battle_state.last_spawn_time:
             battle_state.last_spawn_time['player_spawn'] = current_time
-        
-        spawn_interval = random.uniform(
-            battle_state.player_config.spawn_interval['min'],
-            battle_state.player_config.spawn_interval['max']
-        )
-        
-        if current_time - battle_state.last_spawn_time['player_spawn'] >= spawn_interval:
             self._spawn_player_unit(battle_state)
-            battle_state.last_spawn_time['player_spawn'] = current_time
-            battle_state.units_spawned_since_enhance += 1
+        else:
+            spawn_interval = random.uniform(
+                battle_state.player_config.spawn_interval['min'],
+                battle_state.player_config.spawn_interval['max']
+            )
+            
+            if current_time - battle_state.last_spawn_time['player_spawn'] >= spawn_interval:
+                self._spawn_player_unit(battle_state)
+                battle_state.last_spawn_time['player_spawn'] = current_time
+                battle_state.units_spawned_since_enhance += 1
     
     def _spawn_enemy_unit(self, battle_state: BattleState, wave: WaveConfig) -> None:
         """生成敌方单位"""
@@ -306,7 +335,8 @@ class BattleEngine:
             "attack": unit_config['attack'],
             "attack_speed": unit_config['attack_speed'],
             "attack_range": unit_config['attack_range'],
-            "move_speed": unit_config['move_speed']
+            "move_speed": unit_config['move_speed'],
+            "tower_damage": unit_config['tower_damage']
         }
         
         unit = Unit(
@@ -319,6 +349,7 @@ class BattleEngine:
             attack_speed=unit_config['attack_speed'],
             attack_range=unit_config['attack_range'],
             move_speed=unit_config['move_speed'],
+            tower_damage=unit_config['tower_damage'],
             position=wave.spawn_position
         )
         battle_state.enemy_units.append(unit)
@@ -356,7 +387,8 @@ class BattleEngine:
             "attack": unit_config['attack'],
             "attack_speed": unit_config['attack_speed'],
             "attack_range": unit_config['attack_range'],
-            "move_speed": unit_config['move_speed']
+            "move_speed": unit_config['move_speed'],
+            "tower_damage": unit_config['tower_damage']
         }
         
         unit = Unit(
@@ -369,6 +401,7 @@ class BattleEngine:
             attack_speed=unit_config['attack_speed'],
             attack_range=unit_config['attack_range'],
             move_speed=unit_config['move_speed'],
+            tower_damage=unit_config['tower_damage'],
             position=Position(spawn_x, spawn_y),
             initial_attrs=initial_attrs
         )
