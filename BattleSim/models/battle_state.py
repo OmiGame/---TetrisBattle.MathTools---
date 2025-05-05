@@ -3,7 +3,7 @@
 """
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Union
 from enum import Enum
 import time
 
@@ -26,6 +26,12 @@ class Position:
     x: float
     y: float
 
+@dataclass(frozen=True)
+class FrozenPosition:
+    """不可变的位置信息，用于保存固定坐标"""
+    x: float
+    y: float
+
 @dataclass
 class Unit:
     """单位数据"""
@@ -39,7 +45,7 @@ class Unit:
     attack_range: float
     move_speed: float
     tower_damage: int
-    position: Position
+    position: Position              #这里代表的是   游戏坐标系中的position，即中心点在游戏窗口中间的坐标系。
     target_id: Optional[str] = None
     state: UnitState = UnitState.IDLE
     effects: List[Dict[str, Any]] = field(default_factory=list)
@@ -54,9 +60,11 @@ class WaveConfig:
     unit_type: str
     unit_count: int
     unit_level: int
-    spawn_interval: float  # 生成间隔（秒）
-    spawn_position: Position
     unit_config: Dict
+    spawn_interval: float  # 生成间隔（秒）
+    spawn_position: FrozenPosition  # 使用FrozenPosition类型
+    _initialized: bool = False  # 添加初始化标志
+
 
 @dataclass
 class PlayerConfig:
@@ -76,6 +84,7 @@ class RogueSkill:
     spawn_speed_multiplier: float
     duration: float
     is_permanent: bool = True
+    is_repeatable: bool = False  # 是否可重复选择
     start_time: float = field(default=0.0)  # 将在技能触发时设置
 
     def is_expired(self, current_time: float) -> bool:
@@ -106,7 +115,8 @@ class BattleState:
     unit_spawn_order: List[int] = field(default_factory=list)  # 单位生成顺序
     rogue_skill_timeline: List[float] = field(default_factory=list)
     next_rogue_skill_time: float = 0.0
-    active_rogue_skills: Dict[str, RogueSkill] = field(default_factory=dict)
+    active_single_skills: Dict[str, RogueSkill] = field(default_factory=dict)  # 不可重复的技能
+    active_repeat_skills: Dict[str, List[RogueSkill]] = field(default_factory=dict)  # 可重复的技能
     keyboard_spawn_cooldown: float = 0.0
     
     def to_dict(self) -> Dict[str, Any]:
@@ -131,7 +141,8 @@ class BattleState:
             'unit_spawn_order': self.unit_spawn_order,
             'rogue_skill_timeline': self.rogue_skill_timeline,
             'next_rogue_skill_time': self.next_rogue_skill_time,
-            'active_rogue_skills': self.active_rogue_skills,
+            'active_single_skills': self.active_single_skills,
+            'active_repeat_skills': self.active_repeat_skills,
             'keyboard_spawn_cooldown': self.keyboard_spawn_cooldown
         }
     
@@ -158,6 +169,7 @@ class BattleState:
             unit_spawn_order=data['unit_spawn_order'],
             rogue_skill_timeline=data['rogue_skill_timeline'],
             next_rogue_skill_time=data['next_rogue_skill_time'],
-            active_rogue_skills=data['active_rogue_skills'],
+            active_single_skills=data['active_single_skills'],
+            active_repeat_skills=data['active_repeat_skills'],
             keyboard_spawn_cooldown=data['keyboard_spawn_cooldown']
         ) 

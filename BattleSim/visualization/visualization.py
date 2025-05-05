@@ -4,7 +4,7 @@
 
 import pygame
 from typing import List, Dict, Any, Tuple, Optional
-from ..models.battle_state import BattleState, Unit, UnitState
+from ..models.battle_state import BattleState, Unit, UnitState, UnitType
 from ..statistics import BattleStatistics
 from .battle_info import BattleInfoCalculator
 
@@ -17,6 +17,7 @@ class BattleVisualizer:
     COLOR_PLAYER_TOWER = (0, 255, 0)   # 绿色 - 我方防御塔
     COLOR_ENEMY_TOWER = (255, 0, 0)    # 红色 - 敌方防御塔
     COLOR_PATH = (255, 215, 0)         # 深黄色 - 单位行进路线
+    COLOR_ATTACK_RANGE = (255, 0, 0, 50)  # 红色半透明 - 攻击范围
     
     # 配置常量
     DEFAULT_SCREEN_WIDTH = 800
@@ -62,19 +63,20 @@ class BattleVisualizer:
         except Exception as e:
             raise RuntimeError(f"初始化可视化器失败: {str(e)}")
 
-    def _convert_to_screen_pos(self, x: float, y: float) -> Tuple[int, int]:
+    def _convert_to_screen_pos(self, x: float, y: float, is_tower: bool = False) -> Tuple[int, int]:
         """将游戏坐标转换为屏幕坐标
         
         Args:
             x: 游戏x坐标
             y: 游戏y坐标
+            is_tower: 是否是防御塔
             
         Returns:
             Tuple[int, int]: 屏幕坐标(x, y)
         """
         # 将游戏坐标转换为屏幕坐标
         # 对于防御塔，使用特殊的位置计算
-        if abs(x) > 19:  # 如果x坐标接近边界，认为是防御塔
+        if is_tower:  # 只对防御塔使用特殊处理
             if x > 0:  # 敌方防御塔
                 screen_x = self.width - self.TOWER_SIZE
             else:  # 我方防御塔
@@ -141,28 +143,23 @@ class BattleVisualizer:
 
             # 绘制防御塔
             if battle_state.player_tower:
-                print(f"绘制我方防御塔: {battle_state.player_tower.position}")
+                # print(f"绘制我方防御塔: {battle_state.player_tower.position}")
                 self._draw_tower(battle_state.player_tower, self.COLOR_PLAYER_TOWER)
             if battle_state.enemy_tower:
-                print(f"绘制敌方防御塔: {battle_state.enemy_tower.position}")
+                # print(f"绘制敌方防御塔: {battle_state.enemy_tower.position}")
                 self._draw_tower(battle_state.enemy_tower, self.COLOR_ENEMY_TOWER)
 
-            # 绘制单位行进路线
-            for unit in battle_state.player_units + battle_state.enemy_units:
-                if unit.state != UnitState.DEAD and unit.target_id:
-                    target = next((u for u in battle_state.player_units + battle_state.enemy_units 
-                                 if u.id == unit.target_id), None)
-                    if target:
-                        print(f"绘制路线: {unit.id} -> {target.id}")
-                        self._draw_path(
-                            (unit.position.x, unit.position.y),
-                            (target.position.x, target.position.y)
-                        )
+            # 绘制防御塔之间的连线
+            if battle_state.player_tower and battle_state.enemy_tower:
+                self._draw_path(
+                    (battle_state.player_tower.position.x, battle_state.player_tower.position.y),
+                    (battle_state.enemy_tower.position.x, battle_state.enemy_tower.position.y)
+                )
 
             # 绘制单位
-            print(f"绘制我方单位数量: {len(battle_state.player_units)}")
+            # print(f"绘制我方单位数量: {len(battle_state.player_units)}")
             self._draw_units(battle_state.player_units, self.COLOR_PLAYER_UNIT)
-            print(f"绘制敌方单位数量: {len(battle_state.enemy_units)}")
+            # print(f"绘制敌方单位数量: {len(battle_state.enemy_units)}")
             self._draw_units(battle_state.enemy_units, self.COLOR_ENEMY_UNIT)
 
             # 显示战斗信息
@@ -193,7 +190,7 @@ class BattleVisualizer:
             return
             
         # 计算屏幕坐标
-        screen_x, screen_y = self._convert_to_screen_pos(tower.position.x, tower.position.y)
+        screen_x, screen_y = self._convert_to_screen_pos(tower.position.x, tower.position.y, True)
         
         # 绘制防御塔（正方形）
         pygame.draw.rect(
@@ -206,10 +203,24 @@ class BattleVisualizer:
             width=2  # 添加边框
         )
         
-        # 绘制防御塔ID
-        text = self.font.render(tower.id, True, self.COLOR_BLACK)
-        text_rect = text.get_rect(center=(screen_x, screen_y - self.TOWER_SIZE))
+        # 绘制防御塔ID（中文）
+        tower_name = "敌方塔" if screen_x > self.width // 2 else "我方塔"
+        text = self.font.render(tower_name, True, self.COLOR_BLACK)
+        # 根据防御塔位置调整ID显示位置
+        if screen_x > self.width // 2:  # 右侧防御塔
+            text_rect = text.get_rect(midright=(screen_x - self.TOWER_SIZE // 2, screen_y - self.TOWER_SIZE))
+        else:  # 左侧防御塔
+            text_rect = text.get_rect(midleft=(screen_x + self.TOWER_SIZE // 2, screen_y - self.TOWER_SIZE))
         self.screen.blit(text, text_rect)
+        
+        # 绘制防御塔血量
+        hp_text = self.font.render(f"HP: {tower.hp:.0f}", True, self.COLOR_BLACK)
+        # 根据防御塔位置调整血量显示位置
+        if screen_x > self.width // 2:  # 右侧防御塔
+            hp_rect = hp_text.get_rect(midright=(screen_x - self.TOWER_SIZE // 2, screen_y + self.TOWER_SIZE + 10))
+        else:  # 左侧防御塔
+            hp_rect = hp_text.get_rect(midleft=(screen_x + self.TOWER_SIZE // 2, screen_y + self.TOWER_SIZE + 10))
+        self.screen.blit(hp_text, hp_rect)
 
     def _update_unit_position(self, unit: Unit, target: Unit, delta_time: float) -> None:
         """更新单位位置，考虑移动速度与显示的关系
@@ -225,12 +236,16 @@ class BattleVisualizer:
         distance = (direction_x ** 2 + direction_y ** 2) ** 0.5
         
         if distance > 0:
-            # 计算单位时间内的移动距离（考虑POSITION_SCALE）
-            move_distance = unit.move_speed * delta_time * self.POSITION_SCALE
+            # 计算单位时间内的移动距离
+            move_distance = unit.move_speed * delta_time
             
-            # 计算新的位置
-            unit.position.x += (direction_x / distance) * move_distance
-            unit.position.y += (direction_y / distance) * move_distance
+            # 计算新的游戏坐标
+            new_x = unit.position.x + (direction_x / distance) * move_distance
+            new_y = unit.position.y + (direction_y / distance) * move_distance
+            
+            # 更新单位位置
+            unit.position.x = new_x
+            unit.position.y = new_y
 
     def _draw_units(self, units: List[Unit], color: Tuple[int, int, int]):
         """绘制单位
@@ -241,8 +256,23 @@ class BattleVisualizer:
         """
         for unit in units:
             if unit.state != UnitState.DEAD:
-                # 计算屏幕坐标
-                screen_x, screen_y = self._convert_to_screen_pos(unit.position.x, unit.position.y)
+                # 计算屏幕坐标，考虑POSITION_SCALE
+                screen_x, screen_y = self._convert_to_screen_pos(unit.position.x, unit.position.y, unit.type == UnitType.TOWER)
+                
+                # 绘制攻击范围（半透明圆形）
+                attack_range_radius = unit.attack_range * self.POSITION_SCALE
+                attack_range_surface = pygame.Surface((attack_range_radius * 2, attack_range_radius * 2), pygame.SRCALPHA)
+                pygame.draw.circle(
+                    attack_range_surface,
+                    self.COLOR_ATTACK_RANGE,
+                    (attack_range_radius, attack_range_radius),
+                    attack_range_radius
+                )
+                
+                self.screen.blit(
+                    attack_range_surface,
+                    (screen_x - attack_range_radius, screen_y - attack_range_radius)
+                )
                 
                 # 绘制单位
                 pygame.draw.circle(
@@ -252,10 +282,31 @@ class BattleVisualizer:
                     self.UNIT_RADIUS
                 )
                 
-                # 绘制单位ID
-                text = self.font.render(unit.id, True, self.COLOR_BLACK)
-                text_rect = text.get_rect(center=(screen_x, screen_y - self.UNIT_RADIUS * 2))
-                self.screen.blit(text, text_rect)
+                # 绘制血量条
+                hp_percentage = unit.hp / unit.max_hp
+                hp_bar_width = 20
+                hp_bar_height = 4
+                hp_bar_x = screen_x - hp_bar_width // 2
+                hp_bar_y = screen_y - self.UNIT_RADIUS - 10
+                
+                # 绘制背景（灰色）
+                pygame.draw.rect(
+                    self.screen,
+                    (100, 100, 100),
+                    (hp_bar_x, hp_bar_y, hp_bar_width, hp_bar_height)
+                )
+                
+                # 绘制当前血量（绿色）
+                pygame.draw.rect(
+                    self.screen,
+                    (0, 255, 0),
+                    (hp_bar_x, hp_bar_y, int(hp_bar_width * hp_percentage), hp_bar_height)
+                )
+                
+                # 绘制血量数值
+                hp_text = self.font.render(f"{int(unit.hp)}/{unit.max_hp}", True, self.COLOR_WHITE)
+                hp_rect = hp_text.get_rect(center=(screen_x, hp_bar_y - 10))
+                self.screen.blit(hp_text, hp_rect)
 
     def _draw_battle_info(self, battle_state: BattleState):
         """绘制战斗信息
@@ -354,4 +405,22 @@ class BattleVisualizer:
         try:
             pygame.quit()
         except Exception as e:
-            print(f"清理资源时发生错误: {str(e)}") 
+            print(f"清理资源时发生错误: {str(e)}")
+
+    def is_in_attack_range(self, attacker: Unit, target: Unit) -> bool:
+        """判断目标是否在攻击范围内
+        
+        Args:
+            attacker: 攻击者单位
+            target: 目标单位
+            
+        Returns:
+            bool: 目标是否在攻击范围内
+        """
+        # 计算两个单位之间的距离
+        dx = target.position.x - attacker.position.x
+        dy = target.position.y - attacker.position.y
+        distance = (dx ** 2 + dy ** 2) ** 0.5
+        
+        # 判断距离是否在攻击范围内
+        return distance <= attacker.attack_range 

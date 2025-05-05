@@ -16,6 +16,7 @@ from BattleSim.models.battle_state import Unit, UnitState, UnitType
 from BattleSim.battle_configs.battle_config import WAVE_CONFIGS, PLAYER_CONFIG, TOWER_CONFIG, ROGUE_SKILL_TRIGGER
 from BattleSim.visualization.visualization import BattleVisualizer
 import time
+import pygame
 
 
 def main():
@@ -62,6 +63,9 @@ def main():
     # 创建可视化器
     visualizer = BattleVisualizer()
     
+    # 创建时钟对象用于控制帧率
+    clock = pygame.time.Clock()
+    
     # 主循环
     running = True
     last_update_time = time.time()
@@ -72,11 +76,11 @@ def main():
         last_update_time = current_time
         
         # 输出调试信息
-        print(f"\n当前时间: {current_time:.2f}")
-        print(f"时间间隔: {delta_time:.2f}")
-        print(f"我方单位数量: {len(battle_state.player_units)}")
-        print(f"敌方单位数量: {len(battle_state.enemy_units)}")
-        print(f"当前波次: {battle_state.current_wave + 1}/{len(battle_state.wave_configs)}")
+        # print(f"\n当前时间: {current_time:.2f}")
+        # print(f"时间间隔: {delta_time:.2f}")
+        # print(f"我方单位数量: {len(battle_state.player_units)}")
+        # print(f"敌方单位数量: {len(battle_state.enemy_units)}")
+        # print(f"当前波次: {battle_state.current_wave + 1}/{len(battle_state.wave_configs)}")
         
         # 更新战斗状态
         engine._update_battle(battle_state)
@@ -88,8 +92,8 @@ def main():
         elif result == "space":  # 空格键触发
             engine.handle_keyboard_input(battle_state, " ")
         
-        # 添加小延迟，确保单位有足够时间生成
-        time.sleep(0.1)
+        # 控制帧率
+        clock.tick(60)  # 限制帧率为60FPS
     
     # 输出战斗结果
     battle_result = engine._generate_battle_result(battle_state)

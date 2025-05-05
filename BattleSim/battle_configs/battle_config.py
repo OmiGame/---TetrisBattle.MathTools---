@@ -3,7 +3,7 @@
 """
 
 from typing import Dict, Any, List
-from BattleSim.models.battle_state import Position, WaveConfig, PlayerConfig
+from BattleSim.models.battle_state import FrozenPosition, Position, WaveConfig, PlayerConfig
 import path_config  # 导入路径配置
 
 # 波次配置
@@ -11,12 +11,12 @@ WAVE_CONFIGS: List[WaveConfig] = [
     WaveConfig(
         wave_id=1,
         unit_type="普通敌人",
-        unit_count=10,
-        unit_level=1,
+        unit_count=20,
+        unit_level=5,
         spawn_interval=2.0,
-        spawn_position=Position(x=40, y=0),
+        spawn_position=FrozenPosition(x=20, y=0),
         unit_config={
-            "hp": 100,
+            "hp": 500,
             "attack": 10,
             "attack_speed": 1.0,
             "attack_range": 2.0,
@@ -30,9 +30,9 @@ WAVE_CONFIGS: List[WaveConfig] = [
         unit_count=5,
         unit_level=2,
         spawn_interval=3.0,
-        spawn_position=Position(x=40, y=0),
+        spawn_position=FrozenPosition(x=20, y=0),
         unit_config={
-            "hp": 200,
+            "hp": 500,
             "attack": 20,
             "attack_speed": 1.2,
             "attack_range": 2.5,
@@ -50,7 +50,7 @@ PLAYER_CONFIG = PlayerConfig(
             "hp": 100,
             "attack": 15,
             "attack_speed": 1.2,
-            "attack_range": 2.5,
+            "attack_range": 1,
             "move_speed": 1.2,
             "tower_damage": 1
         },
@@ -73,30 +73,37 @@ PLAYER_CONFIG = PlayerConfig(
             "tower_damage": 1
         }
     ],
-    spawn_interval={"min": 1.0, "max": 2.0},
-    spawn_position=Position(x=0, y=0),
-    spawn_range=10.0
+    spawn_interval={"min": 2, "max": 3},
+    spawn_position=Position(x=-15, y=0),   # 这里用了游戏坐标系，和正常的数学坐标系一样，原点在中间，一个单位就是一个单元格
+    spawn_range= 5
 )
 
 # 防御塔配置
 TOWER_CONFIG = {
     "player_tower": {
+        "id": "player_tower",
+        "type": "tower",
+        "level": 1,
         "hp": 1000,
+        "max_hp": 1000,
         "attack": 0,
         "attack_speed": 0,
         "attack_range": 0,
         "move_speed": 0,
-        "position": Position(x=0, y=300),  # 左侧中间
-        "tower_damage" : 0
+        "tower_damage": 0,
+        "position": Position(x=-20, y=0),  # 这里用了游戏坐标系，和正常的数学坐标系一样，原点在中间，一个单位就是一个单元格
     },
     "enemy_tower": {
+        "id": "enemy_tower",
+        "type": "tower",
+        "level": 1,
         "hp": 1000,
         "attack": 0,
         "attack_speed": 0,
         "attack_range": 0,
         "move_speed": 0,
-        "position": Position(x=40, y=300),  # 右侧中间
-        "tower_damage" : 0
+        "tower_damage": 0,
+        "position": Position(x=20, y=0),
     }
 }
 
@@ -109,7 +116,8 @@ ROGUE_SKILLS = {
         "attack_speed_multiplier": 1.2,
         "spawn_speed_multiplier": 1.0,
         "duration": 0,  # 这个值会被忽略
-        "is_permanent": True
+        "is_permanent": True,
+        "is_repeatable": False  # 永久强化不可重复
     },
     "temporary_boost": {
         "name": "临时强化",
@@ -118,7 +126,8 @@ ROGUE_SKILLS = {
         "attack_speed_multiplier": 1.5,
         "spawn_speed_multiplier": 1.0,
         "duration": 10.0,
-        "is_permanent": True
+        "is_permanent": False,
+        "is_repeatable": True  # 临时强化可以重复
     },
     "speed_boost": {
         "name": "速度提升",
@@ -127,7 +136,8 @@ ROGUE_SKILLS = {
         "attack_speed_multiplier": 2.0,
         "spawn_speed_multiplier": 1.5,
         "duration": 15.0,
-        "is_permanent": True
+        "is_permanent": False,
+        "is_repeatable": True  # 速度提升可以重复
     }
 }
 
@@ -139,7 +149,8 @@ AVERAGE_ROGUE_SKILL = {
     "attack_speed_multiplier": 1.2,
     "spawn_speed_multiplier": 1.5,
     "duration": 10.0,
-    "is_permanent": True
+    "is_permanent": False,
+    "is_repeatable": True  # 均衡强化可以重复
 }
 
 # 肉鸽技能触发配置
