@@ -2,8 +2,9 @@ import os
 from typing import Type, Any
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
-from TableData import 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
-from BattleFormula import 战斗公式
+from TableData import 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
+from LubanData import 全局参数
+from MonsterData.MonsterDataManager import 已生成怪物
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -109,60 +110,96 @@ class 生成表:
         wb.save(file_path)
         print(f"已将公式转换为值：{file_path}")
 
+    @classmethod
+    def 生成所有等级的阵容战力成长时间分布表(cls, save_folder: str = save_folder_path, 
+                                表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成从1级到角色等级上限的所有等级的阵容战力成长时间分布表
+        
+        Args:
+            save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
+            表格样式: 表格的样式类型
+        """
+        if save_folder is None:
+            save_folder = save_folder_path
+            
+        # 从全局参数获取角色等级上限
+        角色等级上限 = 全局参数.角色等级上限
+        
+        print(f"\n开始生成1级到{角色等级上限}级的阵容战力成长时间分布表...")
+        
+        # 循环生成每个等级的表格
+        for 等级 in range(1, 角色等级上限 + 1):
+            print(f"\n正在生成等级{等级}的阵容战力成长时间分布表...")
+            cls.生成表格(
+                表格定义=阵容战力成长时间分布,
+                sheet_name=f"等级{等级}",
+                save_folder=save_folder,
+                表格样式=表格样式
+            )
+        
+        print(f"\n所有等级(1-{角色等级上限})的阵容战力成长时间分布表生成完成!")
+
 # 调用示例
 if __name__ == "__main__":
     print("开始生成表格...")
     
-    # 生成角色表（使用角色成长表样式）
-    print("\n正在生成弓箭手表格...")
-    生成表.生成表格(
-        表格定义=角色成长表,
-        sheet_name="弓箭手",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.角色成长表
-    )
-
-    # 生成士兵表（使用士兵表样式）
-    print("\n正在生成士兵表格...")
-    生成表.生成表格(
-        表格定义=角色成长表,
-        sheet_name="士兵",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.角色成长表
-    )
-
-    print("\n正在生成士兵表格...")
-    生成表.生成表格(
-        表格定义=角色成长表,
-        sheet_name="弓",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.角色成长表
-    )
-
-
-    print("\n正在生成阵容战力成长表...")
-    生成表.生成表格(
-        表格定义=阵容战力成长表,
-        sheet_name="标准阵容列表",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.默认样式
-    )
-    # print("\n正在生成肉鸽技能节奏表...")
+    # # 生成角色表（使用角色成长表样式）
+    # print("\n正在生成弓箭手表格...")
     # 生成表.生成表格(
-    #     表格定义=肉鸽技能节奏,
-    #     sheet_name="肉鸽技能节奏",
+    #     表格定义=角色成长表,
+    #     sheet_name="弓箭手",
+    #     save_folder=save_folder_path,
+    #     表格样式=表格样式类型.角色成长表
+    # )
+
+    # # 生成士兵表（使用士兵表样式）
+    # print("\n正在生成士兵表格...")
+    # 生成表.生成表格(
+    #     表格定义=角色成长表,
+    #     sheet_name="士兵",
+    #     save_folder=save_folder_path,
+    #     表格样式=表格样式类型.角色成长表
+    # )
+
+    # print("\n正在生成士兵表格...")
+    # 生成表.生成表格(
+    #     表格定义=角色成长表,
+    #     sheet_name="弓",
+    #     save_folder=save_folder_path,
+    #     表格样式=表格样式类型.角色成长表
+    # )
+
+
+    # print("\n正在生成阵容战力成长表...")
+    # 生成表.生成表格(
+    #     表格定义=阵容战力成长表,
+    #     sheet_name="标准阵容列表",
     #     save_folder=save_folder_path,
     #     表格样式=表格样式类型.默认样式
     # )
+
+    生成表.生成所有等级的阵容战力成长时间分布表()
+
+
+
+
+    print("\n正在生成怪物基础数据表...")
+    # 初始化已生成怪物实例
     
-    
-    print("\n正在生成阵容战力成长时间分布…")
+    _ = 已生成怪物()  # 这会触发单例模式的初始化，初始化时加载保存的怪物数据，保证在生成表格时能够访问到完整的怪物数据
+    """生成怪物表格前，确保最新的怪物数据已经保存在MonsterDataManager.py中。更新generator后，也要更新字典，因为生成表格用的是保存的json文件"""
+
     生成表.生成表格(
-        表格定义=阵容战力成长时间分布,
-        sheet_name="等级1",
+        表格定义=怪物基础数据表,
+        sheet_name="普通坦克",
         save_folder=save_folder_path,
         表格样式=表格样式类型.默认样式
     )
 
-    
-    print("\n所有表格生成完成！")
+    print("\n正在生成怪物基础数据表...")
+    生成表.生成表格(
+        表格定义=怪物基础数据表,
+        sheet_name="萨哈比精英坦克",
+        save_folder=save_folder_path,
+        表格样式=表格样式类型.默认样式
+    )

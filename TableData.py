@@ -5,6 +5,8 @@ from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from enum import Enum
 from LubanData import tables,全局参数
+from MonsterData.MonsterDataManager import 已生成怪物
+from MonsterData.MonsterDataGenerater import 怪物设计基本参数
 
 @dataclass
 class 表头信息:
@@ -503,7 +505,7 @@ class 阵容战力成长时间分布:
     
     class 表头(表头枚举基类):
         """阵容战力成长时间分布的表头枚举"""
-        怪物波次 = 表头信息("怪物波次", "int")
+        角色等级和波次 = 表头信息("角色等级和波次", "int")
         时间点 = 表头信息("时间点_30s", "float")
         阵容 = 表头信息("阵容", "string")
         选技能次数 = 表头信息("选技能次数", "int")
@@ -539,7 +541,7 @@ class 阵容战力成长时间分布:
             tuple[int, int]: (起始值, 结束值)
         """
         from LubanData import 全局参数
-        return (cls.行数据起始值, 全局参数.角色等级上限)
+        return (cls.行数据起始值, int(全局参数.关卡时长 * 60 / 全局参数.怪物波次间隔))
 
     @classmethod
     def 获取行数据(cls, 当前值: int) -> str:
@@ -559,9 +561,9 @@ class 阵容战力成长时间分布:
         from BattleFormula import 战斗公式
         return {
             1: 表格列定义(
-                str(cls.表头.怪物波次),
-                lambda params: params["怪物波次"],
-                {"怪物波次": "怪物波次"}
+                str(cls.表头.角色等级和波次),
+                lambda params: params["角色平均等级"] * 100 + params["怪物波次"],
+                {"怪物波次": "怪物波次","角色平均等级": "角色平均等级"}
             ),
             2: 表格列定义(
                 str(cls.表头.时间点),
@@ -647,6 +649,156 @@ class 阵容战力成长时间分布:
             "角色平均等级": int(等级X.replace("等级", "")),
             "总次数": tables.Tb肉鸽技能选择节奏_1导.get(怪物波次).总次数,
             "阵容字典": {角色名:int(等级X.replace("等级", "")) for 角色名 in cls.标准阵容列表},
+        }
+    
+
+class 怪物基础数据表:
+    # 表格基本信息
+    表格名称: str = "#怪物基础数据表_3导.xlsx"
+    默认工作表名称: str = "怪物名称"
+    
+    class 表头(表头枚举基类):
+        怪物名称等级 = 表头信息("怪物名称等级", "string")
+        等级 = 表头信息("等级", "int")
+        血量 = 表头信息("血量", "float")
+        攻击力 = 表头信息("攻击力", "float")
+        攻速 = 表头信息("攻速", "float")
+        攻击范围 = 表头信息("攻击范围", "float")
+        移动速度 = 表头信息("移动速度", "float")
+        DPS = 表头信息("DPS", "float")
+        血量特效倍率 = 表头信息("血量特效倍率","float")
+        DPS特效倍率 = 表头信息("DPS特效倍率","float")
+        战力 = 表头信息("战力", "float")
+        @classmethod
+        def 获取表头字典(cls) -> Dict[str, str]:
+            return {str(成员): 成员.类型 for 成员 in cls}
+
+    # 表格其他属性
+    行数据类型: str = "波次"
+    行数据起始值: int = 1
+    行数据结束值: int = 100
+    标准阵容列表: List[str] = ["弓箭手", "士兵","弓"]
+    测试阵容列表: List[str] = ["士兵","弓箭手"]
+
+    # 使用枚举获取表头
+    headers = 表头.获取表头字典()
+
+    @classmethod
+    def 获取行数据范围(cls) -> tuple[int, int]:
+        """实际数据的范围，不包括表头
+        可以根据需要重写此方法，返回自定义的行数据范围
+        
+        Returns:
+            tuple[int, int]: (起始值, 结束值)
+        """
+        from LubanData import 全局参数
+        return (cls.行数据起始值, 怪物设计基本参数.怪物最高等级)
+
+    @classmethod
+    def 获取行数据(cls, 当前值: int) -> str:
+        """获取行数据的显示值
+        可以根据需要重写此方法，返回自定义的行数据显示值
+        
+        Args:
+            当前值: 当前的行数据值
+            
+        Returns:
+            str: 行数据的显示值
+        """
+        return f"{cls.行数据类型}{当前值}"
+
+    @classmethod
+    def 获取列函数映射(cls) -> Dict[int, 表格列定义]:
+        from BattleFormula import 战斗公式
+        return {
+            1: 表格列定义(
+                str(cls.表头.怪物名称等级),
+                lambda params: f"{params['怪物名称']} {params['等级']}",
+                {"怪物名称": "怪物名称", "等级": "等级"}
+            ),
+            2: 表格列定义(
+                str(cls.表头.等级),
+                lambda params: params["等级"],
+                {"等级": "等级"}
+            ),
+            3: 表格列定义(
+                str(cls.表头.血量),
+                lambda params: params["血量"],
+                {"血量": "血量"}
+            ),
+            4: 表格列定义(
+                str(cls.表头.攻击力),
+                lambda params: params["攻击力"],
+                {"攻击力": "攻击力"}
+            ),
+            5: 表格列定义(
+                str(cls.表头.攻速),
+                lambda params: params["攻速"],
+                {"攻速": "攻速"}
+            ),
+            6: 表格列定义(
+                str(cls.表头.攻击范围),
+                lambda params: params["攻击范围"],
+                {"攻击范围": "攻击范围"}
+            ),
+            7: 表格列定义(
+                str(cls.表头.移动速度),
+                lambda params: params["移动速度"],
+                {"移动速度": "移动速度"}
+            ),
+            8: 表格列定义(
+                str(cls.表头.DPS),
+                lambda params: params["DPS"],
+                {"DPS": "DPS"}
+            ),
+            9: 表格列定义(
+                str(cls.表头.血量特效倍率),
+                lambda params: params["血量特效倍率"],
+                {"血量特效倍率": "血量特效倍率"}
+            ),
+            10: 表格列定义(
+                str(cls.表头.DPS特效倍率),
+                lambda params: params["DPS特效倍率"],
+                {"DPS特效倍率": "DPS特效倍率"}
+            ),
+            11: 表格列定义(
+                str(cls.表头.战力),
+                lambda params: params["战力"],
+                {"战力": "战力"}
+            )
+        }
+
+    #主要功能是获取实际键。因为实际键需要更多的数据，这些数据只有通过函数传入。
+    @classmethod
+    def 创建行参数(cls, ws: Worksheet, 怪物名称: str, 等级: int, 行号: int) -> Dict[str, Any]:
+        """创建行参数字典
+        为每一行数据创建通用的参数字典，包含所有列可能需要的参数
+        
+        Args:
+            ws: 工作表对象
+            第二个参数: 其实是传入的sheet名，ws.titile
+            第三个参数: 当前行数据值
+            行号: 当前处理的行号
+            
+        Returns:
+            Dict[str, Any]: 包含所有可能需要的参数的字典
+        """
+        from LubanData import 全局参数
+        怪物数据 = 已生成怪物.获取怪物(怪物名称)
+        等级字符串 = str(等级)  # 将等级转换为字符串，因为是从json格式的数据中读取，json要求键值必须是字符串类型
+        属性数据 = 怪物数据.各等级属性数据[等级字符串]  # 获取当前等级的属性数据字典
+        return {
+            "怪物名称": 怪物名称,
+            "等级": 等级,
+            "血量": 属性数据["血量"],
+            "攻击力": 属性数据["攻击力"],
+            "攻速": 属性数据["攻击速度"],
+            "攻击范围": 属性数据["攻击范围"],
+            "移动速度": 属性数据["移动速度"],
+            "DPS": 属性数据["DPS"],
+            "战力": 属性数据["战力"],
+            "血量特效倍率": 属性数据["血量特效倍率"],
+            "DPS特效倍率": 属性数据["DPS特效倍率"]
         }
 
 

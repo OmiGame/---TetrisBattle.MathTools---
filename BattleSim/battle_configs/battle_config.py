@@ -13,33 +13,33 @@ WAVE_CONFIGS: List[WaveConfig] = [
         unit_type="普通敌人",
         unit_count=20,
         unit_level=5,
-        spawn_interval=2.0,
+        spawn_interval=1.0,
         spawn_position=FrozenPosition(x=20, y=0),
         unit_config={
-            "hp": 500,
-            "attack": 10,
+            "hp": 100,
+            "attack": 6,
             "attack_speed": 1.0,
-            "attack_range": 2.0,
+            "attack_range": 1.0,
             "move_speed": 1.0,
             "tower_damage": 1
         }
     ),
-    WaveConfig(
-        wave_id=2,
-        unit_type="精英敌人",
-        unit_count=5,
-        unit_level=2,
-        spawn_interval=3.0,
-        spawn_position=FrozenPosition(x=20, y=0),
-        unit_config={
-            "hp": 500,
-            "attack": 20,
-            "attack_speed": 1.2,
-            "attack_range": 2.5,
-            "move_speed": 1.2,
-            "tower_damage": 1
-        }
-    )
+    # WaveConfig(
+    #     wave_id=2,
+    #     unit_type="精英敌人",
+    #     unit_count=5,
+    #     unit_level=2,
+    #     spawn_interval=3.0,
+    #     spawn_position=FrozenPosition(x=20, y=0),
+    #     unit_config={
+    #         "hp": 500,
+    #         "attack": 20,
+    #         "attack_speed": 1.2,
+    #         "attack_range": 2.5,
+    #         "move_speed": 1.2,
+    #         "tower_damage": 1
+    #     }
+    # )
 ]
 
 # 玩家配置
@@ -48,25 +48,25 @@ PLAYER_CONFIG = PlayerConfig(
         {
             "level": 1,
             "hp": 100,
-            "attack": 15,
-            "attack_speed": 1.2,
-            "attack_range": 1,
-            "move_speed": 1.2,
-            "tower_damage": 1
-        },
-        {
-            "level": 1,
-            "hp": 80,
             "attack": 20,
-            "attack_speed": 1.5,
-            "attack_range": 2.0,
-            "move_speed": 1.5,
+            "attack_speed": 1,
+            "attack_range": 1,
+            "move_speed": 1,
             "tower_damage": 1
         },
         {
             "level": 1,
-            "hp": 120,
-            "attack": 10,
+            "hp": 200,
+            "attack": 5,
+            "attack_speed": 1,
+            "attack_range": 1.0,
+            "move_speed": 1,
+            "tower_damage": 1
+        },
+        {
+            "level": 1,
+            "hp": 90,
+            "attack": 20,
             "attack_speed": 1.0,
             "attack_range": 3.0,
             "move_speed": 1.0,
@@ -111,9 +111,9 @@ TOWER_CONFIG = {
 ROGUE_SKILLS = {
     "permanent_boost": {
         "name": "永久强化",
-        "hp_multiplier": 1.5,
-        "attack_multiplier": 1.5,
-        "attack_speed_multiplier": 1.2,
+        "hp_multiplier": 0,
+        "attack_multiplier": 0,
+        "attack_speed_multiplier": 0,
         "spawn_speed_multiplier": 1.0,
         "duration": 0,  # 这个值会被忽略
         "is_permanent": True,
@@ -121,9 +121,9 @@ ROGUE_SKILLS = {
     },
     "temporary_boost": {
         "name": "临时强化",
-        "hp_multiplier": 2.0,
-        "attack_multiplier": 2.0,
-        "attack_speed_multiplier": 1.5,
+        "hp_multiplier": 0,
+        "attack_multiplier": 0,
+        "attack_speed_multiplier": 0,
         "spawn_speed_multiplier": 1.0,
         "duration": 10.0,
         "is_permanent": False,
@@ -131,9 +131,9 @@ ROGUE_SKILLS = {
     },
     "speed_boost": {
         "name": "速度提升",
-        "hp_multiplier": 1.0,
-        "attack_multiplier": 1.0,
-        "attack_speed_multiplier": 2.0,
+        "hp_multiplier": 0,
+        "attack_multiplier": 0,
+        "attack_speed_multiplier": 0,
         "spawn_speed_multiplier": 1.5,
         "duration": 15.0,
         "is_permanent": False,
@@ -144,9 +144,9 @@ ROGUE_SKILLS = {
 # 平均强度肉鸽技能
 AVERAGE_ROGUE_SKILL = {
     "name": "均衡强化",
-    "hp_multiplier": 1.2,
-    "attack_multiplier": 1.2,
-    "attack_speed_multiplier": 1.2,
+    "hp_multiplier": 0,
+    "attack_multiplier": 0,
+    "attack_speed_multiplier": 0,
     "spawn_speed_multiplier": 1.5,
     "duration": 10.0,
     "is_permanent": False,

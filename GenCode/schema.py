@@ -16,14 +16,6 @@ class 参数 :
     def __init__(self, _json_):
         self.参数值 = _json_['参数值']
 
-class 基础数据_攻击范围收益倍率表 :
-    def __init__(self, _json_):
-        self.攻击范围1格 = _json_['攻击范围1格']
-        self.攻击范围2格 = _json_['攻击范围2格']
-        self.攻击范围3格 = _json_['攻击范围3格']
-        self.攻击范围4格 = _json_['攻击范围4格']
-        self.攻击范围5格 = _json_['攻击范围5格']
-
 class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
@@ -170,7 +162,7 @@ class 生成数据_阵容战力成长表_1导 :
 
 class 生成数据_阵容战力成长时间分布_2导 :
     def __init__(self, _json_):
-        self.怪物波次 = _json_['怪物波次']
+        self.怪物等级和波次 = _json_['怪物等级和波次']
         self.时间点_30s = _json_['时间点_30s']
         self.阵容 = _json_['阵容']
         self.选技能次数 = _json_['选技能次数']
@@ -201,22 +193,6 @@ class vector4 :
         self.z = _json_['z']
         self.w = _json_['w']
 
-
-class 基础数据_Tb攻击范围收益倍率表:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = 基础数据_攻击范围收益倍率表(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.攻击范围1格] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
 
 class 基础数据_Tb消除倍率表:
 
@@ -355,7 +331,7 @@ class 生成数据_Tb阵容战力成长时间分布_2导:
         for _json2_ in _json_:
             _v = 生成数据_阵容战力成长时间分布_2导(_json2_)
             self._dataList.append(_v)
-            self._dataMap[_v.怪物波次] = _v
+            self._dataMap[_v.怪物等级和波次] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
@@ -382,7 +358,6 @@ class 生成数据_Tb阵容战力成长表_1导:
 
 class cfg_Tables:
     def __init__(self, loader):
-        self.Tb攻击范围收益倍率表 = 基础数据_Tb攻击范围收益倍率表(loader('基础数据_tb攻击范围收益倍率表')); 
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
         self.Tb玩家操作评估 = 基础数据_Tb玩家操作评估(loader('基础数据_tb玩家操作评估')); 

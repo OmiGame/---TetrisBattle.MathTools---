@@ -129,7 +129,7 @@ class BattleEngine:
         # 生成单位
         self._spawn_units(battle_state, delta_time)
         
-        # 更新单位状态
+        # 更新单位状态（包括肉鸽技能buff效果）
         self._update_units(battle_state, delta_time)
         
         # 检查战斗结束条件
@@ -486,33 +486,13 @@ class BattleEngine:
         """更新单位Buff和行为"""
         current_time = time.time()
         
+        # 更新肉鸽技能状态，去掉过期肉鸽技能效果
+        self._update_rogue_skills(battle_state, current_time)
+        
         # 更新玩家单位
         for unit in battle_state.player_units:
             if unit.state == UnitState.DEAD:
                 continue
-            
-            # 检查buff持续时间
-            expired_buffs = []
-            for skill_name, buff in unit.buffs.items():
-                if current_time - buff["start_time"] >= buff["duration"]:
-                    # 恢复初始属性
-                    unit.hp = unit.initial_attrs["hp"]
-                    unit.max_hp = unit.initial_attrs["max_hp"]
-                    unit.attack = unit.initial_attrs["attack"]
-                    unit.attack_speed = unit.initial_attrs["attack_speed"]
-                    unit.move_speed = unit.initial_attrs["move_speed"]  # 添加恢复移动速度
-                    expired_buffs.append(skill_name)
-            
-            for skill_name in expired_buffs:
-                del unit.buffs[skill_name]
-                # 恢复生成速度
-                if skill_name in battle_state.active_single_skills:
-                    skill = battle_state.active_single_skills[skill_name]
-                    battle_state.player_config.spawn_interval = {
-                        "min": battle_state.player_config.spawn_interval["min"] * skill.spawn_speed_multiplier,
-                        "max": battle_state.player_config.spawn_interval["max"] * skill.spawn_speed_multiplier
-                    }
-                    del battle_state.active_single_skills[skill_name]
             
             # 更新单位行为
             self._update_unit_behavior(unit, battle_state, delta_time)
@@ -810,6 +790,11 @@ class BattleEngine:
                         unit.max_hp -= unit.initial_attrs["max_hp"] * skill.hp_multiplier
                         unit.attack -= unit.initial_attrs["attack"] * skill.attack_multiplier
                         unit.attack_speed -= unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
+                # 回退生成速度倍率
+                battle_state.player_config.spawn_interval = {
+                    "min": battle_state.player_config.spawn_interval["min"] * skill.spawn_speed_multiplier,
+                    "max": battle_state.player_config.spawn_interval["max"] * skill.spawn_speed_multiplier
+                }
                 battle_state.battle_log.append(f"肉鸽技能 {skill.name} 已过期")
         
         # 移除过期的不可重复技能
@@ -830,6 +815,11 @@ class BattleEngine:
                             unit.max_hp -= unit.initial_attrs["max_hp"] * skill.hp_multiplier
                             unit.attack -= unit.initial_attrs["attack"] * skill.attack_multiplier
                             unit.attack_speed -= unit.initial_attrs["attack_speed"] * skill.attack_speed_multiplier
+                    # 回退生成速度倍率
+                    battle_state.player_config.spawn_interval = {
+                        "min": battle_state.player_config.spawn_interval["min"] * skill.spawn_speed_multiplier,
+                        "max": battle_state.player_config.spawn_interval["max"] * skill.spawn_speed_multiplier
+                    }
                     battle_state.battle_log.append(f"肉鸽技能 {skill.name} 已过期")
             
             # 从后向前删除过期的技能，避免索引变化

@@ -304,7 +304,7 @@ class BattleVisualizer:
                 )
                 
                 # 绘制血量数值
-                hp_text = self.font.render(f"{int(unit.hp)}/{unit.max_hp}", True, self.COLOR_WHITE)
+                hp_text = self.font.render(f"{int(unit.hp)}/{unit.max_hp}", True, self.COLOR_BLACK)
                 hp_rect = hp_text.get_rect(center=(screen_x, hp_bar_y - 10))
                 self.screen.blit(hp_text, hp_rect)
 

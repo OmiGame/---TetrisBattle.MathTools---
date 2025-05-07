@@ -1,3 +1,4 @@
+import math
 from typing import List, Dict, Any, Union
 import random
 
@@ -128,3 +129,18 @@ class 数据工具:
             Dict[Any, Union[int, float]]: 排序后的字典
         """
         return dict(sorted(字典.items(), key=lambda x: x[1], reverse=降序)) 
+    
+    @staticmethod
+    def 特殊取整(数值: float) -> int:
+        """对浮点数进行特殊取整处理
+        
+        Args:
+            数值: 需要取整的浮点数
+            
+        Returns:
+            int: 取整后的整数值
+        """
+        fractional, integral = math.modf(数值)
+        if abs(fractional) > 0.5:
+            integral += 1 if fractional > 0 else -1
+        return int(integral)

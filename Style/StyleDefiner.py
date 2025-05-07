@@ -9,6 +9,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, NamedStyle
 class 表格样式类型(Enum):
     """定义表格的样式类型"""
     角色成长表 = auto()
+    怪物表 = auto()
     默认样式 = auto()
 
 class 字体风格(Enum):
@@ -67,6 +68,16 @@ class 样式配置项:
         字体=字体配置(颜色风格.黑色)
     ),
 
+    # 怪物表样式
+    "header_怪物表": 样式配置项(
+        "header_怪物表",
+        字体=字体配置(颜色风格.白色, 字体风格.加粗),
+        背景=背景配置(颜色风格.灰黑)
+    ),
+    "data_怪物表": 样式配置项(
+        "data_怪物表",
+        字体=字体配置(颜色风格.黑色)
+    ),
 
     # 默认样式
     "header_default": 样式配置项(
@@ -85,6 +96,10 @@ class 样式配置项:
     表格样式类型.角色成长表: {
         "header": "header_角色成长",
         "data": "data_角色成长"
+    },
+    表格样式类型.怪物表: {
+        "header": "header_怪物表",
+        "data": "data_怪物表"
     },
     表格样式类型.默认样式: {
         "header": "header_default",
