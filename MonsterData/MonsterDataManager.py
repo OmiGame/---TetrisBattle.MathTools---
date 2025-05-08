@@ -1,10 +1,11 @@
+"""怪物数据管理器，负责保存和加载怪物数据"""
 import json
 import os
 from typing import Dict, List
 from MonsterData.MonsterTypes import 怪物基础属性数据, 怪物职业
 
-class 已生成怪物:
-    """管理所有已生成的怪物数据，使用单例模式确保只有一个实例"""
+class 怪物数据保存器:
+    """已生成的怪物数据管理类"""
     _instance = None
     _怪物数据字典: Dict[str, 怪物基础属性数据] = {}
     _数据目录 = "MonsterData"
@@ -12,7 +13,7 @@ class 已生成怪物:
 
     def __new__(cls):
         if cls._instance is None:
-            cls._instance = super(已生成怪物, cls).__new__(cls)
+            cls._instance = super(怪物数据保存器, cls).__new__(cls)
             # 确保数据目录存在
             if not os.path.exists(cls._数据目录):
                 os.makedirs(cls._数据目录)
@@ -42,6 +43,7 @@ class 已生成怪物:
         
         with open(cls._怪物数据文件路径, 'w', encoding='utf-8') as f:
             json.dump(数据字典, f, ensure_ascii=False, indent=4)
+        print(f"已保存怪物数据到文件: {cls._怪物数据文件路径}")
 
     @classmethod
     def _加载数据(cls) -> None:
@@ -153,4 +155,14 @@ class 已生成怪物:
         """清空所有已生成的怪物数据"""
         cls._怪物数据字典.clear()
         if os.path.exists(cls._怪物数据文件路径):
-            os.remove(cls._怪物数据文件路径) 
+            os.remove(cls._怪物数据文件路径)
+
+    @classmethod
+    def 添加所有怪物(cls, 怪物列表: List[怪物基础属性数据]) -> None:
+        """批量添加怪物到数据字典中
+        
+        Args:
+            怪物列表: 要添加的怪物基础属性数据列表
+        """
+        for 怪物 in 怪物列表:
+            cls.添加怪物(怪物)

@@ -119,6 +119,20 @@ class 角色技能倍率 :
         self.技能名称 = _json_['技能名称']
         self.技能描述 = _json_['技能描述']
 
+class 生成数据_怪物基础数据表_3导 :
+    def __init__(self, _json_):
+        self.怪物名称等级 = _json_['怪物名称等级']
+        self.等级 = _json_['等级']
+        self.血量 = _json_['血量']
+        self.攻击力 = _json_['攻击力']
+        self.攻速 = _json_['攻速']
+        self.攻击范围 = _json_['攻击范围']
+        self.移动速度 = _json_['移动速度']
+        self.DPS = _json_['DPS']
+        self.血量特效倍率 = _json_['血量特效倍率']
+        self.DPS特效倍率 = _json_['DPS特效倍率']
+        self.战力 = _json_['战力']
+
 class 生成数据_角色成长数据_1导 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
@@ -290,6 +304,22 @@ class 基础数据_Tb角色技能数据表:
 
     def get(self, key) : return self._dataMap.get(key)
 
+class 生成数据_Tb怪物基础数据表_3导:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_怪物基础数据表_3导(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.怪物名称等级] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 class 生成数据_Tb肉鸽技能选择节奏_1导:
 
     def __init__(self, _json_ ):
@@ -364,6 +394,7 @@ class cfg_Tables:
         self.Tb肉鸽技能数据表 = 基础数据_Tb肉鸽技能数据表(loader('基础数据_tb肉鸽技能数据表')); 
         self.Tb角色初始属性表 = 基础数据_Tb角色初始属性表(loader('基础数据_tb角色初始属性表')); 
         self.Tb角色技能数据表 = 基础数据_Tb角色技能数据表(loader('基础数据_tb角色技能数据表')); 
+        self.Tb怪物基础数据表_3导 = 生成数据_Tb怪物基础数据表_3导(loader('生成数据_tb怪物基础数据表_3导')); 
         self.Tb肉鸽技能选择节奏_1导 = 生成数据_Tb肉鸽技能选择节奏_1导(loader('生成数据_tb肉鸽技能选择节奏_1导')); 
         self.Tb角色成长数据_1导 = 生成数据_Tb角色成长数据_1导(loader('生成数据_tb角色成长数据_1导')); 
         self.Tb阵容战力成长时间分布_2导 = 生成数据_Tb阵容战力成长时间分布_2导(loader('生成数据_tb阵容战力成长时间分布_2导')); 

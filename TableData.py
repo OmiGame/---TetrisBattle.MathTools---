@@ -5,7 +5,7 @@ from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from enum import Enum
 from LubanData import tables,全局参数
-from MonsterData.MonsterDataManager import 已生成怪物
+from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterDataGenerater import 怪物设计基本参数
 
 @dataclass
@@ -784,7 +784,7 @@ class 怪物基础数据表:
             Dict[str, Any]: 包含所有可能需要的参数的字典
         """
         from LubanData import 全局参数
-        怪物数据 = 已生成怪物.获取怪物(怪物名称)
+        怪物数据 = 怪物数据保存器.获取怪物(怪物名称)
         等级字符串 = str(等级)  # 将等级转换为字符串，因为是从json格式的数据中读取，json要求键值必须是字符串类型
         属性数据 = 怪物数据.各等级属性数据[等级字符串]  # 获取当前等级的属性数据字典
         return {

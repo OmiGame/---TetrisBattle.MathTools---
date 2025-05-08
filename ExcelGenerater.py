@@ -4,7 +4,8 @@ from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
 from TableData import 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数
-from MonsterData.MonsterDataManager import 已生成怪物
+from MonsterData.MonsterDataManager import 怪物数据保存器
+from MonsterData.MonsterTypes import 已设计怪物
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -139,6 +140,35 @@ class 生成表:
         
         print(f"\n所有等级(1-{角色等级上限})的阵容战力成长时间分布表生成完成!")
 
+    @classmethod
+    def 生成所有已设计怪物表格(cls, save_folder: str = save_folder_path, 
+                            表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成所有已设计怪物的表格
+        
+        Args:
+            save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
+            表格样式: 表格的样式类型
+        """
+        if save_folder is None:
+            save_folder = save_folder_path
+            
+        print(f"\n开始生成所有已设计怪物的表格...")
+        
+        # 初始化已生成怪物实例
+        _ = 怪物数据保存器()  # 这会触发单例模式的初始化，初始化时加载保存的怪物数据
+        
+        # 遍历所有已设计的怪物
+        for 怪物 in 已设计怪物:
+            print(f"\n正在生成{怪物.value}的表格...")
+            cls.生成表格(
+                表格定义=怪物基础数据表,
+                sheet_name=怪物.value,
+                save_folder=save_folder,
+                表格样式=表格样式
+            )
+        
+        print(f"\n所有已设计怪物的表格生成完成!")
+
 # 调用示例
 if __name__ == "__main__":
     print("开始生成表格...")
@@ -178,28 +208,7 @@ if __name__ == "__main__":
     #     表格样式=表格样式类型.默认样式
     # )
 
-    生成表.生成所有等级的阵容战力成长时间分布表()
+    # 生成表.生成所有等级的阵容战力成长时间分布表()
 
-
-
-
-    print("\n正在生成怪物基础数据表...")
-    # 初始化已生成怪物实例
-    
-    _ = 已生成怪物()  # 这会触发单例模式的初始化，初始化时加载保存的怪物数据，保证在生成表格时能够访问到完整的怪物数据
-    """生成怪物表格前，确保最新的怪物数据已经保存在MonsterDataManager.py中。更新generator后，也要更新字典，因为生成表格用的是保存的json文件"""
-
-    生成表.生成表格(
-        表格定义=怪物基础数据表,
-        sheet_name="普通坦克",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.默认样式
-    )
-
-    print("\n正在生成怪物基础数据表...")
-    生成表.生成表格(
-        表格定义=怪物基础数据表,
-        sheet_name="萨哈比精英坦克",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.默认样式
-    )
+    # 生成所有已设计怪物的表格
+    生成表.生成所有已设计怪物表格()
