@@ -1,6 +1,6 @@
 from enum import Enum
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, List
 
 class 怪物职业(Enum):
     """怪物职业划分"""
@@ -21,6 +21,12 @@ class 已设计怪物(Enum):
     泰森 = "泰森"
     残酷射手 = "残酷射手"
 
+class 地图类型(Enum):
+    """地图类型枚举"""
+    雪山 = "雪山"
+    火山 = "火山"
+    森林 = "森林"
+    草原 = "草原"
 
 @dataclass
 class 怪物基础属性数据:
@@ -28,12 +34,17 @@ class 怪物基础属性数据:
     名称: str
     职业: 怪物职业
     品质: 怪物品质
+    怪物编号: int
+    适配地图: List[地图类型]
     各等级属性数据: Dict[int, Dict[str, float]]  # 等级 -> 属性字典
     基础攻击速度: float
     基础攻击范围: float
     基础移动速度: float
     血量特效倍率: float
     DPS特效倍率: float
+    血量成长倍率: float
+    攻击力成长倍率: float
+    对塔伤害: int = 1  # 默认值为1
 
     def __post_init__(self):
         """验证属性值的范围"""
@@ -51,6 +62,15 @@ class 怪物基础属性数据:
         
         if not 0 <= self.DPS特效倍率 <= 1:
             raise ValueError(f"DPS特效倍率必须在0到1之间，当前值: {self.DPS特效倍率}")
+        
+        if not 1 <= self.血量成长倍率 <= 3:
+            raise ValueError(f"血量成长倍率必须在0到1之间，当前值: {self.血量成长倍率}")
+        
+        if not 1 <= self.攻击力成长倍率 <= 3:
+            raise ValueError(f"攻击力成长倍率必须在0到1之间，当前值: {self.攻击力成长倍率}")
+            
+        if not 1 <= self.对塔伤害 <= 5:
+            raise ValueError(f"对塔伤害必须在1到5之间，当前值: {self.对塔伤害}")
 
     def 获取等级属性(self, 等级: int) -> Dict[str, float]:
         """获取指定等级的属性数据"""
