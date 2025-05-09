@@ -132,6 +132,9 @@ class 生成数据_怪物基础数据表_3导 :
         self.血量特效倍率 = _json_['血量特效倍率']
         self.DPS特效倍率 = _json_['DPS特效倍率']
         self.战力 = _json_['战力']
+        self.品质 = _json_['品质']
+        self.职业 = _json_['职业']
+        self.名称 = _json_['名称']
 
 class 生成数据_角色成长数据_1导 :
     def __init__(self, _json_):

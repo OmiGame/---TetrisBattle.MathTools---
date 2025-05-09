@@ -2,7 +2,7 @@
 import json
 import os
 from typing import Dict, List
-from MonsterData.MonsterTypes import 怪物基础属性数据, 怪物职业
+from MonsterData.MonsterTypes import 怪物基础属性数据, 怪物职业, 已设计怪物, 怪物品质
 
 class 怪物数据保存器:
     """已生成的怪物数据管理类"""
@@ -33,6 +33,7 @@ class 怪物数据保存器:
             数据字典[名称] = {
                 "名称": 怪物.名称,
                 "职业": 怪物.职业.value,
+                "品质": 怪物.品质.value,
                 "属性数据": 怪物.各等级属性数据,
                 "基础攻击速度": 怪物.基础攻击速度,
                 "基础攻击范围": 怪物.基础攻击范围,
@@ -62,6 +63,7 @@ class 怪物数据保存器:
                 怪物 = 怪物基础属性数据(
                     名称=数据["名称"],
                     职业=怪物职业(数据["职业"]),
+                    品质=怪物品质(数据["品质"]),
                     各等级属性数据=数据["属性数据"],
                     基础攻击速度=数据["基础攻击速度"],
                     基础攻击范围=数据["基础攻击范围"],
@@ -75,41 +77,26 @@ class 怪物数据保存器:
             print(f"加载怪物数据时出错: {e}")
 
     @classmethod
-    def 添加怪物(cls, 怪物: 怪物基础属性数据) -> None:
-        """添加一个怪物到数据字典中
-        
-        Args:
-            怪物: 要添加的怪物基础属性数据
-        """
-        cls._怪物数据字典[怪物.名称] = 怪物
-        cls._保存数据()  # 保存到文件
-        print(f"已添加怪物到怪物数据字典: {怪物.名称}")
+    def 添加怪物(cls, 怪物数据: 怪物基础属性数据):
+        """添加一个怪物数据到保存器中"""
+        cls._怪物数据字典[怪物数据.名称] = 怪物数据
 
     @classmethod
     def 获取怪物(cls, 怪物名称: str) -> 怪物基础属性数据:
-        """获取指定名称的怪物数据
-        
-        Args:
-            怪物名称: 要获取的怪物名称
-            
-        Returns:
-            怪物基础属性数据: 对应的怪物数据
-            
-        Raises:
-            KeyError: 如果找不到指定名称的怪物
-        """
+        """获取指定名称的怪物数据"""
         if 怪物名称 not in cls._怪物数据字典:
             raise KeyError(f"找不到名为 {怪物名称} 的怪物数据")
         return cls._怪物数据字典[怪物名称]
 
     @classmethod
-    def 获取所有怪物(cls) -> Dict[str, 怪物基础属性数据]:
-        """获取所有已生成的怪物数据
-        
-        Returns:
-            Dict[str, 怪物基础属性数据]: 所有怪物数据的字典
-        """
-        return cls._怪物数据字典.copy()
+    def 获取所有怪物(cls) -> List[怪物基础属性数据]:
+        """获取所有保存的怪物数据"""
+        return list(cls._怪物数据字典.values())
+
+    @classmethod
+    def 清空数据(cls):
+        """清空所有保存的怪物数据"""
+        cls._怪物数据字典.clear()
 
     @classmethod
     def 获取所有怪物名称(cls) -> List[str]:
@@ -151,18 +138,7 @@ class 怪物数据保存器:
         ]
 
     @classmethod
-    def 清空数据(cls) -> None:
-        """清空所有已生成的怪物数据"""
-        cls._怪物数据字典.clear()
-        if os.path.exists(cls._怪物数据文件路径):
-            os.remove(cls._怪物数据文件路径)
-
-    @classmethod
-    def 添加所有怪物(cls, 怪物列表: List[怪物基础属性数据]) -> None:
-        """批量添加怪物到数据字典中
-        
-        Args:
-            怪物列表: 要添加的怪物基础属性数据列表
-        """
-        for 怪物 in 怪物列表:
-            cls.添加怪物(怪物)
+    def 添加所有怪物(cls, 怪物数据列表: List[怪物基础属性数据]):
+        """批量添加怪物数据到保存器中"""
+        for 怪物数据 in 怪物数据列表:
+            cls.添加怪物(怪物数据)

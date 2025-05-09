@@ -669,6 +669,9 @@ class 怪物基础数据表:
         血量特效倍率 = 表头信息("血量特效倍率","float")
         DPS特效倍率 = 表头信息("DPS特效倍率","float")
         战力 = 表头信息("战力", "float")
+        品质 = 表头信息("品质","string")
+        职业 = 表头信息("职业","string")
+        名称 = 表头信息("名称","string")
         @classmethod
         def 获取表头字典(cls) -> Dict[str, str]:
             return {str(成员): 成员.类型 for 成员 in cls}
@@ -765,6 +768,21 @@ class 怪物基础数据表:
                 str(cls.表头.战力),
                 lambda params: params["战力"],
                 {"战力": "战力"}
+            ),
+            12: 表格列定义(
+                str(cls.表头.品质),
+                lambda params: params["品质"],
+                {"品质": "品质"}
+            ),
+            13: 表格列定义(
+                str(cls.表头.职业),
+                lambda params: params["职业"],
+                {"职业": "职业"}
+            ),
+            14: 表格列定义(
+                str(cls.表头.名称),
+                lambda params: params["名称"],
+                {"名称": "名称"}
             )
         }
 
@@ -798,7 +816,10 @@ class 怪物基础数据表:
             "DPS": 属性数据["DPS"],
             "战力": 属性数据["战力"],
             "血量特效倍率": 属性数据["血量特效倍率"],
-            "DPS特效倍率": 属性数据["DPS特效倍率"]
+            "DPS特效倍率": 属性数据["DPS特效倍率"],
+            "品质": 怪物数据.品质.value,
+            "职业": 怪物数据.职业.value,
+            "名称": 怪物数据.名称
         }
 
 
