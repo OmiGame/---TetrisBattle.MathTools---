@@ -2,10 +2,12 @@
 
 import os
 from ExcelTools import 表格工具
+from LubanData import 全局参数,tables
 from Style.StyleDefiner import 表格样式类型
-from MonsterData.MonsterDataManager import 怪物数据保存器
-from MonsterData.MonsterTypes import 已设计怪物, 地图类型
-from BossData.BossDataType import 战斗Boss, 技能Boss, Boss配置
+from MonsterData.MonsterTypes import 怪物设计表,怪物基础数据表
+from BossData.BossDataType import  技能Boss, 标准阵容
+from BossData.BossDataType import 战斗boss初始属性表, 技能boss初始属性表
+
 
 class Boss生成器:
     def __init__(self, save_folder: str = None):
@@ -28,8 +30,8 @@ class Boss生成器:
             表格样式: 表格的样式类型
         """
         # 使用默认配置或传入的配置
-        血量倍数 = 血量倍数 or Boss配置.战斗型Boss默认血量倍数
-        攻击力倍数 = 攻击力倍数 or Boss配置.战斗型Boss默认攻击力倍数
+        血量倍数 = 血量倍数 or 10
+        攻击力倍数 = 攻击力倍数 or 3
 
         # 初始化保存路径和文件名
         os.makedirs(self.save_folder, exist_ok=True)
@@ -40,9 +42,6 @@ class Boss生成器:
 
         #为了让boss编号和怪物编号不冲突，给boss编号附加一个值
         Boss编号附加值 = 1000
-        
-        # 初始化怪物管理器，加载所有已保存怪物数据
-        怪物管理器 = 怪物数据保存器()
         
         # 获取工作表对象和样式
         wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
@@ -64,7 +63,9 @@ class Boss生成器:
         headers.update({
             "移动速度": "float",
             "适配地图": "string",
-            "对塔伤害": "int"
+            "对塔伤害": "int",
+            "血量倍数": "float",
+            "攻击力倍数": "float"
         })
         
         # 生成表头
@@ -73,8 +74,8 @@ class Boss生成器:
         # 遍历所有已设计的怪物，每个Boss只取一级数据
         当前行号 = self.特殊行数 + 1
         
-        for 怪物枚举 in 已设计怪物:
-            怪物名称 = 怪物枚举.value
+        for 怪物 in 怪物设计表.getDataList():
+            怪物名称 = 怪物.名称
             print(f"\n正在添加{怪物名称}的Boss数据...")
             
             # 创建行参数
@@ -99,7 +100,11 @@ class Boss生成器:
                     raw_value = raw_value + Boss编号附加值
                 # 确保值是基本类型
                 if isinstance(raw_value, (int, float)):
-                    cell_value = round(float(raw_value), 1)
+                     # 根据列名决定保留的小数位数
+                            if "倍率"or"倍数" in 列定义.列名:
+                                cell_value = round(float(raw_value), 4)
+                            else:
+                                cell_value = round(float(raw_value), 1)
                 else:
                     cell_value = str(raw_value)
                 
@@ -108,9 +113,11 @@ class Boss生成器:
             
             # 写入新增的属性
             ws.cell(row=当前行号, column=列号映射["移动速度"], value=row_params.get("移动速度", 1.2)).style = 数据样式名
-            ws.cell(row=当前行号, column=列号映射["适配地图"], value=",".join([地图.value for 地图 in row_params.get("适配地图", [])])).style = 数据样式名
+            适配地图值 = ",".join(row_params.get("适配地图", [])) if row_params.get("适配地图") else ""
+            ws.cell(row=当前行号, column=列号映射["适配地图"], value=适配地图值).style = 数据样式名
             ws.cell(row=当前行号, column=列号映射["对塔伤害"], value=20).style = 数据样式名
-            
+            ws.cell(row=当前行号, column=列号映射["血量倍数"], value=血量倍数).style = 数据样式名
+            ws.cell(row=当前行号, column=列号映射["攻击力倍数"], value=攻击力倍数).style = 数据样式名
             当前行号 += 1
         
         # 调整列宽并保存文件
@@ -178,13 +185,22 @@ class Boss生成器:
         wb.save(file_path)
         print(f"\n技能型Boss属性表生成完成，文件已保存至：{file_path}")
 
-# 使用示例
+    @classmethod
+    def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.3) -> float:
+        boss出现时长 = 全局参数.关卡时长 * 60 * 波次/(全局参数.关卡时长*60/全局参数.怪物波次间隔)  
+        #选三个标准阵容，计算出当前等级的DPS
+        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.弓箭手.value},{平均等级}").基础DPS
+        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.士兵.value},{平均等级}").基础DPS
+        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.弓.value},{平均等级}").基础DPS
+        标准阵容总DPS = (角色1 + 角色2 + 角色3)
+        #计算出boss血量
+        boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比
+        return boss血量
+
+
 if __name__ == "__main__":
-    # 创建Boss生成器实例
-    boss生成器 = Boss生成器()
-    
-    # 生成战斗型Boss表格（使用默认配置）
-    boss生成器.生成战斗型Boss表格()
-    
-    # 生成技能型Boss表格（使用配置中的Boss列表）
-    boss生成器.生成技能型Boss表格(Boss配置.技能型Boss列表)
+    Boss生成器.技能型Boss血量值计算(10,5)
+
+
+
+

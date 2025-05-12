@@ -14,6 +14,7 @@ def loader(f):
 
 tables = schema.cfg_Tables(loader)
 怪物设计表 = tables.Tb怪物设计表
+怪物基础数据表 = tables.Tb怪物基础数据表_3导
 
 
 class 怪物职业(Enum):
@@ -119,7 +120,7 @@ class 怪物设计理论值基本参数:
     # 精英怪对比普通怪战力的差距
     精英怪对比普通怪 = 1.5
 
-    怪度最低等级 = 1
+    怪物最低等级 = 1
     怪物最高等级 = 20
 
 # 怪物属性配置

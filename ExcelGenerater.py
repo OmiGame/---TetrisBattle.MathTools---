@@ -111,7 +111,11 @@ class 生成表:
                 
                 # 确保值是基本类型（字符串、数字等），而不是单元格对象
                 if isinstance(raw_value, (int, float)):
-                    cell_value = round(float(raw_value), 1)
+                    # 根据列名决定保留的小数位数
+                    if "倍率" in 列定义.列名:
+                        cell_value = round(float(raw_value), 4)
+                    else:
+                        cell_value = round(float(raw_value), 1)
                 else:
                     cell_value = str(raw_value)
                 
@@ -228,7 +232,11 @@ class 生成表:
                         
                         # 确保值是基本类型（字符串、数字等），而不是单元格对象
                         if isinstance(raw_value, (int, float)):
-                            cell_value = round(float(raw_value), 1)
+                            # 根据列名决定保留的小数位数
+                            if "倍率" in 列定义.列名:
+                                cell_value = round(float(raw_value), 4)
+                            else:
+                                cell_value = round(float(raw_value), 1)
                         else:
                             cell_value = str(raw_value)
                         

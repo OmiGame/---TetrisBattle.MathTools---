@@ -1,7 +1,25 @@
 """Boss相关的数据类型"""
 
 from enum import Enum
+import json
 from typing import List, Dict, Any
+from GenCode import schema as schema
+
+def loader(f):
+    return json.load(open('GenData/' + f + ".json", 'r', encoding="utf-8"))
+
+tables = schema.cfg_Tables(loader)
+战斗boss初始属性表 = tables.Tb战斗型Boss属性表_3导
+技能boss初始属性表 = tables.Tb技能型Boss属性表_3导
+
+
+"""计算boss血量时的标准阵容"""
+class 标准阵容(Enum):
+    弓箭手 = "弓箭手"
+    士兵 = "士兵"
+    弓 = "弓"
+
+
 
 
 class 战斗Boss:
@@ -21,36 +39,9 @@ class 技能Boss:
         self.移动速度 = 移动速度  # 技能Boss的移动速度默认为1.2
         self.适配地图 = 适配地图 if 适配地图 is not None else []  # 技能Boss的适配地图默认为空列表
         self.对塔伤害 = 对塔伤害  # 技能Boss的对塔伤害默认为0
-    
 
-class Boss配置:
-    """Boss相关的配置数据管理类"""
+
     
-    # 战斗型Boss的默认配置
-    战斗型Boss默认血量倍数 = 10
-    战斗型Boss默认攻击力倍数 = 3
-    
-    # 技能型Boss的默认配置
-    技能型Boss列表 = [
-        技能Boss(
-            名称="技能Boss1",
-            编号="3999",
-            技能等级=1,
-            血量=1000.0,
-            移动速度=1.2,
-            适配地图=["雪山", "火山"],
-            对塔伤害=0
-        ),
-        技能Boss(
-            名称="技能Boss2",
-            编号="3998",
-            技能等级=1,
-            血量=2000.0,
-            移动速度=1.2,
-            适配地图=["森林"],
-            对塔伤害=0
-        ),
-    ]
 
 
     
