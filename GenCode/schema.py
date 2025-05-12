@@ -16,6 +16,27 @@ class 参数 :
     def __init__(self, _json_):
         self.参数值 = _json_['参数值']
 
+class 基础数据_怪物设计表 :
+    def __init__(self, _json_):
+        self.怪物编号 = _json_['怪物编号']
+        self.品质 = _json_['品质']
+        self.职业 = _json_['职业']
+        self.名称 = _json_['名称']
+        self.等级 = _json_['等级']
+        self.血量 = _json_['血量']
+        self.攻击力 = _json_['攻击力']
+        self.攻速 = _json_['攻速']
+        self.攻击范围 = _json_['攻击范围']
+        self.移动速度 = _json_['移动速度']
+        self.DPS = _json_['DPS']
+        self.血量特效倍率 = _json_['血量特效倍率']
+        self.DPS特效倍率 = _json_['DPS特效倍率']
+        self.战力 = _json_['战力']
+        self.血量成长倍率 = _json_['血量成长倍率']
+        self.攻击力成长倍率 = _json_['攻击力成长倍率']
+        self.适配地图 = _json_['适配地图']
+        self.对塔伤害 = _json_['对塔伤害']
+
 class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
@@ -270,6 +291,22 @@ class vector4 :
         self.w = _json_['w']
 
 
+class 基础数据_Tb怪物设计表:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 基础数据_怪物设计表(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.怪物编号] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 class 基础数据_Tb消除倍率表:
 
     def __init__(self, _json_ ):
@@ -498,6 +535,7 @@ class 生成数据_Tb阵容战力成长表_1导:
 
 class cfg_Tables:
     def __init__(self, loader):
+        self.Tb怪物设计表 = 基础数据_Tb怪物设计表(loader('基础数据_tb怪物设计表')); 
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
         self.Tb玩家操作评估 = 基础数据_Tb玩家操作评估(loader('基础数据_tb玩家操作评估')); 

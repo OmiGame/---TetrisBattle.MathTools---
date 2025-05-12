@@ -1,6 +1,20 @@
 from enum import Enum
 from dataclasses import dataclass
 from typing import Dict, List
+import os
+import sys
+
+# from BattleFormula import 战斗公式，会导致循环导入报错
+sys.path.append(os.path.abspath('Gen'))
+import json
+from GenCode import schema as schema
+
+def loader(f):
+    return json.load(open('GenData/' + f + ".json", 'r', encoding="utf-8"))
+
+tables = schema.cfg_Tables(loader)
+怪物设计表 = tables.Tb怪物设计表
+
 
 class 怪物职业(Enum):
     """怪物职业划分"""
@@ -14,12 +28,6 @@ class 怪物品质(Enum):
     普通 = "普通"
     精英 = "精英"
 
-class 已设计怪物(Enum):
-    """已设计好的怪物枚举类"""
-    普通坦克 = "普通坦克"
-    萨哈比精英坦克 = "萨哈比精英坦克"
-    泰森 = "泰森"
-    残酷射手 = "残酷射手"
 
 class 地图类型(Enum):
     """地图类型枚举"""
@@ -98,7 +106,7 @@ class 怪物属性比例和期望生命周期:
         if abs(总比例 - 1.0) > 0.0001:  # 使用小误差范围来处理浮点数比较
             raise ValueError(f"属性比例之和必须等于1，当前为: {总比例}")
 
-class 怪物设计基本参数:
+class 怪物设计理论值基本参数:
     """怪物设计的基本参数配置"""
     # 战力系数控制
     最大战力系数 = 1.2
@@ -124,4 +132,4 @@ class 怪物设计基本参数:
     (怪物职业.远程, 怪物品质.精英): 怪物属性比例和期望生命周期(血量比例=0.45, DPS比例=0.55, 期望生存时间=5),
     (怪物职业.刺客, 怪物品质.普通): 怪物属性比例和期望生命周期(血量比例=0.5, DPS比例=0.5, 期望生存时间=5),
     (怪物职业.刺客, 怪物品质.精英): 怪物属性比例和期望生命周期(血量比例=0.55, DPS比例=0.45, 期望生存时间=6)
-} 
+}

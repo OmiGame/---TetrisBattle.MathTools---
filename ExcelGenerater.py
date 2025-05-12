@@ -4,8 +4,9 @@ from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
 from TableData import 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数
-from MonsterData.MonsterDataManager import 怪物数据保存器
-from MonsterData.MonsterTypes import 已设计怪物
+# from MonsterData.MonsterDataManager import 怪物数据保存器
+from MonsterData.MonsterTypes import 怪物设计表
+from MonsterData.MonsterDataGenerater import 怪物设计理论值基本参数, 计算怪物属性
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -162,34 +163,7 @@ class 生成表:
     @classmethod
     def 生成所有已设计怪物表格(cls, save_folder: str = save_folder_path, 
                             表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
-        """生成所有已设计怪物的表格
-        
-        Args:
-            save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
-            表格样式: 表格的样式类型
-        """
-            
-        print(f"\n开始生成所有已设计怪物的表格...")
-        
-        # 初始化已生成怪物实例
-        _ = 怪物数据保存器()  # 这会触发单例模式的初始化，初始化时加载保存的怪物数据
-        
-        # 遍历所有已设计的怪物
-        for 怪物 in 已设计怪物:
-            print(f"\n正在生成{怪物.value}的表格...")
-            cls.生成表格(
-                表格定义=怪物基础数据表,
-                sheet_name=怪物.value,
-                save_folder=save_folder,
-                表格样式=表格样式
-            )
-        
-        print(f"\n所有已设计怪物的表格生成完成!")
-
-    @classmethod
-    def 生成怪物初始属性汇总表(cls, save_folder: str = save_folder_path, 
-                            表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
-        """生成所有怪物一级属性汇总表，将所有怪物的一级数据放在同一个表格的同一个sheet中
+        """生成所有已设计怪物的表格，所有怪物数据放在同一个sheet中
         
         Args:
             save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
@@ -197,13 +171,10 @@ class 生成表:
         """
         # 初始化保存路径和文件名
         os.makedirs(save_folder, exist_ok=True)
-        file_path = os.path.join(save_folder, "#怪物初始属性汇总表_3导.xlsx")
-        sheet_name = "怪物初始属性"
+        file_path = os.path.join(save_folder, 怪物基础数据表.表格名称)
+        sheet_name = "所有怪物数据"
         
-        print(f"\n开始生成怪物初始属性汇总表...")
-        
-        # 初始化已生成怪物实例
-        怪物管理器 = 怪物数据保存器()  # 这会触发单例模式的初始化，初始化时加载保存的怪物数据
+        print(f"\n开始生成所有已设计怪物的表格...")
         
         # 获取工作表对象和样式
         wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
@@ -223,46 +194,64 @@ class 生成表:
         # 生成表头，从特殊列之后开始
         表格工具.生成表头(ws, headers, 表头样式名, start_row=1, start_col=特殊列数+1)
         
-        # 遍历所有已设计的怪物，每个怪物只取一级数据
+        # 获取行数据范围
+        起始值, 结束值 = 怪物基础数据表.获取行数据范围()
+        
+        # 获取所有怪物数据
+        print("正在获取所有怪物数据...")
+        所有怪物数据 = 计算怪物属性.生成所有怪物实际数据()
+        print(f"获取到 {len(所有怪物数据)} 个怪物数据")
+        
+        # 遍历所有怪物
         当前行号 = 特殊行数 + 1  # 从特殊行之后开始
         
-        for 怪物枚举 in 已设计怪物:
-            怪物名称 = 怪物枚举.value
-            print(f"\n正在添加{怪物名称}的一级数据...")
+        for 怪物 in 所有怪物数据:
+            print(f"\n正在添加{怪物.名称}的数据...")
+            # print(f"怪物属性: {怪物.__dict__}")
             
-            # 创建行参数
-            row_params = 怪物基础数据表.创建行参数(ws, 怪物名称, 1, 当前行号)  # 1是怪物等级
-            
-            # 创建列名到列号的映射
-            列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
-            
-            # 生成每列数据
-            for col_num, 列定义 in column_functions.items():
-                # 根据参数映射创建实际的参数字典
-                实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
-                
-                # 计算并写入单元格值
-                raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
-                
-                # 确保值是基本类型（字符串、数字等），而不是单元格对象
-                if isinstance(raw_value, (int, float)):
-                    cell_value = round(float(raw_value), 1)
-                else:
-                    cell_value = str(raw_value)
-                
-                cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
-                cell.style = 数据样式名
-            
-            当前行号 += 1
+            # 遍历每个怪物的所有等级
+            for 等级 in range(起始值, 结束值 + 1):
+                try:
+                    # 创建行参数
+                    row_params = 怪物基础数据表.创建行参数(ws, 怪物.名称, 等级, 当前行号)
+                    
+                    # 创建列名到列号的映射
+                    列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                    
+                    # 生成每列数据
+                    for col_num, 列定义 in column_functions.items():
+                        # 根据参数映射创建实际的参数字典
+                        实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                        
+                        # 计算并写入单元格值
+                        raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                        
+                        # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                        if isinstance(raw_value, (int, float)):
+                            cell_value = round(float(raw_value), 1)
+                        else:
+                            cell_value = str(raw_value)
+                        
+                        cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                        cell.style = 数据样式名
+                    
+                    当前行号 += 1
+                except Exception as e:
+                    print(f"处理怪物 {怪物.名称} 等级 {等级} 时出错: {str(e)}")
+                    raise
         
         # 调整列宽并保存文件
         表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
         wb.save(file_path)
-        print(f"\n怪物初始属性汇总表生成完成，文件已保存至：{file_path}")
+        print(f"\n所有已设计怪物的表格生成完成，文件已保存至：{file_path}")
+
 
 # 调用示例
 if __name__ == "__main__":
     print("开始生成表格...")
+    
+    # 生成所有已设计怪物的表格
+    生成表.生成所有已设计怪物表格()
     
     # # 生成角色表（使用角色成长表样式）
     # print("\n正在生成弓箭手表格...")
@@ -301,8 +290,5 @@ if __name__ == "__main__":
 
     # 生成表.生成所有等级的阵容战力成长时间分布表()
 
-    # 生成所有已设计怪物的表格
-    生成表.生成所有已设计怪物表格()
-    
     # 生成怪物初始属性汇总表
-    生成表.生成怪物初始属性汇总表()
+    # 生成表.生成怪物初始属性汇总表()

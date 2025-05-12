@@ -5,7 +5,7 @@ from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
 from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterTypes import 已设计怪物, 地图类型
-from BossData.BossDataType import 战斗Boss, 技能Boss
+from BossData.BossDataType import 战斗Boss, 技能Boss, Boss配置
 
 class Boss生成器:
     def __init__(self, save_folder: str = None):
@@ -18,15 +18,19 @@ class Boss生成器:
         self.特殊行数 = 3  # 前3行是特殊行（##var, ##type, ##）
         self.特殊列数 = 1  # 第1列是特殊列
 
-    def 生成战斗型Boss表格(self, 血量倍数: float = 10, 攻击力倍数: float = 3, 
+    def 生成战斗型Boss表格(self, 血量倍数: float = None, 攻击力倍数: float = None, 
                      表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
         """生成战斗型Boss的表格
         
         Args:
-            血量倍数: Boss血量的倍数
-            攻击力倍数: Boss攻击力的倍数
+            血量倍数: Boss血量的倍数，如果为None则使用默认配置
+            攻击力倍数: Boss攻击力的倍数，如果为None则使用默认配置
             表格样式: 表格的样式类型
         """
+        # 使用默认配置或传入的配置
+        血量倍数 = 血量倍数 or Boss配置.战斗型Boss默认血量倍数
+        攻击力倍数 = 攻击力倍数 or Boss配置.战斗型Boss默认攻击力倍数
+
         # 初始化保存路径和文件名
         os.makedirs(self.save_folder, exist_ok=True)
         file_path = os.path.join(self.save_folder, "#战斗型Boss属性表_3导.xlsx")
@@ -179,12 +183,8 @@ if __name__ == "__main__":
     # 创建Boss生成器实例
     boss生成器 = Boss生成器()
     
-    # 生成战斗型Boss表格
-    boss生成器.生成战斗型Boss表格(血量倍数=12, 攻击力倍数=3)
+    # 生成战斗型Boss表格（使用默认配置）
+    boss生成器.生成战斗型Boss表格()
     
-    # 生成技能型Boss表格
-    技能型Boss列表 = [
-        技能Boss(名称="技能Boss1", 编号="3999", 技能等级=1, 血量=1000.0, 移动速度=1.2, 适配地图=[地图类型.雪山.value, 地图类型.火山.value], 对塔伤害=0),
-        技能Boss(名称="技能Boss2", 编号="3998", 技能等级=1, 血量=2000.0, 移动速度=1.2, 适配地图=[地图类型.森林.value], 对塔伤害=0),
-    ]
-    boss生成器.生成技能型Boss表格(技能型Boss列表)
+    # 生成技能型Boss表格（使用配置中的Boss列表）
+    boss生成器.生成技能型Boss表格(Boss配置.技能型Boss列表)

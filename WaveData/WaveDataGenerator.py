@@ -4,7 +4,7 @@ import random
 from dataclasses import dataclass
 from WaveDataType import 波次配置, 组配置, 波次体验, 波次基础配置, 组基础配置, 波盈缺范围
 from LubanData import tables, 全局参数
-from MonsterData.MonsterTypes import 怪物设计基本参数
+from MonsterData.MonsterTypes import 怪物设计理论值基本参数
 import enum
 # 导入文本颜色工具
 from 文本颜色工具 import 文本颜色, 打印警告, 打印错误, 打印成功, 打印调试, 消息类型
@@ -380,10 +380,10 @@ class 波次生成器:
                     
                     if 调整方向 < 0:  # 需要降低怪物等级
                         等级减少值 = max(1, min(3, int(原始等级 * 调整系数 + 1)))
-                        新等级 = max(怪物设计基本参数.怪物最低等级, 原始等级 - 等级减少值)  # 确保不低于怪物最低等级
+                        新等级 = max(怪物设计理论值基本参数.怪物最低等级, 原始等级 - 等级减少值)  # 确保不低于怪物最低等级
                     else:  # 需要提高怪物等级
                         等级增加值 = max(1, min(3, int(原始等级 * 调整系数 + 1)))
-                        新等级 = min(怪物设计基本参数.怪物最高等级, 原始等级 + 等级增加值)  # 确保不超过怪物最高等级
+                        新等级 = min(怪物设计理论值基本参数.怪物最高等级, 原始等级 + 等级增加值)  # 确保不超过怪物最高等级
                     
                     组.等级 = 新等级
             
