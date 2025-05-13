@@ -37,6 +37,13 @@ class 基础数据_怪物设计表 :
         self.适配地图 = _json_['适配地图']
         self.对塔伤害 = _json_['对塔伤害']
 
+class 基础数据_关卡设计表 :
+    def __init__(self, _json_):
+        self.关卡编号 = _json_['关卡编号']
+        self.关卡难度 = _json_['关卡难度']
+        self.角色平均等级 = _json_['角色平均等级']
+        self.适配地图 = _json_['适配地图']
+
 class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
@@ -273,6 +280,22 @@ class vector4 :
         self.w = _json_['w']
 
 
+class 基础数据_Tb关卡设计表:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 基础数据_关卡设计表(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.关卡编号] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 class 基础数据_Tb怪物设计表:
 
     def __init__(self, _json_ ):
@@ -501,6 +524,7 @@ class 生成数据_Tb阵容战力成长表_1导:
 
 class cfg_Tables:
     def __init__(self, loader):
+        self.Tb关卡设计表 = 基础数据_Tb关卡设计表(loader('基础数据_tb关卡设计表')); 
         self.Tb怪物设计表 = 基础数据_Tb怪物设计表(loader('基础数据_tb怪物设计表')); 
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
