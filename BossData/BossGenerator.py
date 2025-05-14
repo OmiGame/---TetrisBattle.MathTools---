@@ -92,11 +92,11 @@ class Boss生成器:
                 raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, self.特殊行数+1)
                 
                 # 对血量和攻击力应用倍数
-                if "血量" in 列定义.列名:
+                if 列定义.列名 == "血量":
                     raw_value *= 血量倍数
-                elif "攻击力" in 列定义.列名:
+                elif 列定义.列名 == "攻击力":
                     raw_value *= 攻击力倍数
-                elif "怪物编号" in 列定义.列名:
+                elif 列定义.列名 == "怪物编号":
                     raw_value = raw_value + Boss编号附加值
                 # 确保值是基本类型
                 if isinstance(raw_value, (int, float)):
@@ -187,7 +187,7 @@ class Boss生成器:
 
     @classmethod
     def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.3) -> float:
-        boss出现时长 = 全局参数.关卡时长 * 60 * 波次/(全局参数.关卡时长*60/全局参数.怪物波次间隔)  
+        boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
         #选三个标准阵容，计算出当前等级的DPS
         角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.弓箭手.value},{平均等级}").基础DPS
         角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.士兵.value},{平均等级}").基础DPS
@@ -199,7 +199,9 @@ class Boss生成器:
 
 
 if __name__ == "__main__":
-    Boss生成器.技能型Boss血量值计算(10,5)
+    
+    生成器 = Boss生成器()
+    生成器.生成战斗型Boss表格()
 
 
 

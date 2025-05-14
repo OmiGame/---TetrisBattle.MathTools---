@@ -267,7 +267,7 @@ class 生成表:
         """
         # 初始化保存路径和文件名
         os.makedirs(save_folder, exist_ok=True)
-        file_path = os.path.join(save_folder, f"关卡编号{关卡编号}.xlsx")
+        file_path = os.path.join(save_folder, f"{关卡编号}.xlsx")
         sheet_name = f"{关卡编号}"
         
         print(f"\n开始生成关卡编号{关卡编号}的表格...")
@@ -285,17 +285,17 @@ class 生成表:
             (1, 1): "##var", (2, 1): "##type", (3, 1): "##var", (4, 1): "##", (5, 1): "##var", (6, 1): "##",
             (1, 2): "level_id", (1, 3): "time_before_spawn", (1, 5): "*wave_list",
             (2, 2): "int", (2, 3): "float", (2, 5): "list,WaveData",
-            (3, 5): "*enemy_group_list",
-            (4, 2): "关卡编号", (4, 3): "生成延迟时间", (4, 4): "波次", (4, 5): "组列表",
-            (5, 5): "enemy_id", (5, 6): "enemy_count", (5, 7): "current_level",
+            (3, 5): "*enemy_group_list",(3,11):"time_between_waves",
+            (4, 2): "关卡编号", (4, 3): "生成延迟时间", (4, 4): "波次", (4, 5): "组列表",(4,11):"波次间时间间隔",
+            (5, 5): "enemy_id", (5, 6): "enemy_count", (5, 7): "current_level",(5,8):"reset_hp",(5,9):"time_between_enemies",(5,10):"time_between_groups"
         }
         
         # 合并单元格
         合并区域 = [
-            'E1:G1', 'E2:G2', 'E3:G3', 'E4:G4', 'H1:J5', 'B6:C6'
+            'E1:K1', 'E2:K2', 'E3:J3', 'E4:J4'
         ]
         表头行范围 = 7
-        表头列范围 = 14
+        表头列范围 = 17
 
 
         # 统一设置样式和值

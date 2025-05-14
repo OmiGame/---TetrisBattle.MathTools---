@@ -66,7 +66,6 @@ class 难度类型(Enum):
 }
 
 
-
 @dataclass
 class 关卡基础配置:
     """关卡基础配置"""

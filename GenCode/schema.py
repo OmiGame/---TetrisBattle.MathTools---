@@ -261,6 +261,15 @@ class 生成数据_阵容战力成长时间分布_2导 :
         self.每波怪物总战力 = _json_['每波怪物总战力']
         self.平均相当于多少个上阵角色 = _json_['平均相当于多少个上阵角色']
 
+class EnemyGroup :
+    def __init__(self, _json_):
+        self.enemy_id = _json_['enemy_id']
+        self.enemy_count = _json_['enemy_count']
+        self.current_level = _json_['current_level']
+        self.reset_hp = _json_['reset_hp']
+        self.time_between_enemies = _json_['time_between_enemies']
+        self.time_between_groups = _json_['time_between_groups']
+
 class vector2 :
     def __init__(self, _json_):
         self.x = _json_['x']
@@ -278,6 +287,14 @@ class vector4 :
         self.y = _json_['y']
         self.z = _json_['z']
         self.w = _json_['w']
+
+class WaveData :
+    def __init__(self, _json_):
+        self.enemy_group_list = []
+        for _ele0_ in _json_['enemy_group_list']:
+            _e0_ = EnemyGroup(_ele0_)
+            self.enemy_group_list.append(_e0_)
+        self.time_between_waves = _json_['time_between_waves']
 
 
 class 基础数据_Tb关卡设计表:
