@@ -56,7 +56,7 @@ class 表格工具:
 
     @staticmethod
     def 按中文调整列宽(ws, start_row , start_col, end_col):
-        """处理数据的起始列：遍历所有行，找最大值"""
+        """处理表头的起始列：遍历所有行，找最大值"""
         first_column = get_column_letter(start_col)
         max_length = 0
         for cell in ws[first_column]:  # 遍历该列所有单元格
@@ -117,6 +117,56 @@ class 表格工具:
         wb.add_named_style(样式生成器.创建样式(data_config))
 
         return header_style_name, data_style_name
+    
+    @staticmethod
+    def 生成关卡表头(ws: Worksheet, headers: Dict[str, str], style_name: str, start_row: int = 6, start_col: int = 4) -> None:
+        """生成关卡表头
+        只在特殊行生成一行表头
+        
+        Args:
+            ws: 工作表对象
+            headers: 表头字典，key为显示名称，value为数据类型
+            style_name: 样式名称
+            start_row: 起始行号
+            start_col: 起始列号
+        """   
+        # 生成第三行（显示名称）
+        for col, (header, _) in enumerate(headers.items(), start_col):
+            cell = ws.cell(row=start_row, column=col, value=header)
+            cell.style = style_name
+
+    @staticmethod
+    def 调整关卡表列宽(ws, start_row , start_col, end_col):
+        """处理表头的前三列：遍历所有行，找最大值，并统一设置为相同宽度"""
+        # 计算前三列中的最大宽度
+        max_length_first_three = 0
+        
+        # 遍历前三列，找出最大宽度
+        for col_offset in range(3):  # 前三列
+            column = get_column_letter(start_col + col_offset)
+            for cell in ws[column]:  # 遍历该列所有单元格
+                if cell.value:
+                    cell_length = len(str(cell.value))
+                    if cell_length > max_length_first_three:
+                        max_length_first_three = cell_length  # 保留最大值
+        
+        # 统一设置前三列宽度
+        adjusted_width = (max_length_first_three + 2) * 1.2  # 调整系数为 2.2
+        for col_offset in range(3):  # 前三列
+            column = get_column_letter(start_col + col_offset)
+            ws.column_dimensions[column].width = adjusted_width
+
+        """处理其他列： 需要传入表头的起始行"""
+        for col in range(start_col + 3, end_col + 1):  # 从第四列开始
+            cell = ws.cell(row=start_row, column=col)
+            content_length = len(str(cell.value)) if cell.value else 0
+            adjusted_width = (content_length + 2) * 2.2  # 同样调整系数
+            column_letter = get_column_letter(col)
+            ws.column_dimensions[column_letter].width = adjusted_width
+
+
+
+
     
     # @classmethod
     # def 找到类字段(cls, target_name: str):
