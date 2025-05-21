@@ -82,6 +82,9 @@ class 基础数据_经济系统配置表 :
             _k0_ = _elek0_
             _v0_ = 资源数据(_elev0_)
             self.经济系统数据[_k0_] = _v0_
+        self.钻石价格 = _json_['钻石价格']
+        self.购买次数 = _json_['购买次数']
+        self.获得次数 = _json_['获得次数']
 
 class 基础数据_肉鸽技能数据表 :
     def __init__(self, _json_):
