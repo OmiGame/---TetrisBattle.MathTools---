@@ -74,6 +74,15 @@ class 基础数据_角色技能数据表 :
             _v0_ = 角色技能倍率(_elev0_)
             self.各等级技能倍率[_k0_] = _v0_
 
+class 基础数据_经济系统配置表 :
+    def __init__(self, _json_):
+        self.经济系统 = _json_['经济系统']
+        self.经济系统数据 = {};
+        for _elek0_, _elev0_ in _json_['经济系统数据']:
+            _k0_ = _elek0_
+            _v0_ = 资源数据(_elev0_)
+            self.经济系统数据[_k0_] = _v0_
+
 class 基础数据_肉鸽技能数据表 :
     def __init__(self, _json_):
         self.肉鸽技能名称 = _json_['肉鸽技能名称']
@@ -261,6 +270,12 @@ class 生成数据_阵容战力成长时间分布_2导 :
         self.每波怪物总战力 = _json_['每波怪物总战力']
         self.平均相当于多少个上阵角色 = _json_['平均相当于多少个上阵角色']
 
+class 资源数据 :
+    def __init__(self, _json_):
+        self.类型 = _json_['类型']
+        self.数值 = _json_['数值']
+        self.浮动范围 = _json_['浮动范围']
+
 class EnemyGroup :
     def __init__(self, _json_):
         self.enemy_id = _json_['enemy_id']
@@ -371,6 +386,22 @@ class 基础数据_Tb玩家操作评估:
             _v = 基础数据_玩家操作评估(_json2_)
             self._dataList.append(_v)
             self._dataMap[_v.平均一个方块下几秒] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 基础数据_Tb经济系统配置表:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 基础数据_经济系统配置表(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.经济系统] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
@@ -546,6 +577,7 @@ class cfg_Tables:
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
         self.Tb玩家操作评估 = 基础数据_Tb玩家操作评估(loader('基础数据_tb玩家操作评估')); 
+        self.Tb经济系统配置表 = 基础数据_Tb经济系统配置表(loader('基础数据_tb经济系统配置表')); 
         self.Tb肉鸽技能数据表 = 基础数据_Tb肉鸽技能数据表(loader('基础数据_tb肉鸽技能数据表')); 
         self.Tb角色初始属性表 = 基础数据_Tb角色初始属性表(loader('基础数据_tb角色初始属性表')); 
         self.Tb角色技能数据表 = 基础数据_Tb角色技能数据表(loader('基础数据_tb角色技能数据表')); 

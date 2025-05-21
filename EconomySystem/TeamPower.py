@@ -2,7 +2,7 @@
 import math
 # from LubanData import 全局参数
 from itertools import combinations_with_replacement
-from EconomySystem.EcoDataType import 阵容强度数据, 角色碎片数据, 关卡阶段枚举
+from EconomySystem.EcoDataType import 阵容强度数据, 角色养成数据, 关卡阶段枚举
 
 # 创建模拟的全局参数类，用于测试
 class 全局参数:
