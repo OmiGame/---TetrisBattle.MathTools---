@@ -158,25 +158,3 @@ class 全局参数:
             方块上的小兵数3 = tables.Tb消除倍率表.get("方块上的小兵数").消除参数.get("方块上的小兵数3").参数值
             方块上的小兵数4 = tables.Tb消除倍率表.get("方块上的小兵数").消除参数.get("方块上的小兵数4").参数值
 
-
-
-
-# 引用案例
-# 因为luban的python版本没有做定义索引器 []，所以不能像C#中通过  tables.Tb角色初始属性表[key]，只能通过 tables.Tb角色初始属性表.get(key) 进行访问
-# 正常一行多列表的引用
-# print(查找角色初始属性字典("士兵"))#获得角色名
-# print(tables.Tb角色初始属性表.getDataList())  #返回所有list的内存地址
-# print(tables.Tb角色初始属性表.getDataList()[0])  #返回list[0]的内存地址，也就是第一行数据的地址
-# print(tables.Tb角色初始属性表.getDataList()[0].__dict__)  #返回第一行数据地址下保存的字典数据
-# print(tables.Tb角色初始属性表.get("士兵"))   #获得key所在的内存地址
-# print(tables.Tb角色初始属性表.get("士兵").__dict__)   #获得key的地址所保存的数据
-# print(tables.Tb角色初始属性表.get("弓箭手").期望生命周期)  #获得期望生命周期 属性
-# print(tables.Tb角色初始属性表.get("士兵").角色名称)  #属性可正常访问
-#
-# #多行多列表，需要先获得最外层字典名，再根据内层字典查找数据。具体把键当成横坐标，属性当纵坐标，以此来定位数据
-# print(tables.Tb角色技能数据表.get("士兵").各等级技能倍率.get(5).血量特效倍率)
-# print(tables.Tb消除倍率表.get("可操作列").消除参数.get(f"可操作列9").参数值)
-
-#
-# #纵表的引用方式本质上和横表一样，但因为没有key值所以无法直接引用，可以直接用getdatalist(0)获取所有数据，然后直接根据属性来访问
-# print(tables.Tb游戏基本参数.getDataList()[0].小方块经验值)

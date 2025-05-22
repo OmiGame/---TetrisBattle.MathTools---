@@ -1,7 +1,9 @@
 """经济系统数据定义模块"""
 from dataclasses import dataclass
 from enum import Enum
+import math
 from typing import Dict, List, Literal, Optional, Union
+import warnings
 from LubanData import 全局参数
 
 class 阵容强度数据:
@@ -141,8 +143,47 @@ class 角色养成数据:
     }
 
     碎片产出系数 = 1.0      #用于控制产出的是否完美符合需求，大于1则会比实际需求更多
-    金币产出系数 = 1.0      
+    金币产出系数 = 1.0     
 
+    @classmethod
+    def 获取角色养成数据(cls):
+        """获取角色养成数据"""
+        return {
+            "角色碎片消耗": cls.角色碎片消耗,
+            "角色金币消耗": cls.角色金币消耗,
+        }
+    
+    @classmethod
+    def 计算碎片价值比(cls):
+        """计算各品质碎片的价值比例，同等级下的角色价值比就是他们的强度比"""
+        同等级下的价值 = 阵容强度数据.同等级的角色品质强度
+        绿色品质碎片消耗总量 = sum(cls.角色碎片消耗["绿色"])
+        蓝色品质碎片消耗总量 = sum(cls.角色碎片消耗["蓝色"])
+        紫色品质碎片消耗总量 = sum(cls.角色碎片消耗["紫色"])
+
+        绿色碎片价值 = round(同等级下的价值["绿色"]/绿色品质碎片消耗总量 *10000 *2.5)
+        蓝色碎片价值 = round(同等级下的价值["蓝色"]/蓝色品质碎片消耗总量 *10000 *2.5)
+        紫色碎片价值 = round(同等级下的价值["紫色"]/紫色品质碎片消耗总量 *10000 *2.5)
+
+        cls.check_fractional_part(绿色碎片价值, "绿色")
+        cls.check_fractional_part(蓝色碎片价值, "蓝色")
+        cls.check_fractional_part(紫色碎片价值, "紫色")
+
+        return {
+            "绿色碎片价值": 绿色碎片价值,
+            "蓝色碎片价值": 蓝色碎片价值,
+            "紫色碎片价值": 紫色碎片价值
+        }
+    
+    @classmethod
+    def check_fractional_part(cls,value, color_name):
+        """检查小数部分是否在 (0.2, 0.8) 之间，并发出警告"""
+        fractional, _ = math.modf(value)  # 分解整数和小数部分
+        if  0.8 > abs(fractional) > 0.2:
+            warnings.warn(
+                f"⚠️ {color_name}碎片价值的小数部分 ({fractional:.2f}) 在范围 (0.2~0.8)中，取整时舍弃过多，建议重新计算！",
+                category=UserWarning
+            )
 
 
 
@@ -155,3 +196,5 @@ if __name__ == "__main__":
     print(sum(角色养成数据.角色金币消耗["绿色"]))
     print(sum(角色养成数据.角色金币消耗["蓝色"]))
     print(sum(角色养成数据.角色金币消耗["紫色"]))
+
+    print(角色养成数据.计算碎片价值比())
