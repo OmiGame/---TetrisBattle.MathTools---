@@ -4,9 +4,8 @@ import os
 from ExcelTools import 表格工具
 from LubanData import 全局参数,tables
 from Style.StyleDefiner import 表格样式类型
-from MonsterData.MonsterTypes import 怪物设计表,怪物基础数据表
+from MonsterData.MonsterTypes import 怪物设计表
 from BossData.BossDataType import  技能Boss, 标准阵容
-from BossData.BossDataType import 战斗boss初始属性表, 技能boss初始属性表
 
 
 class Boss生成器:

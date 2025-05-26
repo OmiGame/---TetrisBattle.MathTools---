@@ -45,6 +45,7 @@ class 全局参数:
     蓝色成长倍率 = tables.Tb游戏基本参数.getDataList()[0].蓝色成长倍率
     紫色成长倍率 = tables.Tb游戏基本参数.getDataList()[0].紫色成长倍率
     绿色角色1级战力 = tables.Tb游戏基本参数.getDataList()[0].绿色角色1级战力
+    平均肉鸽技能倍率 = tables.Tb游戏基本参数.getDataList()[0].平均肉鸽技能倍率
 
     # 玩家操作评估
     平均一个方块下几秒 = tables.Tb玩家操作评估.getDataList()[0].平均一个方块下几秒

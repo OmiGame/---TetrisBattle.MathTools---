@@ -1,8 +1,11 @@
 import os
 from typing import Type, Any, Dict
+
+import numpy as np
+from EconomySystem.TeamPower import 阵容强度计算
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
-from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
+from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容强度下的战力成长时间分布, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数
 # from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterTypes import 怪物设计表
@@ -113,7 +116,7 @@ class 生成表:
                 # 确保值是基本类型（字符串、数字等），而不是单元格对象
                 if isinstance(raw_value, (int, float)):
                     # 根据列名决定保留的小数位数
-                    if "倍率" in 列定义.列名:
+                    if "倍率" or "阵容强度" in 列定义.列名:
                         cell_value = round(float(raw_value), 4)
                     else:
                         cell_value = round(float(raw_value), 1)
@@ -164,6 +167,112 @@ class 生成表:
             )
         
         print(f"\n所有等级(1-{角色等级上限})的阵容战力成长时间分布表生成完成!")
+    
+
+    @classmethod
+    def 生成所有阵容强度的战力成长时间分布表(cls, save_folder: str = save_folder_path, 
+                                表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """根据阵容强度来计算战力成长时间分布表，所有强度数据放在同一个sheet中
+        
+        Args:
+            save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
+            表格样式: 表格的样式类型
+        """
+        所有阵容 = 阵容强度计算.生成所有阵容()
+        关卡阵容强度列表 = 阵容强度计算.获取所有关卡的强度列表(所有阵容)
+        
+        # 保留小数点后1位
+        最小强度 = round(min(关卡阵容强度列表), 1)
+        最大强度 = round(max(关卡阵容强度列表), 1)
+        步长 = 0.1
+
+        # 计算结束点，确保包含最大强度
+        强度差 = 最大强度 - 最小强度
+        步数 = int(round(强度差 / 步长)) + 1
+        
+        # 生成强度范围列表，确保每个值都是1位小数
+        强度范围列表 = []
+        for i in range(步数):
+            强度值 = round(最小强度 + i * 步长, 1)
+            强度范围列表.append(强度值)
+        
+        print(f"\n开始生成从最小强度 {最小强度} 到 最大强度 {最大强度} 的战力成长时间分布表...")
+        print(f"共 {len(强度范围列表)} 个强度级别")
+        
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, "所有阵容强度战力成长时间分布表_1导.xlsx")
+        sheet_name = "所有强度数据"
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+        
+        # 写入特殊的第一列数据
+        for i in range(特殊行数):
+            ws.cell(row=i+1, column=1, value=f"##{'var' if i==0 else 'type' if i==1 else ''}").style = 表头样式名
+        
+        # 获取列函数映射
+        column_functions = 阵容强度下的战力成长时间分布.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+        
+        # 生成表头，从特殊列之后开始
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=1, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 阵容强度下的战力成长时间分布.获取行数据范围()
+        
+        当前行号 = 特殊行数 + 1  # 从特殊行之后开始
+        
+        # 循环生成每个强度的数据
+        for 阵容强度 in 强度范围列表:
+            print(f"正在处理强度 {阵容强度} 的数据...")
+            
+            # 遍历该强度下的每个数据行
+            for 行索引 in range(起始值, 结束值 + 1):
+                try:
+                    # 创建行参数
+                    row_params = 阵容强度下的战力成长时间分布.创建行参数(ws, 阵容强度, 行索引, 当前行号)
+                    
+                    # 创建列名到列号的映射
+                    列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}
+                    
+                    # 生成每列数据
+                    for col_num, 列定义 in column_functions.items():
+                        # 根据参数映射创建实际的参数字典
+                        实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                        
+                        # 计算并写入单元格值
+                        raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                        
+                        # 确保值是基本类型
+                        if isinstance(raw_value, (int, float)):
+                            # 根据列名决定保留的小数位数
+                            if "倍率" in 列定义.列名:
+                                cell_value = round(float(raw_value), 4)
+                            else:
+                                cell_value = round(float(raw_value), 1)
+                        else:
+                            cell_value = str(raw_value)
+                        
+                        # 写入单元格
+                        cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                        cell.style = 数据样式名
+                    
+                    当前行号 += 1
+                    
+                except Exception as e:
+                    print(f"处理强度 {阵容强度} 行索引 {行索引} 时出错: {str(e)}")
+                    raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"\n所有阵容强度的战力成长时间分布表生成完成，文件已保存至：{file_path}")
+        print(f"共处理 {len(强度范围列表)} 个强度级别，{当前行号 - 特殊行数 - 1} 行数据")
 
     @classmethod
     def 生成所有已设计怪物表格(cls, save_folder: str = save_folder_path, 
@@ -417,12 +526,17 @@ if __name__ == "__main__":
     # 生成所有关卡表格
     # 生成表.生成所有关卡表格()
 
-    生成表.生成表格(
-        表格定义=关卡设计表,
-        sheet_name="关卡设计表",
-        save_folder=save_folder_path,
-        表格样式=表格样式类型.默认样式
-    )
+    # 生成表.生成表格(
+    #     表格定义=关卡设计表,
+    #     sheet_name="关卡设计表",
+    #     save_folder=save_folder_path,
+    #     表格样式=表格样式类型.默认样式
+    # )
+
+    生成表.生成所有阵容强度的战力成长时间分布表()
+    
+
+
 
 
 
