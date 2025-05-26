@@ -149,6 +149,13 @@ class 基础数据_游戏基本参数 :
         self.最大行数 = _json_['最大行数']
         self.最大列数 = _json_['最大列数']
         self.每行经验值 = _json_['每行经验值']
+        self.绿色强度 = _json_['绿色强度']
+        self.蓝色强度 = _json_['蓝色强度']
+        self.紫色强度 = _json_['紫色强度']
+        self.绿色成长倍率 = _json_['绿色成长倍率']
+        self.蓝色成长倍率 = _json_['蓝色成长倍率']
+        self.紫色成长倍率 = _json_['紫色成长倍率']
+        self.绿色角色1级战力 = _json_['绿色角色1级战力']
 
 class 角色技能倍率 :
     def __init__(self, _json_):
@@ -181,6 +188,13 @@ class 生成数据_怪物基础数据表_3导 :
         self.适配地图 = _json_['适配地图']
         self.对塔伤害 = _json_['对塔伤害']
         self.和理论值对比 = _json_['和理论值对比']
+
+class 生成数据_关卡设计表_1导 :
+    def __init__(self, _json_):
+        self.关卡编号 = _json_['关卡编号']
+        self.阵容强度 = _json_['阵容强度']
+        self.关卡难度 = _json_['关卡难度']
+        self.适配地图 = _json_['适配地图']
 
 class 生成数据_技能型Boss属性表_3导 :
     def __init__(self, _json_):
@@ -459,6 +473,22 @@ class 基础数据_Tb角色技能数据表:
 
     def get(self, key) : return self._dataMap.get(key)
 
+class 生成数据_Tb关卡设计表_1导:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_关卡设计表_1导(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.关卡编号] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 class 生成数据_Tb怪物基础数据表_3导:
 
     def __init__(self, _json_ ):
@@ -584,6 +614,7 @@ class cfg_Tables:
         self.Tb肉鸽技能数据表 = 基础数据_Tb肉鸽技能数据表(loader('基础数据_tb肉鸽技能数据表')); 
         self.Tb角色初始属性表 = 基础数据_Tb角色初始属性表(loader('基础数据_tb角色初始属性表')); 
         self.Tb角色技能数据表 = 基础数据_Tb角色技能数据表(loader('基础数据_tb角色技能数据表')); 
+        self.Tb关卡设计表_1导 = 生成数据_Tb关卡设计表_1导(loader('生成数据_tb关卡设计表_1导')); 
         self.Tb怪物基础数据表_3导 = 生成数据_Tb怪物基础数据表_3导(loader('生成数据_tb怪物基础数据表_3导')); 
         self.Tb战斗型Boss属性表_3导 = 生成数据_Tb战斗型Boss属性表_3导(loader('生成数据_tb战斗型boss属性表_3导')); 
         self.Tb技能型Boss属性表_3导 = 生成数据_Tb技能型Boss属性表_3导(loader('生成数据_tb技能型boss属性表_3导')); 

@@ -38,6 +38,13 @@ class 全局参数:
     每行经验值 = tables.Tb游戏基本参数.getDataList()[0].每行经验值
     最大行数 = tables.Tb游戏基本参数.getDataList()[0].最大行数
     最大列数 = tables.Tb游戏基本参数.getDataList()[0].最大列数
+    绿色强度 = tables.Tb游戏基本参数.getDataList()[0].绿色强度
+    蓝色强度 = tables.Tb游戏基本参数.getDataList()[0].蓝色强度
+    紫色强度 = tables.Tb游戏基本参数.getDataList()[0].紫色强度
+    绿色成长倍率 = tables.Tb游戏基本参数.getDataList()[0].绿色成长倍率
+    蓝色成长倍率 = tables.Tb游戏基本参数.getDataList()[0].蓝色成长倍率
+    紫色成长倍率 = tables.Tb游戏基本参数.getDataList()[0].紫色成长倍率
+    绿色角色1级战力 = tables.Tb游戏基本参数.getDataList()[0].绿色角色1级战力
 
     # 玩家操作评估
     平均一个方块下几秒 = tables.Tb玩家操作评估.getDataList()[0].平均一个方块下几秒

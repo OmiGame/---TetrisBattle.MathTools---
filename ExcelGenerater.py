@@ -2,7 +2,7 @@ import os
 from typing import Type, Any, Dict
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
-from TableData import 关卡表, 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
+from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数
 # from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterTypes import 怪物设计表
@@ -415,7 +415,17 @@ if __name__ == "__main__":
     print("开始生成表格...")
 
     # 生成所有关卡表格
-    生成表.生成所有关卡表格()
+    # 生成表.生成所有关卡表格()
+
+    生成表.生成表格(
+        表格定义=关卡设计表,
+        sheet_name="关卡设计表",
+        save_folder=save_folder_path,
+        表格样式=表格样式类型.默认样式
+    )
+
+
+
 
     # 生成单个关卡表格示例
     # 生成表.生成关卡表(

@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from enum import Enum
+from EconomySystem.TeamPower import 阵容强度计算
 from LubanData import tables,全局参数
 # from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterDataGenerater import 怪物设计理论值基本参数, 计算怪物属性
@@ -1053,6 +1054,103 @@ class 关卡表:
             "怪物名称": 当前关卡数据.波次配置[波次-1].怪物组列表[怪物组索引].怪物名称,
             "角色平均等级": 当前关卡数据.角色平均等级参考,
             "波次体验": 当前关卡数据.波次配置[波次-1].波次体验.value
+        }
+    
+class 关卡设计表:
+    """关卡设计表的数据定义类"""
+    # 表格基本信息
+    表格名称: str = "#关卡设计表_1导.xlsx"
+    默认工作表名称: str = "关卡设计表"
+    
+    # 表格其他属性
+    行数据类型: str = "关卡编号"
+    行数据起始值: int = 1
+    行数据结束值: int = 100
+
+    #获取经济数值中规划好的关卡数据
+    所有阵容 = 阵容强度计算.生成所有阵容()
+    关卡强度列表 = 阵容强度计算.获取所有关卡的强度列表(所有阵容)
+    关卡角色强度要求 = 阵容强度计算.计算所有关卡角色强度要求(关卡强度列表)
+    关卡数量: int = len(关卡角色强度要求)
+
+    @classmethod
+    def 获取行数据范围(cls) -> tuple[int, int]:
+        """实际数据的范围，不包括表头
+        可以根据需要重写此方法，返回自定义的行数据范围
+        
+        Returns:
+            tuple[int, int]: (起始值, 结束值)
+        """
+        from LubanData import 全局参数
+        return (cls.行数据起始值, cls.关卡数量)
+
+    @classmethod
+    def 获取行数据(cls, 当前值: int) -> str:
+        """获取行数据的显示值
+        可以根据需要重写此方法，返回自定义的行数据显示值
+        
+        Args:
+            当前值: 当前的行数据值
+            
+        Returns:
+            str: 行数据的显示值
+        """
+        return f"{cls.行数据类型}{当前值}"
+
+    @classmethod
+    def 获取列函数映射(cls) -> Dict[int, 表格列定义]:
+        from BattleFormula import 战斗公式
+        from ExcelTools import 表格工具
+        
+        return {
+            1: 表格列定义(
+                列名="关卡编号",
+                列函数=lambda params: params["关卡编号"],
+                参数映射={"关卡编号": "关卡编号"},
+                表头数据类型="int"
+            ),
+            2: 表格列定义(
+                列名="阵容强度",
+                列函数=lambda params: params["阵容强度"],
+                参数映射={"阵容强度": "阵容强度"},
+                表头数据类型="float"
+            ),
+            3: 表格列定义(
+                列名="关卡难度",
+                列函数=lambda params: params["关卡难度"],
+                参数映射={"关卡难度": "关卡难度"},
+                表头数据类型="string"
+            ),
+            4: 表格列定义(
+                列名="适配地图",
+                列函数=lambda params: params["适配地图"],
+                参数映射={"适配地图": "适配地图"},
+                表头数据类型="string"
+            )
+        }
+
+    #主要功能是获取实际键。因为实际键需要更多的数据，这些数据只有通过函数传入。
+    @classmethod
+    def 创建行参数(cls, ws: Worksheet, 阵容组合名称: str, 关卡数: int, 行号: int) -> Dict[str, Any]:
+        """创建行参数字典
+        为每一行数据创建通用的参数字典，包含所有列可能需要的参数
+        
+        Args:
+            ws: 工作表对象
+            角色名称: 其实是传入的sheet名，ws.titile
+            角色等级: 当前行数据值
+            行号: 当前处理的行号
+            
+        Returns:
+            Dict[str, Any]: 包含所有可能需要的参数的字典
+        """
+        某关强度数据 = cls.关卡角色强度要求[关卡数]
+        阵容强度 = max(某关强度数据.values()) * 3
+        return {
+            "关卡编号": 10000 + 关卡数 * 10,
+            "阵容强度": 阵容强度,
+            "关卡难度": " ",         #手动填写
+            "适配地图": " ",          #手动填写
         }
 
 
