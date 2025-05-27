@@ -1,5 +1,5 @@
 """波次的数据类型，基础数据和计算数据分离，先填基础数据，然后通过函数获得计算数据，从而拿到所有配置数据"""
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
 from typing import List, Optional, Dict, Tuple
 from LubanData import tables, 全局参数
@@ -27,8 +27,8 @@ class 波次体验(Enum):
         "怪物组数":(2, 3),
         "生成坦克数量":(0, 0),
         "怪物品质": "普通",
-        "怪物数量范围": (16, 24),
-        "怪物等级范围": (-8, -3),  # 相对于角色平均等级的偏移
+        "怪物数量范围": (12, 24),
+        "怪物等级范围": (-8, -3),  # 相对于蓝色角色平均等级的偏移
         "组内间隔范围": (0.5, 0.75),
         "组间间隔范围": (1.0, 1.2),
         "波次间隔时间范围": (30, 40),
@@ -136,7 +136,8 @@ class 组配置(组基础配置):
 @dataclass
 class 波次基础配置:
     """波次基础配置"""
-    角色平均等级: int
+    阵容强度: float
+    参考等级: int
     波次ID: int                 #第几波
     波次体验: 波次体验
     怪物组列表: List[组配置]  
@@ -165,15 +166,15 @@ class 波次配置(波次基础配置):
     def 波期望战力值(self) -> float:
         """计算波次期望战力值"""
         if self._波期望战力值 is None:
-            print(f"{self.角色平均等级}, {self.波次ID}")
-            self._波期望战力值 = tables.Tb阵容战力成长时间分布_2导.get(int(self.角色平均等级 * 100 + self.波次ID)).每波怪物总战力
+            print(f"{self.阵容强度}, {self.波次ID}")
+            self._波期望战力值 = tables.Tb所有阵容强度战力成长时间分布表_1导.get(int(round(self.阵容强度 * 10) / 10 * 1000 + self.波次ID)).每波怪物总战力
         return self._波期望战力值
 
     @property
     def 波盈缺换算成英雄(self) -> float:
         """计算波次盈缺值"""
         if self._波盈缺换算成角色 is None:
-            self._波盈缺换算成角色 = (self.波战力总值 - self.波期望战力值) * 全局参数.最大上阵角色数 / tables.Tb阵容战力成长时间分布_2导.get(int(self.角色平均等级 * 100 + self.波次ID)).当前阵容战力
+            self._波盈缺换算成角色 = (self.波战力总值 - self.波期望战力值) * 全局参数.最大上阵角色数 / tables.Tb所有阵容强度战力成长时间分布表_1导.get(int(round(self.阵容强度 * 10) / 10 * 1000 + self.波次ID)).当前阵容战力
         
         # # 检查值是否在有效范围内
         # if self._波盈缺换算成角色 > 20 or self._波盈缺换算成角色 < -20:
@@ -201,7 +202,8 @@ class 波次配置(波次基础配置):
     def 从基础配置创建(cls, 基础配置: 波次基础配置) -> '波次配置':
         """从基础配置创建完整配置"""
         return cls(
-            角色平均等级=基础配置.角色平均等级,
+            阵容强度=基础配置.阵容强度,
+            参考等级=基础配置.参考等级,
             波次ID=基础配置.波次ID,
             波次体验=基础配置.波次体验,
             怪物组列表=基础配置.怪物组列表,
