@@ -1,0 +1,7802 @@
+[
+  {
+    "level_id": 10010,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 10,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 12,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 16.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 16.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 10,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 11,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 11,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 17,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 9.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 28
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 28
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 28
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 3,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3004,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 786,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 12,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 12,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 12,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.5
+      }
+    ]
+  },
+  {
+    "level_id": 10020,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 25.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 25.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 25.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 27.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 27.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 27.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 12,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 17
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 25.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 25.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 25.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 17,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 9.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 12.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 12,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 15.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.7
+      }
+    ]
+  },
+  {
+    "level_id": 10030,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 25.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 25.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 25.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 8.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 8.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 3,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 26.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 26.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 10,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 24.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 24.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 8.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 8.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 11,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 16,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 10,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 24.4
+      }
+    ]
+  },
+  {
+    "level_id": 10040,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 26.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 25
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3998,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 31626,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 25
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 25
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 10.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 10,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 6.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 6.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 6.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 13,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 14,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 5.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 9,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 14,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.1
+      }
+    ]
+  },
+  {
+    "level_id": 10050,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 23.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 23.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 10,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 16,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 13,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3998,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 39564,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 9,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3998,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 39564,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 26.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 26.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 15,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 10,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 16,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 10,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 5.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 8.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 10,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.3
+      }
+    ]
+  },
+  {
+    "level_id": 10060,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 18
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 7.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.8
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 12.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 10,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 14,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.9
+      }
+    ]
+  },
+  {
+    "level_id": 10070,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 7,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 16,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 12.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 10.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 15,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3998,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 49464,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 11
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 10,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.8
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 23.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 10,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 10,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 16.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 24.1
+      }
+    ]
+  },
+  {
+    "level_id": 10080,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 10,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 28.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 28.3
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 28.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 4,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 11.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 8.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 3,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 7.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 17,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 7.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 7.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 9,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 10,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 10,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3999,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 49464,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 19.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 16
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 16
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.8
+      }
+    ]
+  },
+  {
+    "level_id": 10090,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 3,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 6.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 6.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 6.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 29.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3998,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 49464,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 29.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 29.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 12,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18.8
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 18.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 7,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 23.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 19,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 4,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 9.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 9.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 13,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 14,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.2
+      }
+    ]
+  },
+  {
+    "level_id": 10100,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 27
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 27
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 27
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 10.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 13,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 17.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 3,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 21
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 21
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 21
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 22.1
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 22.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 10.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 14.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2005,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 12,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 11.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3999,
+            "enemy_count": 1,
+            "current_level": 4,
+            "reset_hp": 61812,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 11.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.8
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 6,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 16.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 14,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 2,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2007,
+            "enemy_count": 7,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 17.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 6,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 17.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 14,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 3999,
+            "enemy_count": 1,
+            "current_level": 4,
+            "reset_hp": 61812,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 12.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 12.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 12.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 5.3
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 3,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 7,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.8,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 16.9
+      }
+    ]
+  },
+  {
+    "level_id": 10110,
+    "time_before_spawn": 10,
+    "wave_list": [
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 20.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2002,
+            "enemy_count": 1,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.9,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2006,
+            "enemy_count": 13,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 20.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 13,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.7
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 15.7
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 1,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 14,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 2,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 1,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 16,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 13.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 13.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 14.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 18.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 13,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 15
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 15.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 15.9
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 7,
+            "current_level": 3,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 13.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1.1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 6,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 15.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 24.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 24.5
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2001,
+            "enemy_count": 2,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 9,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 10.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 7,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 6,
+            "current_level": 4,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.1
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 8,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.2
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 1.2,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 9.4
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 9,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1
+          }
+        ],
+        "time_between_waves": 23.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 8,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 23.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 23.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 11,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 11,
+            "current_level": 5,
+            "reset_hp": 0,
+            "time_between_enemies": 0.5,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 18.2
+      },
+      {
+        "enemy_group_list": [],
+        "time_between_waves": 18.2
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2004,
+            "enemy_count": 5,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2008,
+            "enemy_count": 4,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.6,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.6
+      },
+      {
+        "enemy_group_list": [
+          {
+            "enemy_id": 2003,
+            "enemy_count": 4,
+            "current_level": 6,
+            "reset_hp": 0,
+            "time_between_enemies": 0.7,
+            "time_between_groups": 1.1
+          }
+        ],
+        "time_between_waves": 19.6
+      }
+    ]
+  }
+]

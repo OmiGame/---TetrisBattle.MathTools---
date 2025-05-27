@@ -314,6 +314,15 @@ class EnemyGroup :
         self.time_between_enemies = _json_['time_between_enemies']
         self.time_between_groups = _json_['time_between_groups']
 
+class LevelData_Level :
+    def __init__(self, _json_):
+        self.level_id = _json_['level_id']
+        self.time_before_spawn = _json_['time_before_spawn']
+        self.wave_list = []
+        for _ele0_ in _json_['wave_list']:
+            _e0_ = WaveData(_ele0_)
+            self.wave_list.append(_e0_)
+
 class vector2 :
     def __init__(self, _json_):
         self.x = _json_['x']
@@ -340,6 +349,22 @@ class WaveData :
             self.enemy_group_list.append(_e0_)
         self.time_between_waves = _json_['time_between_waves']
 
+
+class LevelData_TbLevel:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = LevelData_Level(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.level_id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
 
 class 基础数据_Tb怪物设计表:
 
@@ -617,6 +642,7 @@ class 生成数据_Tb阵容战力成长表_1导:
 
 class cfg_Tables:
     def __init__(self, loader):
+        self.TbLevel = LevelData_TbLevel(loader('leveldata_tblevel')); 
         self.Tb怪物设计表 = 基础数据_Tb怪物设计表(loader('基础数据_tb怪物设计表')); 
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
