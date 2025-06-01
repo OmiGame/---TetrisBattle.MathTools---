@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List, Optional, Dict, Tuple
 from LubanData import tables, 全局参数
+from Config import 阵容强度的步长数据
 
 class 波次体验(Enum):
     """波次体验枚举"""
@@ -167,14 +168,20 @@ class 波次配置(波次基础配置):
         """计算波次期望战力值"""
         if self._波期望战力值 is None:
             print(f"{self.阵容强度}, {self.波次ID}")
-            self._波期望战力值 = tables.Tb所有阵容强度战力成长时间分布表_1导.get(int(round(self.阵容强度 * 10) / 10 * 1000 + self.波次ID)).每波怪物总战力
+            # 修复键计算公式：将阵容强度对齐到0.2步长
+            对齐后的阵容强度 = round(self.阵容强度 / 阵容强度的步长数据) * 阵容强度的步长数据
+            查找键 = int(对齐后的阵容强度 * 1000 + self.波次ID)
+            self._波期望战力值 = tables.Tb所有阵容强度战力成长时间分布表_1导.get(查找键).每波怪物总战力
         return self._波期望战力值
 
     @property
     def 波盈缺换算成英雄(self) -> float:
         """计算波次盈缺值"""
         if self._波盈缺换算成角色 is None:
-            self._波盈缺换算成角色 = (self.波战力总值 - self.波期望战力值) * 全局参数.最大上阵角色数 / tables.Tb所有阵容强度战力成长时间分布表_1导.get(int(round(self.阵容强度 * 10) / 10 * 1000 + self.波次ID)).当前阵容战力
+            # 修复键计算公式：将阵容强度对齐到0.2步长
+            对齐后的阵容强度 = round(self.阵容强度 / 阵容强度的步长数据) * 阵容强度的步长数据
+            查找键 = int(对齐后的阵容强度 * 1000 + self.波次ID)
+            self._波盈缺换算成角色 = (self.波战力总值 - self.波期望战力值) * 全局参数.最大上阵角色数 / tables.Tb所有阵容强度战力成长时间分布表_1导.get(查找键).当前阵容战力
         
         # # 检查值是否在有效范围内
         # if self._波盈缺换算成角色 > 20 or self._波盈缺换算成角色 < -20:

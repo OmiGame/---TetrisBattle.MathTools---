@@ -1,6 +1,7 @@
 """Boss数据生成器，Boss数据比较简单，就直接生成表格了"""
 
 import os
+import re
 from ExcelTools import 表格工具
 from LubanData import 全局参数,tables
 from Style.StyleDefiner import 表格样式类型
@@ -97,10 +98,15 @@ class Boss生成器:
                     raw_value *= 攻击力倍数
                 elif 列定义.列名 == "怪物编号":
                     raw_value = raw_value + Boss编号附加值
+                elif 列定义.列名 == "怪物名称等级":
+                    # 正则表达式匹配：从尾部开始，移除连续的数字（\d+）和可选空格（\s*），直到字符串结束（$）
+                    raw_value = re.sub(r'\d+\s*$','',raw_value)
+                    raw_value = raw_value.rstrip()  # 专用于删除尾部空格[6,7,9](@ref)
+
                 # 确保值是基本类型
                 if isinstance(raw_value, (int, float)):
                      # 根据列名决定保留的小数位数
-                            if "倍率"or"倍数" in 列定义.列名:
+                            if "倍率" in 列定义.列名:
                                 cell_value = round(float(raw_value), 4)
                             else:
                                 cell_value = round(float(raw_value), 1)
@@ -188,9 +194,9 @@ class Boss生成器:
     def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.3) -> float:
         boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
         #选三个标准阵容，计算出当前等级的DPS
-        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.弓箭手.value},{平均等级}").基础DPS
-        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.士兵.value},{平均等级}").基础DPS
-        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.弓.value},{平均等级}").基础DPS
+        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS
+        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{平均等级}").基础DPS
+        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{平均等级}").基础DPS
         标准阵容总DPS = (角色1 + 角色2 + 角色3)
         #计算出boss血量
         boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比

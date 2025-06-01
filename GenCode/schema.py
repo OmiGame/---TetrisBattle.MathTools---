@@ -37,8 +37,18 @@ class 基础数据_怪物设计表 :
         self.适配地图 = _json_['适配地图']
         self.对塔伤害 = _json_['对塔伤害']
 
+class 基础数据_技能型Boss属性表 :
+    def __init__(self, _json_):
+        self.名称 = _json_['名称']
+        self.编号 = _json_['编号']
+        self.技能等级 = _json_['技能等级']
+        self.移动速度 = _json_['移动速度']
+        self.适配地图 = _json_['适配地图']
+        self.对塔伤害 = _json_['对塔伤害']
+
 class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
+        self.角色编号 = _json_['角色编号']
         self.角色名称 = _json_['角色名称']
         self.攻击属性 = _json_['攻击属性']
         self.品质 = _json_['品质']
@@ -183,6 +193,8 @@ class 生成数据_怪物基础数据表_3导 :
         self.适配地图 = _json_['适配地图']
         self.对塔伤害 = _json_['对塔伤害']
         self.和理论值对比 = _json_['和理论值对比']
+        self.理论血量成长倍率 = _json_['理论血量成长倍率']
+        self.理论攻击力成长倍率 = _json_['理论攻击力成长倍率']
 
 class 生成数据_关卡设计表_1导 :
     def __init__(self, _json_):
@@ -193,16 +205,6 @@ class 生成数据_关卡设计表_1导 :
         self.紫色等级 = _json_['紫色等级']
         self.关卡难度 = _json_['关卡难度']
         self.适配地图 = _json_['适配地图']
-
-class 生成数据_技能型Boss属性表_3导 :
-    def __init__(self, _json_):
-        self.名称 = _json_['名称']
-        self.编号 = _json_['编号']
-        self.技能等级 = _json_['技能等级']
-        self.血量 = _json_['血量']
-        self.移动速度 = _json_['移动速度']
-        self.适配地图 = _json_['适配地图']
-        self.对塔伤害 = _json_['对塔伤害']
 
 class 生成数据_角色成长数据_1导 :
     def __init__(self, _json_):
@@ -276,6 +278,8 @@ class 生成数据_战斗型Boss属性表_3导 :
         self.适配地图 = _json_['适配地图']
         self.对塔伤害 = _json_['对塔伤害']
         self.和理论值对比 = _json_['和理论值对比']
+        self.理论血量成长倍率 = _json_['理论血量成长倍率']
+        self.理论攻击力成长倍率 = _json_['理论攻击力成长倍率']
         self.血量倍数 = _json_['血量倍数']
         self.攻击力倍数 = _json_['攻击力倍数']
 
@@ -356,6 +360,22 @@ class 基础数据_Tb怪物设计表:
             _v = 基础数据_怪物设计表(_json2_)
             self._dataList.append(_v)
             self._dataMap[_v.怪物编号] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 基础数据_Tb技能型Boss属性表:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 基础数据_技能型Boss属性表(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.名称] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
@@ -451,7 +471,7 @@ class 基础数据_Tb角色初始属性表:
         for _json2_ in _json_:
             _v = 基础数据_角色初始属性表(_json2_)
             self._dataList.append(_v)
-            self._dataMap[_v.角色名称] = _v
+            self._dataMap[_v.角色编号] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList
@@ -538,22 +558,6 @@ class 生成数据_Tb所有阵容强度战力成长时间分布表_1导:
 
     def get(self, key) : return self._dataMap.get(key)
 
-class 生成数据_Tb技能型Boss属性表_3导:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = 生成数据_技能型Boss属性表_3导(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.名称] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
 class 生成数据_Tb肉鸽技能选择节奏_1导:
 
     def __init__(self, _json_ ):
@@ -592,6 +596,7 @@ class cfg_Tables:
     def __init__(self, loader):
         self.TbLevel = LevelData_TbLevel(loader('leveldata_tblevel')); 
         self.Tb怪物设计表 = 基础数据_Tb怪物设计表(loader('基础数据_tb怪物设计表')); 
+        self.Tb技能型Boss属性表 = 基础数据_Tb技能型Boss属性表(loader('基础数据_tb技能型boss属性表')); 
         self.Tb消除倍率表 = 基础数据_Tb消除倍率表(loader('基础数据_tb消除倍率表')); 
         self.Tb游戏基本参数 = 基础数据_Tb游戏基本参数(loader('基础数据_tb游戏基本参数')); 
         self.Tb玩家操作评估 = 基础数据_Tb玩家操作评估(loader('基础数据_tb玩家操作评估')); 
@@ -603,7 +608,6 @@ class cfg_Tables:
         self.Tb怪物基础数据表_3导 = 生成数据_Tb怪物基础数据表_3导(loader('生成数据_tb怪物基础数据表_3导')); 
         self.Tb战斗型Boss属性表_3导 = 生成数据_Tb战斗型Boss属性表_3导(loader('生成数据_tb战斗型boss属性表_3导')); 
         self.Tb所有阵容强度战力成长时间分布表_1导 = 生成数据_Tb所有阵容强度战力成长时间分布表_1导(loader('生成数据_tb所有阵容强度战力成长时间分布表_1导')); 
-        self.Tb技能型Boss属性表_3导 = 生成数据_Tb技能型Boss属性表_3导(loader('生成数据_tb技能型boss属性表_3导')); 
         self.Tb肉鸽技能选择节奏_1导 = 生成数据_Tb肉鸽技能选择节奏_1导(loader('生成数据_tb肉鸽技能选择节奏_1导')); 
         self.Tb角色成长数据_1导 = 生成数据_Tb角色成长数据_1导(loader('生成数据_tb角色成长数据_1导')); 
 
