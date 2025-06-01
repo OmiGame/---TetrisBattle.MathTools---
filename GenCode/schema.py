@@ -41,7 +41,8 @@ class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
         self.攻击属性 = _json_['攻击属性']
-        self.品质颜色 = _json_['品质颜色']
+        self.品质 = _json_['品质']
+        self.职业 = _json_['职业']
         self.最大等级 = _json_['最大等级']
         self.期望生命周期 = _json_['期望生命周期']
         self.初始血量 = _json_['初始血量']
@@ -206,6 +207,8 @@ class 生成数据_技能型Boss属性表_3导 :
 class 生成数据_角色成长数据_1导 :
     def __init__(self, _json_):
         self.角色名称 = _json_['角色名称']
+        self.品质 = _json_['品质']
+        self.职业 = _json_['职业']
         self.等级 = _json_['等级']
         self.血量 = _json_['血量']
         self.攻击力 = _json_['攻击力']
@@ -275,29 +278,6 @@ class 生成数据_战斗型Boss属性表_3导 :
         self.和理论值对比 = _json_['和理论值对比']
         self.血量倍数 = _json_['血量倍数']
         self.攻击力倍数 = _json_['攻击力倍数']
-
-class 生成数据_阵容战力成长表_1导 :
-    def __init__(self, _json_):
-        self.阵容组合名称 = _json_['阵容组合名称']
-        self.平均等级 = _json_['平均等级']
-        self.初始战力 = _json_['初始战力']
-        self.终点战力 = _json_['终点战力']
-        self.终点战力产出效率 = _json_['终点战力产出效率']
-
-class 生成数据_阵容战力成长时间分布_2导 :
-    def __init__(self, _json_):
-        self.怪物等级和波次 = _json_['怪物等级和波次']
-        self.时间点_30s = _json_['时间点_30s']
-        self.阵容 = _json_['阵容']
-        self.选技能次数 = _json_['选技能次数']
-        self.总次数 = _json_['总次数']
-        self.消除倍率 = _json_['消除倍率']
-        self.每块小兵增加期望值 = _json_['每块小兵增加期望值']
-        self.初始战力 = _json_['初始战力']
-        self.当前阵容战力 = _json_['当前阵容战力']
-        self.战力产出效率 = _json_['战力产出效率']
-        self.每波怪物总战力 = _json_['每波怪物总战力']
-        self.平均相当于多少个上阵角色 = _json_['平均相当于多少个上阵角色']
 
 class 资源数据 :
     def __init__(self, _json_):
@@ -606,38 +586,6 @@ class 生成数据_Tb角色成长数据_1导:
 
     def get(self, key) : return self._dataMap.get(key)
 
-class 生成数据_Tb阵容战力成长时间分布_2导:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = 生成数据_阵容战力成长时间分布_2导(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.怪物等级和波次] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
-class 生成数据_Tb阵容战力成长表_1导:
-
-    def __init__(self, _json_ ):
-        self._dataMap = {}
-        self._dataList = []
-        
-        for _json2_ in _json_:
-            _v = 生成数据_阵容战力成长表_1导(_json2_)
-            self._dataList.append(_v)
-            self._dataMap[_v.阵容组合名称] = _v
-
-    def getDataMap(self) : return self._dataMap
-    def getDataList(self) : return self._dataList
-
-    def get(self, key) : return self._dataMap.get(key)
-
 
 
 class cfg_Tables:
@@ -658,6 +606,4 @@ class cfg_Tables:
         self.Tb技能型Boss属性表_3导 = 生成数据_Tb技能型Boss属性表_3导(loader('生成数据_tb技能型boss属性表_3导')); 
         self.Tb肉鸽技能选择节奏_1导 = 生成数据_Tb肉鸽技能选择节奏_1导(loader('生成数据_tb肉鸽技能选择节奏_1导')); 
         self.Tb角色成长数据_1导 = 生成数据_Tb角色成长数据_1导(loader('生成数据_tb角色成长数据_1导')); 
-        self.Tb阵容战力成长时间分布_2导 = 生成数据_Tb阵容战力成长时间分布_2导(loader('生成数据_tb阵容战力成长时间分布_2导')); 
-        self.Tb阵容战力成长表_1导 = 生成数据_Tb阵容战力成长表_1导(loader('生成数据_tb阵容战力成长表_1导')); 
 
