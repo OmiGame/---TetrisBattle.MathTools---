@@ -130,65 +130,65 @@ class Boss生成器:
         wb.save(file_path)
         print(f"\n战斗型Boss属性表生成完成，文件已保存至：{file_path}")
 
-    def 生成技能型Boss表格(self, boss列表: list[技能Boss], 
-                     表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
-        """生成技能型Boss的表格
+    # def 生成技能型Boss表格(self, boss列表: list[技能Boss], 
+    #                  表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+    #     """生成技能型Boss的表格
         
-        Args:
-            boss列表: 技能型Boss的列表
-            表格样式: 表格的样式类型
-        """
-        # 初始化保存路径和文件名
-        os.makedirs(self.save_folder, exist_ok=True)
-        file_path = os.path.join(self.save_folder, "#技能型Boss属性表_3导.xlsx")
-        sheet_name = "技能型Boss属性"
+    #     Args:
+    #         boss列表: 技能型Boss的列表
+    #         表格样式: 表格的样式类型
+    #     """
+    #     # 初始化保存路径和文件名
+    #     os.makedirs(self.save_folder, exist_ok=True)
+    #     file_path = os.path.join(self.save_folder, "#技能型Boss属性表_3导.xlsx")
+    #     sheet_name = "技能型Boss属性"
         
-        print(f"\n开始生成技能型Boss属性表...")
+    #     print(f"\n开始生成技能型Boss属性表...")
         
-        # 获取工作表对象和样式
-        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
-            file_path, sheet_name, 表格样式
-        )
+    #     # 获取工作表对象和样式
+    #     wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+    #         file_path, sheet_name, 表格样式
+    #     )
         
-        # 写入特殊的第一列数据
-        for i in range(self.特殊行数):
-            ws.cell(row=i+1, column=1, value=f"##{'var' if i==0 else 'type' if i==1 else ''}").style = 表头样式名
+    #     # 写入特殊的第一列数据
+    #     for i in range(self.特殊行数):
+    #         ws.cell(row=i+1, column=1, value=f"##{'var' if i==0 else 'type' if i==1 else ''}").style = 表头样式名
         
-        # 定义表头
-        headers = {
-            "名称": "string",
-            "编号": "string",
-            "技能等级": "int",
-            "血量": "float",
-            "移动速度": "float",
-            "适配地图": "string",
-            "对塔伤害": "int"
-        }
+    #     # 定义表头
+    #     headers = {
+    #         "名称": "string",
+    #         "编号": "string",
+    #         "技能等级": "int",
+    #         "血量": "float",
+    #         "移动速度": "float",
+    #         "适配地图": "string",
+    #         "对塔伤害": "int"
+    #     }
         
-        # 生成表头
-        表格工具.生成表头(ws, headers, 表头样式名, start_row=1, start_col=self.特殊列数+1)
+    #     # 生成表头
+    #     表格工具.生成表头(ws, headers, 表头样式名, start_row=1, start_col=self.特殊列数+1)
         
-        # 写入数据
-        当前行号 = self.特殊行数 + 1
+    #     # 写入数据
+    #     当前行号 = self.特殊行数 + 1
         
-        for boss in boss列表:
-            # 写入每个字段
-            ws.cell(row=当前行号, column=self.特殊列数+1, value=boss.名称).style = 数据样式名
-            ws.cell(row=当前行号, column=self.特殊列数+2, value=boss.编号).style = 数据样式名
-            ws.cell(row=当前行号, column=self.特殊列数+3, value=boss.技能等级).style = 数据样式名
-            ws.cell(row=当前行号, column=self.特殊列数+4, value=round(boss.血量, 1)).style = 数据样式名
-            ws.cell(row=当前行号, column=self.特殊列数+5, value=boss.移动速度).style = 数据样式名
-            # 确保适配地图数据正确写入
-            适配地图值 = ",".join(boss.适配地图) if boss.适配地图 else ""
-            ws.cell(row=当前行号, column=self.特殊列数+6, value=适配地图值).style = 数据样式名
-            ws.cell(row=当前行号, column=self.特殊列数+7, value=boss.对塔伤害).style = 数据样式名
+    #     for boss in boss列表:
+    #         # 写入每个字段
+    #         ws.cell(row=当前行号, column=self.特殊列数+1, value=boss.名称).style = 数据样式名
+    #         ws.cell(row=当前行号, column=self.特殊列数+2, value=boss.编号).style = 数据样式名
+    #         ws.cell(row=当前行号, column=self.特殊列数+3, value=boss.技能等级).style = 数据样式名
+    #         ws.cell(row=当前行号, column=self.特殊列数+4, value=round(boss.血量, 1)).style = 数据样式名
+    #         ws.cell(row=当前行号, column=self.特殊列数+5, value=boss.移动速度).style = 数据样式名
+    #         # 确保适配地图数据正确写入
+    #         适配地图值 = ",".join(boss.适配地图) if boss.适配地图 else ""
+    #         ws.cell(row=当前行号, column=self.特殊列数+6, value=适配地图值).style = 数据样式名
+    #         ws.cell(row=当前行号, column=self.特殊列数+7, value=boss.对塔伤害).style = 数据样式名
             
-            当前行号 += 1
+    #         当前行号 += 1
         
-        # 调整列宽并保存文件
-        表格工具.按中文调整列宽(ws, self.特殊行数, self.特殊列数+1, len(headers) + self.特殊列数)
-        wb.save(file_path)
-        print(f"\n技能型Boss属性表生成完成，文件已保存至：{file_path}")
+    #     # 调整列宽并保存文件
+    #     表格工具.按中文调整列宽(ws, self.特殊行数, self.特殊列数+1, len(headers) + self.特殊列数)
+    #     wb.save(file_path)
+    #     print(f"\n技能型Boss属性表生成完成，文件已保存至：{file_path}")
 
     @classmethod
     def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.3) -> float:
@@ -200,7 +200,7 @@ class Boss生成器:
         标准阵容总DPS = (角色1 + 角色2 + 角色3)
         #计算出boss血量
         boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比
-        return boss血量
+        return int(boss血量)
 
 
 if __name__ == "__main__":
