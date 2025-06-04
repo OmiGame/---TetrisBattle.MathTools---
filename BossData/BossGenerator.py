@@ -191,7 +191,7 @@ class Boss生成器:
     #     print(f"\n技能型Boss属性表生成完成，文件已保存至：{file_path}")
 
     @classmethod
-    def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.3) -> float:
+    def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.2) -> float:
         boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
         #选三个标准阵容，计算出当前等级的DPS
         角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS
