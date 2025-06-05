@@ -12,6 +12,8 @@ tables = schema.cfg_Tables(loader)
 战斗boss初始属性表 = tables.Tb战斗型Boss属性表_3导
 技能boss初始属性表 = tables.Tb技能型Boss属性表
 
+战斗型boss移动速度 = 0.9
+
 
 """计算boss血量时的标准阵容"""
 class 标准阵容(Enum):

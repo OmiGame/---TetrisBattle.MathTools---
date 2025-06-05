@@ -6,7 +6,7 @@ from ExcelTools import 表格工具
 from LubanData import 全局参数,tables
 from Style.StyleDefiner import 表格样式类型
 from MonsterData.MonsterTypes import 怪物设计表
-from BossData.BossDataType import  技能Boss, 标准阵容
+from BossData.BossDataType import  技能Boss, 标准阵容,战斗型boss移动速度
 
 
 class Boss生成器:
@@ -59,9 +59,8 @@ class Boss生成器:
         # 从列函数映射中提取表头
         headers = {列定义.列名: 列定义.表头数据类型 for _, 列定义 in column_functions.items()}
         
-        # 添加新的属性到表头
+        # 添加新的属性到表头（移动速度已在column_functions中包含，无需重复添加）
         headers.update({
-            "移动速度": "float",
             "适配地图": "string",
             "对塔伤害": "int",
             "血量倍数": "float",
@@ -102,6 +101,9 @@ class Boss生成器:
                     # 正则表达式匹配：从尾部开始，移除连续的数字（\d+）和可选空格（\s*），直到字符串结束（$）
                     raw_value = re.sub(r'\d+\s*$','',raw_value)
                     raw_value = raw_value.rstrip()  # 专用于删除尾部空格[6,7,9](@ref)
+                elif 列定义.列名 == "移动速度":
+                    raw_value = 战斗型boss移动速度
+
 
                 # 确保值是基本类型
                 if isinstance(raw_value, (int, float)):
@@ -116,8 +118,7 @@ class Boss生成器:
                 cell = ws.cell(row=当前行号, column=col_num + self.特殊列数, value=cell_value)
                 cell.style = 数据样式名
             
-            # 写入新增的属性
-            ws.cell(row=当前行号, column=列号映射["移动速度"], value=row_params.get("移动速度", 1.2)).style = 数据样式名
+            # 写入新增的属性（移动速度已在column_functions中处理，无需重复写入）
             适配地图值 = ",".join(row_params.get("适配地图", [])) if row_params.get("适配地图") else ""
             ws.cell(row=当前行号, column=列号映射["适配地图"], value=适配地图值).style = 数据样式名
             ws.cell(row=当前行号, column=列号映射["对塔伤害"], value=20).style = 数据样式名
@@ -192,6 +193,18 @@ class Boss生成器:
 
     @classmethod
     def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.2) -> float:
+        boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
+        #选三个标准阵容，计算出当前等级的DPS
+        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS
+        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{平均等级}").基础DPS
+        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{平均等级}").基础DPS
+        标准阵容总DPS = (角色1 + 角色2 + 角色3)
+        #计算出boss血量
+        boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比
+        return int(boss血量)
+    
+    @classmethod
+    def 战斗型Boss血量值计算(cls,平均等级: int,波次:int,受击百分比:float = 0.2) -> float:
         boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
         #选三个标准阵容，计算出当前等级的DPS
         角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS

@@ -63,6 +63,7 @@ class 全局参数:
     玩家每秒获取经验速度 = tables.Tb玩家操作评估.getDataList()[0].玩家每秒获取经验速度
     玩家每分获取经验速度 = tables.Tb玩家操作评估.getDataList()[0].玩家每分获取经验速度
     玩家10分钟消除总行数 = tables.Tb玩家操作评估.getDataList()[0].玩家10分钟消除总行数
+    操作容错率 = tables.Tb玩家操作评估.getDataList()[0].操作容错率
 
     # 肉鸽技能相关
     肉鸽技能总字典 = tables.Tb肉鸽技能数据表.getDataMap()
