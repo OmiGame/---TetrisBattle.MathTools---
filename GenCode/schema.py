@@ -48,8 +48,8 @@ class 基础数据_技能型Boss属性表 :
 
 class 基础数据_角色初始属性表 :
     def __init__(self, _json_):
-        self.角色编号 = _json_['角色编号']
         self.角色名称 = _json_['角色名称']
+        self.角色编号 = _json_['角色编号']
         self.攻击属性 = _json_['攻击属性']
         self.品质 = _json_['品质']
         self.职业 = _json_['职业']
@@ -473,7 +473,7 @@ class 基础数据_Tb角色初始属性表:
         for _json2_ in _json_:
             _v = 基础数据_角色初始属性表(_json2_)
             self._dataList.append(_v)
-            self._dataMap[_v.角色编号] = _v
+            self._dataMap[_v.角色名称] = _v
 
     def getDataMap(self) : return self._dataMap
     def getDataList(self) : return self._dataList

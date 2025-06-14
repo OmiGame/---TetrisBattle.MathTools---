@@ -13,6 +13,22 @@ tables = schema.cfg_Tables(loader)
 技能boss初始属性表 = tables.Tb技能型Boss属性表
 
 战斗型boss移动速度 = 0.9
+战斗型boss攻击速度 = 2.5
+战斗型boss攻击范围 = 2
+
+战斗型boss血量倍数 = 8
+战斗型boss攻击力倍数 = 3
+
+#在基础怪编号上加1000
+战斗型Boss编号附加值 = 1000
+
+#战斗型boss受击时间百分比
+战斗型boss受击时间百分比 = 0.15
+#技能型boss受击时间百分比
+技能型boss受击时间百分比 = 0.2
+
+#用于计算超出角色等级上限的boss血量
+boss成长倍率 = 1.195
 
 
 """计算boss血量时的标准阵容"""

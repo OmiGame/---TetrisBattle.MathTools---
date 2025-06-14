@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import numpy as np
 from typing import Dict, List, Tuple
 import os
-from EconomySystem.TotalSupply import 系统产出金币和碎片计算
+from EconomySystem.TotalSupply import 系统产出金币和碎片计算,系统产出钻石和钻石宝箱等级计算
 from EconomySystem.TotalDemand import 角色碎片计算
 from LubanData import tables
 
@@ -18,7 +18,7 @@ plt.rcParams['axes.unicode_minus'] = False
 # ----
 # 1. 数据获取（纯数据）
 # ----
-每日产出数据 = 系统产出金币和碎片计算.获取合并后的系统每日产出()
+每日产出数据 = 系统产出钻石和钻石宝箱等级计算.获取实际的玩家每日系统产出()
 每日需求数据 = 角色碎片计算.生成完整每日角色需求详细数据()
 
 普通宝箱获得次数 = tables.Tb经济系统配置表.get("普通宝箱").获得次数

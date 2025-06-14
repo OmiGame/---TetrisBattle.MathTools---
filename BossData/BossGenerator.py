@@ -6,7 +6,7 @@ from ExcelTools import 表格工具
 from LubanData import 全局参数,tables
 from Style.StyleDefiner import 表格样式类型
 from MonsterData.MonsterTypes import 怪物设计表
-from BossData.BossDataType import  技能Boss, 标准阵容,战斗型boss移动速度
+from BossData.BossDataType import 标准阵容,战斗型boss移动速度,战斗型boss攻击速度,战斗型boss攻击范围,战斗型boss攻击力倍数,战斗型boss血量倍数,战斗型Boss编号附加值,战斗型boss受击时间百分比,技能型boss受击时间百分比,boss成长倍率
 
 
 class Boss生成器:
@@ -30,8 +30,8 @@ class Boss生成器:
             表格样式: 表格的样式类型
         """
         # 使用默认配置或传入的配置
-        血量倍数 = 血量倍数 or 10
-        攻击力倍数 = 攻击力倍数 or 3
+        血量倍数 = 战斗型boss血量倍数
+        攻击力倍数 = 战斗型boss攻击力倍数
 
         # 初始化保存路径和文件名
         os.makedirs(self.save_folder, exist_ok=True)
@@ -41,7 +41,7 @@ class Boss生成器:
         print(f"\n开始生成战斗型Boss属性表...")
 
         #为了让boss编号和怪物编号不冲突，给boss编号附加一个值
-        Boss编号附加值 = 1000
+        Boss编号附加值 = 战斗型Boss编号附加值
         
         # 获取工作表对象和样式
         wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
@@ -103,7 +103,10 @@ class Boss生成器:
                     raw_value = raw_value.rstrip()  # 专用于删除尾部空格[6,7,9](@ref)
                 elif 列定义.列名 == "移动速度":
                     raw_value = 战斗型boss移动速度
-
+                elif 列定义.列名 == "攻速":
+                    raw_value = 战斗型boss攻击速度
+                elif 列定义.列名 == "攻击范围":
+                    raw_value = 战斗型boss攻击范围
 
                 # 确保值是基本类型
                 if isinstance(raw_value, (int, float)):
@@ -192,25 +195,51 @@ class Boss生成器:
     #     print(f"\n技能型Boss属性表生成完成，文件已保存至：{file_path}")
 
     @classmethod
-    def 技能型Boss血量值计算(cls,平均等级: int ,波次:int,受击百分比:float = 0.2) -> float:
-        boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
+    def 技能型Boss血量值计算(cls,平均等级: int ,波次:int) -> float:
+        boss出现时长 = 全局参数.关卡时长 * 60  
+        受击百分比 = 技能型boss受击时间百分比           #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
+        
+        # 限制等级不超过角色等级上限，避免查找不存在的角色数据
+        实际等级 = min(平均等级, 全局参数.角色等级上限)
+        
         #选三个标准阵容，计算出当前等级的DPS
-        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS
-        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{平均等级}").基础DPS
-        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{平均等级}").基础DPS
+        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{实际等级}").基础DPS
+        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{实际等级}").基础DPS
+        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{实际等级}").基础DPS
         标准阵容总DPS = (角色1 + 角色2 + 角色3)
+        
+        # 如果实际等级小于平均等级，需要根据等级差异调整DPS
+        if 实际等级 < 平均等级:
+            # 使用怪物成长倍率1.195来推算更高等级的血量值
+            等级差异 = 平均等级 - 实际等级
+            怪物成长倍率 = boss成长倍率
+            标准阵容总DPS = 标准阵容总DPS * (怪物成长倍率 ** 等级差异)
+        
         #计算出boss血量
         boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比
         return int(boss血量)
     
     @classmethod
-    def 战斗型Boss血量值计算(cls,平均等级: int,波次:int,受击百分比:float = 0.2) -> float:
-        boss出现时长 = 全局参数.关卡时长 * 60             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
+    def 战斗型Boss血量值计算(cls,平均等级: int,波次:int) -> float:
+        boss出现时长 = 全局参数.关卡时长 * 60
+        受击百分比 = 战斗型boss受击时间百分比             #暂时先忽略波次的影响，也就是不同波次出现不影响技能型boss的血量
+        
+        # 限制等级不超过角色等级上限，避免查找不存在的角色数据
+        实际等级 = min(平均等级, 全局参数.角色等级上限)
+        
         #选三个标准阵容，计算出当前等级的DPS
-        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{平均等级}").基础DPS
-        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{平均等级}").基础DPS
-        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{平均等级}").基础DPS
+        角色1 = tables.Tb角色成长数据_1导.get(f"{标准阵容.冰肉肉.value},{实际等级}").基础DPS
+        角色2 = tables.Tb角色成长数据_1导.get(f"{标准阵容.角角.value},{实际等级}").基础DPS
+        角色3 = tables.Tb角色成长数据_1导.get(f"{标准阵容.电电.value},{实际等级}").基础DPS
         标准阵容总DPS = (角色1 + 角色2 + 角色3)
+        
+        # 如果实际等级小于平均等级，需要根据等级差异调整DPS
+        if 实际等级 < 平均等级:
+            # 使用怪物成长倍率1.195来推算更高等级的血量值
+            等级差异 = 平均等级 - 实际等级
+            怪物成长倍率 = boss成长倍率
+            标准阵容总DPS = 标准阵容总DPS * (怪物成长倍率 ** 等级差异)
+        
         #计算出boss血量
         boss血量 = 标准阵容总DPS * boss出现时长 * 受击百分比
         return int(boss血量)

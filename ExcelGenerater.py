@@ -5,12 +5,13 @@ import numpy as np
 from EconomySystem.TeamPower import 阵容强度计算
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
-from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 肉鸽技能节奏, 角色成长表, 阵容强度下的战力成长时间分布, 阵容战力成长时间分布, 阵容战力成长表
+from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 怪物理论数据表, 肉鸽技能节奏, 角色成长表, 阵容强度下的战力成长时间分布, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数, tables
 # from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterTypes import 怪物设计表
 from MonsterData.MonsterDataGenerater import 怪物设计理论值基本参数, 计算怪物属性
 from Config import 特殊行数, 特殊列数, 阵容强度的步长数据, save_folder_path, save_folder_path_level
+from BossData.BossGenerator import Boss生成器
 # 终端清屏，快速查看bug
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -649,7 +650,94 @@ class 生成表:
         表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
         wb.save(file_path)
         print(f"\n所有角色成长数据表格生成完成，文件已保存至：{file_path}")
-
+    
+    @classmethod
+    def 生成所有怪物理论数据(cls, save_folder: str = save_folder_path, 
+                            表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成所有怪物的理论值数据表格，所有怪物数据放在同一个sheet中
+        
+        Args:
+            save_folder: 保存Excel文件的文件夹路径，如果为None则使用默认路径
+            表格样式: 表格的样式类型
+        """
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, 怪物理论数据表.表格名称)
+        sheet_name = "所有怪物理论数据"
+        
+        print(f"\n开始生成所有怪物的理论值数据表格...")
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+        
+        # 写入特殊的第一列数据
+        for i in range(特殊行数):
+            ws.cell(row=i+1, column=1, value=f"##{'var' if i==0 else 'type' if i==1 else ''}").style = 表头样式名
+        
+        # 获取列函数映射
+        column_functions = 怪物理论数据表.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+        
+        # 生成表头，从特殊列之后开始
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=1, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 怪物理论数据表.获取行数据范围()
+        
+        # 获取所有怪物理论数据
+        print("正在获取所有怪物理论数据...")
+        所有怪物理论数据 = 计算怪物属性.生成所有理论数据()
+        print(f"获取到 {len(所有怪物理论数据)} 个怪物理论数据")
+        
+        # 遍历所有怪物
+        当前行号 = 特殊行数 + 1  # 从特殊行之后开始
+        
+        for 怪物 in 所有怪物理论数据:
+            print(f"\n正在添加{怪物.名称}的理论数据...")
+            
+            # 遍历每个怪物的所有等级
+            for 等级 in range(起始值, 结束值 + 1):
+                try:
+                    # 创建行参数
+                    row_params = 怪物理论数据表.创建行参数(ws, 怪物.名称, 等级, 当前行号)
+                    
+                    # 创建列名到列号的映射
+                    列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                    
+                    # 生成每列数据
+                    for col_num, 列定义 in column_functions.items():
+                        # 根据参数映射创建实际的参数字典
+                        实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                        
+                        # 计算并写入单元格值
+                        raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                        
+                        # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                        if isinstance(raw_value, (int, float)):
+                            # 根据列名决定保留的小数位数
+                            if "倍率" in 列定义.列名 or "和理论值对比" in 列定义.列名:
+                                cell_value = round(float(raw_value), 4)
+                            else:
+                                cell_value = round(float(raw_value), 1)
+                        else:
+                            cell_value = str(raw_value)
+                        
+                        cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                        cell.style = 数据样式名
+                    
+                    当前行号 += 1
+                except Exception as e:
+                    print(f"处理怪物 {怪物.名称} 等级 {等级} 时出错: {str(e)}")
+                    raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"\n所有怪物理论数据表格生成完成，文件已保存至：{file_path}")
 
 # 调用示例
 if __name__ == "__main__":
@@ -661,18 +749,22 @@ if __name__ == "__main__":
     # 生成表.生成所有阵容强度的战力成长时间分布表()
     
     # 如果怪物设计表改了，那么怪物基础数据表也要重新生成，战斗型boss的表格也要重新生成
+    # 现在为了让怪物数量增长更均匀，所以让怪物成长接近完成的成长等级，但是单位战力偏弱一些(1.2偏低)，这样不至于高等级时匹配的怪物过强（通过直接调整倍率实现，忽视理论倍率的意义）
     # 生成表.生成所有已设计怪物表格()
+    # 生成表.生成所有怪物理论数据()
 
-    
     #更新了怪物后，需要立刻更新战斗型boss的表格，否则会无法生成boss而导致关卡生成失败。
-    #生成 boss表，在bossdata中的 BossDataGenerate模块
+    #现在计算boss血量，用改的是boss生成器中的方法，不再用之前用血量倍率和攻击力倍率的方式计算
+    # boss生成器实例 = Boss生成器()
+    # boss生成器实例.生成战斗型Boss表格()
+    
 
     #技能型boss的表格是基础数据，自己手动填写（虽然写了方法，但那个生成技能型boss的方法没啥用）
     #技能型boss的血量计算，需要在 角色成长数据_1导中的角色中选择三个，由他们的DPS大概估算boss的血量
 
 
 
-    
+
     #根据运营目标，分配好各关卡的强度数值   
     # 生成表.生成表格(
     #     表格定义=关卡设计表,
