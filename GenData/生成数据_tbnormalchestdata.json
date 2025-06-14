@@ -1,0 +1,197 @@
+[
+  {
+    "ChestLevel": 1,
+    "ChestDict": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 2,
+    "ChestDict": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 3,
+    "ChestDict": [
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        1
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 4,
+    "ChestDict": [
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 5,
+    "ChestDict": [
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 6,
+    "ChestDict": [
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 7,
+    "ChestDict": [
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 8,
+    "ChestDict": [
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 9,
+    "ChestDict": [
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 10,
+    "ChestDict": [
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 11,
+    "ChestDict": [
+      [
+        1,
+        13
+      ],
+      [
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 12,
+    "ChestDict": [
+      [
+        1,
+        15
+      ],
+      [
+        2,
+        6
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 13,
+    "ChestDict": [
+      [
+        1,
+        17
+      ],
+      [
+        2,
+        6
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 14,
+    "ChestDict": [
+      [
+        1,
+        18
+      ],
+      [
+        2,
+        7
+      ]
+    ]
+  },
+  {
+    "ChestLevel": 15,
+    "ChestDict": [
+      [
+        1,
+        20
+      ],
+      [
+        2,
+        8
+      ]
+    ]
+  }
+]

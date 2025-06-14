@@ -1,0 +1,3602 @@
+[
+  {
+    "stage_id": 1,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        5
+      ],
+      [
+        6,
+        901
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 2,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        902
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 3,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        902
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 4,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        902
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 5,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        6
+      ],
+      [
+        6,
+        902
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 6,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        7
+      ],
+      [
+        6,
+        903
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        1
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 7,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        19
+      ],
+      [
+        6,
+        223
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        3
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 8,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        20
+      ],
+      [
+        6,
+        230
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        3
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 9,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        21
+      ],
+      [
+        6,
+        237
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        4
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 10,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        23
+      ],
+      [
+        6,
+        244
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        4
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 11,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        24
+      ],
+      [
+        6,
+        251
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        5
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 12,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        25
+      ],
+      [
+        6,
+        258
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        5
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 13,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        27
+      ],
+      [
+        6,
+        265
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        6
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 14,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        28
+      ],
+      [
+        6,
+        273
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        7
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 15,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        30
+      ],
+      [
+        6,
+        280
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        7
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 16,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        31
+      ],
+      [
+        6,
+        287
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        8
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 17,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        32
+      ],
+      [
+        6,
+        294
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        8
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 18,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        34
+      ],
+      [
+        6,
+        301
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        9
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 19,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        35
+      ],
+      [
+        6,
+        308
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        9
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 20,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        36
+      ],
+      [
+        6,
+        316
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        10
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 21,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        39
+      ],
+      [
+        6,
+        323
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        11
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 22,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        40
+      ],
+      [
+        6,
+        330
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        11
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 23,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        42
+      ],
+      [
+        6,
+        337
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        12
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 24,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        43
+      ],
+      [
+        6,
+        344
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        12
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 25,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        44
+      ],
+      [
+        6,
+        352
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        13
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 26,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        46
+      ],
+      [
+        6,
+        359
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        13
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 27,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        47
+      ],
+      [
+        6,
+        366
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        13
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 28,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        48
+      ],
+      [
+        6,
+        373
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        14
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 29,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        50
+      ],
+      [
+        6,
+        380
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        14
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 30,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        51
+      ],
+      [
+        6,
+        387
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        15
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        1
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 31,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        53
+      ],
+      [
+        6,
+        395
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        15
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        2
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 32,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        54
+      ],
+      [
+        6,
+        402
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        16
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 33,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        55
+      ],
+      [
+        6,
+        409
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        17
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 34,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        58
+      ],
+      [
+        6,
+        416
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        17
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 35,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        59
+      ],
+      [
+        6,
+        423
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        18
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 36,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        60
+      ],
+      [
+        6,
+        430
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        18
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 37,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        62
+      ],
+      [
+        6,
+        438
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        19
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 38,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        63
+      ],
+      [
+        6,
+        445
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        20
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 39,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        65
+      ],
+      [
+        6,
+        452
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        20
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 40,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        66
+      ],
+      [
+        6,
+        459
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        21
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 41,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        67
+      ],
+      [
+        6,
+        466
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        21
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        3
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 42,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        69
+      ],
+      [
+        6,
+        473
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        22
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 43,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        70
+      ],
+      [
+        6,
+        480
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        22
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 44,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        71
+      ],
+      [
+        6,
+        487
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        23
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 45,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        73
+      ],
+      [
+        6,
+        495
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        24
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 46,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        74
+      ],
+      [
+        6,
+        502
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        24
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 47,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        77
+      ],
+      [
+        6,
+        509
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        25
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 48,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        78
+      ],
+      [
+        6,
+        516
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        25
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 49,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        79
+      ],
+      [
+        6,
+        523
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        26
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 50,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        81
+      ],
+      [
+        6,
+        530
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        26
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 51,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        82
+      ],
+      [
+        6,
+        538
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        27
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 52,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        83
+      ],
+      [
+        6,
+        545
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        27
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 53,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        85
+      ],
+      [
+        6,
+        552
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        28
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        4
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 54,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        86
+      ],
+      [
+        6,
+        560
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        29
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 55,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        89
+      ],
+      [
+        6,
+        567
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        29
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 56,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        90
+      ],
+      [
+        6,
+        574
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        30
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 57,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        91
+      ],
+      [
+        6,
+        582
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        31
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 58,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        93
+      ],
+      [
+        6,
+        589
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        31
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 59,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        95
+      ],
+      [
+        6,
+        596
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        32
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 60,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        96
+      ],
+      [
+        6,
+        603
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        32
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 61,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        98
+      ],
+      [
+        6,
+        610
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        33
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 62,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        99
+      ],
+      [
+        6,
+        617
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        33
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 63,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        101
+      ],
+      [
+        6,
+        625
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        34
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 64,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        102
+      ],
+      [
+        6,
+        632
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        35
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 65,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        103
+      ],
+      [
+        6,
+        639
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        35
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        5
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 66,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        105
+      ],
+      [
+        6,
+        646
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        36
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 67,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        106
+      ],
+      [
+        6,
+        653
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        36
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 68,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        107
+      ],
+      [
+        6,
+        661
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        37
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 69,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        109
+      ],
+      [
+        6,
+        668
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        38
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 70,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        110
+      ],
+      [
+        6,
+        675
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        38
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 71,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        112
+      ],
+      [
+        6,
+        682
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        39
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 72,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        114
+      ],
+      [
+        6,
+        689
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        39
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 73,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        115
+      ],
+      [
+        6,
+        696
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        40
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 74,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        117
+      ],
+      [
+        6,
+        703
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        40
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 75,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        118
+      ],
+      [
+        6,
+        710
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        41
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 76,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        119
+      ],
+      [
+        6,
+        718
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        42
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        6
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 77,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        121
+      ],
+      [
+        6,
+        725
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        42
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 78,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        122
+      ],
+      [
+        6,
+        732
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        42
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 79,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        124
+      ],
+      [
+        6,
+        739
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        42
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 80,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        125
+      ],
+      [
+        6,
+        746
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        43
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 81,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        126
+      ],
+      [
+        6,
+        753
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        43
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 82,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        128
+      ],
+      [
+        6,
+        761
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        44
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 83,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        129
+      ],
+      [
+        6,
+        768
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        45
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 84,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        130
+      ],
+      [
+        6,
+        775
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        45
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 85,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        133
+      ],
+      [
+        6,
+        782
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        46
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 86,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        134
+      ],
+      [
+        6,
+        789
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        46
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 87,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        136
+      ],
+      [
+        6,
+        796
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        47
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 88,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        137
+      ],
+      [
+        6,
+        804
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        48
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        7
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 89,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        138
+      ],
+      [
+        6,
+        811
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        48
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 90,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        140
+      ],
+      [
+        6,
+        818
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        49
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 91,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        141
+      ],
+      [
+        6,
+        825
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        49
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 92,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        142
+      ],
+      [
+        6,
+        832
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        50
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 93,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        144
+      ],
+      [
+        6,
+        839
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        50
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 94,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        145
+      ],
+      [
+        6,
+        847
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        51
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 95,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        147
+      ],
+      [
+        6,
+        854
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        52
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 96,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        148
+      ],
+      [
+        6,
+        861
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        52
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 97,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        149
+      ],
+      [
+        6,
+        868
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        53
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 98,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        152
+      ],
+      [
+        6,
+        875
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        53
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 99,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        153
+      ],
+      [
+        6,
+        882
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        54
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        8
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  },
+  {
+    "stage_id": 100,
+    "FirstChestWaveIndex": 5,
+    "SecondChestWaveIndex": 10,
+    "ThirdChestWaveIndex": 15,
+    "FirstChestReward": [
+      [
+        1,
+        155
+      ],
+      [
+        6,
+        890
+      ]
+    ],
+    "SecondChestReward": [
+      [
+        2,
+        55
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "ThirdChestReward": [
+      [
+        3,
+        9
+      ],
+      [
+        7,
+        100
+      ]
+    ]
+  }
+]

@@ -5,7 +5,7 @@ import numpy as np
 from EconomySystem.TeamPower import 阵容强度计算
 from ExcelTools import 表格工具
 from Style.StyleDefiner import 表格样式类型
-from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 怪物理论数据表, 肉鸽技能节奏, 角色成长表, 阵容强度下的战力成长时间分布, 阵容战力成长时间分布, 阵容战力成长表
+from TableData import 关卡表, 关卡设计表, 怪物基础数据表, 怪物理论数据表, 普通宝箱产出表, 波次奖励产出表, 精致宝箱产出表, 肉鸽技能节奏, 角色成长表, 通关奖励产出表, 阵容强度下的战力成长时间分布, 阵容战力成长时间分布, 阵容战力成长表
 from LubanData import 全局参数, tables
 # from MonsterData.MonsterDataManager import 怪物数据保存器
 from MonsterData.MonsterTypes import 怪物设计表
@@ -738,6 +738,462 @@ class 生成表:
         表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
         wb.save(file_path)
         print(f"\n所有怪物理论数据表格生成完成，文件已保存至：{file_path}")
+    
+
+    @classmethod
+    def 生成通关奖励表(cls, 表格定义: Type[Any], save_folder: str = save_folder_path, 表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成通关奖励表
+        
+        Args:
+            表格定义: 表格定义类，包含表格的所有数据定义
+            save_folder: 保存Excel文件的文件夹路径
+            表格样式: 表格的样式类型
+        """
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, f"#SuccessStageReward.xlsx")
+        sheet_name = f"SuccessStageReward"
+        
+        print(f"\n开始生成通关奖励表...")
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+
+        特殊行数 = 4
+        特殊列数 = 1
+        # 写入特殊数据
+        # 定义单元格值的字典
+        单元格值 = {
+            (1, 1): "##var", (2, 1): "##type", (3, 1): "##var", (4, 1): "##", 
+            (1, 2): "stage_id", (1, 3): "RewardDict",
+            (2, 2): "int", (2, 3): "map,ChestType,int",
+            (3, 3): "1",(3,4):"2",(3,5):"3",(3,6):"4",(3,7):"5",(3,8):"6",(3,9):"7",(3,10):"8",
+        }
+        
+        # 合并单元格
+        合并区域 = [
+            'C1:J1', 'C2:J2', 
+        ]
+        表头行范围 = 5
+        表头列范围 = 11
+
+
+        # 统一设置样式和值
+        for 行 in range(1, 表头行范围):  # 1到6行
+            for 列 in range(1, 表头列范围):  # 1到14列(A到M)
+                if (行, 列) in 单元格值:
+                    ws.cell(row=行, column=列, value=单元格值[(行, 列)]).style = 表头样式名
+                else:
+                    # 对于没有特定值的单元格，仍然设置样式
+                    ws.cell(row=行, column=列).style = 表头样式名
+        
+        # 合并单元格
+        for 区域 in 合并区域:
+            ws.merge_cells(区域)
+        
+        ws.cell(row=5, column=1, value="##").style = 表头样式名
+        ws.cell(row=6, column=1, value="##").style = 表头样式名
+
+        # 获取列函数映射
+        column_functions = 表格定义.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=特殊行数, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 表格定义.获取行数据范围()
+        
+        # 生成数据行，从特殊行之后开始
+        当前行号 = 特殊行数 + 3  # 表头占用3行，所以数据从第7行开始
+        
+        # 遍历行数据范围
+        for 当前值 in range(起始值, 结束值 + 1):
+            try:
+                # 创建行参数，传入关卡数据
+                row_params = 表格定义.创建行参数(ws, sheet_name, 当前值, 当前行号)
+                
+                # 创建列名到列号的映射
+                列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                
+                # 生成每列数据
+                for col_num, 列定义 in column_functions.items():
+                    # 根据参数映射创建实际的参数字典
+                    实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                    
+                    # 计算并写入单元格值
+                    raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                    
+                    # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                    if isinstance(raw_value, (int, float)):
+                        # 根据列名决定保留的小数位数
+                        if raw_value is None or raw_value == 0:
+                            cell_value = ""
+                        elif "倍率" in 列定义.列名:
+                            cell_value = round(float(raw_value), 4)
+                        else:
+                            cell_value = round(float(raw_value), 1)
+                    else:
+                        cell_value = str(raw_value) if raw_value is not None else ""
+                    
+                    cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                    cell.style = 数据样式名
+                
+                当前行号 += 1
+            except Exception as e:
+                print(f"处理关卡 {当前值} 时出错: {str(e)}")
+                raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"Excel文件已生成在：{file_path}")
+    
+
+
+
+    @classmethod
+    def 生成波次奖励产出表(cls, 表格定义: Type[Any], save_folder: str = save_folder_path, 表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成波次奖励产出表
+        
+        Args:
+            表格定义: 表格定义类，包含表格的所有数据定义
+            save_folder: 保存Excel文件的文件夹路径
+            表格样式: 表格的样式类型
+        """
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, f"#StageChestReward.xlsx")
+        sheet_name = f"StageChestReward"
+        print(f"\n开始生成波次奖励产出表...")
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+
+        特殊行数 = 4
+        特殊列数 = 1
+        # 写入特殊数据
+        # 定义单元格值的字典
+        单元格值 = {
+            (1, 1): "##var", (2, 1): "##type", (3, 1): "##var", (4, 1): "##", 
+            (1, 2): "stage_id", (1, 3): "FirstChestWaveIndex",(1,4):"SecondChestWaveIndex",(1,5):"ThirdChestWaveIndex",(1,6):"FirstChestReward",(1,14):"SecondChestReward",(1,22):"ThirdChestReward",
+            (2, 2): "int", (2, 3): "int",(2,4):"int",(2,5):"int",(2,6):"map,ChestType,int",(2,14):"map,ChestType,int",(2,22):"map,ChestType,int",
+            (3,6):"1",(3,7):"2",(3,8):"3",(3,9):"4",(3,10):"5",(3,11):"6",(3,12):"7",(3,13):"8",(3,14):"1",(3,15):"2",(3,16):"3",(3,17):"4",(3,18):"5",(3,19):"6",(3,20):"7",(3,21):"8",(3,22):"1",(3,23):"2",(3,24):"3",(3,25):"4",(3,26):"5",(3,27):"6",(3,28):"7",(3,29):"8",
+        }
+        
+        # 合并单元格
+        合并区域 = [
+            'F1:M1', 'F2:M2', 'N1:U1', 'N2:U2', 'V1:AC1', 'V2:AC2',
+        ]
+        表头行范围 = 5
+        表头列范围 = 30
+
+
+        # 统一设置样式和值
+        for 行 in range(1, 表头行范围):  # 1到6行
+            for 列 in range(1, 表头列范围):  # 1到14列(A到M)
+                if (行, 列) in 单元格值:
+                    ws.cell(row=行, column=列, value=单元格值[(行, 列)]).style = 表头样式名
+                else:
+                    # 对于没有特定值的单元格，仍然设置样式
+                    ws.cell(row=行, column=列).style = 表头样式名
+        
+        # 合并单元格
+        for 区域 in 合并区域:
+            ws.merge_cells(区域)
+        
+        ws.cell(row=5, column=1, value="##").style = 表头样式名
+        ws.cell(row=6, column=1, value="##").style = 表头样式名
+
+        # 获取列函数映射
+        column_functions = 表格定义.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=特殊行数, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 表格定义.获取行数据范围()
+        
+        # 生成数据行，从特殊行之后开始
+        当前行号 = 特殊行数 + 3  # 表头占用3行，所以数据从第7行开始
+        
+        # 遍历行数据范围
+        for 当前值 in range(起始值, 结束值 + 1):
+            try:
+                # 创建行参数，传入关卡数据
+                row_params = 表格定义.创建行参数(ws, sheet_name, 当前值, 当前行号)
+                
+                # 创建列名到列号的映射
+                列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                
+                # 生成每列数据
+                for col_num, 列定义 in column_functions.items():
+                    # 根据参数映射创建实际的参数字典
+                    实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                    
+                    # 计算并写入单元格值
+                    raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                    
+                    # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                    if isinstance(raw_value, (int, float)):
+                        # 根据列名决定保留的小数位数
+                        if raw_value is None or raw_value == 0:
+                            cell_value = ""
+                        elif "倍率" in 列定义.列名:
+                            cell_value = round(float(raw_value), 4)
+                        else:
+                            cell_value = round(float(raw_value), 1)
+                    else:
+                        cell_value = str(raw_value) if raw_value is not None else ""
+                    
+                    cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                    cell.style = 数据样式名
+                
+                当前行号 += 1
+            except Exception as e:
+                print(f"处理关卡 {当前值} 时出错: {str(e)}")
+                raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"Excel文件已生成在：{file_path}")
+    
+
+    @classmethod
+    def 生成普通宝箱产出表(cls, 表格定义: Type[Any], save_folder: str = save_folder_path, 表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成普通宝箱产出表
+        
+        Args:
+            表格定义: 表格定义类，包含表格的所有数据定义
+            save_folder: 保存Excel文件的文件夹路径
+            表格样式: 表格的样式类型
+        """
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, f"#NormalChestData.xlsx")
+        sheet_name = f"NormalChestData"
+        
+        print(f"\n开始生成普通宝箱产出表...")
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+
+        特殊行数 = 4
+        特殊列数 = 1
+        # 写入特殊数据
+        # 定义单元格值的字典
+        单元格值 = {
+            (1, 1): "##var", (2, 1): "##type", (3, 1): "##var", (4, 1): "##", 
+            (1, 2): "ChestLevel", (1, 3): "ChestDict",
+            (2, 2): "int", (2, 3): "map,ChestType,int",
+            (3, 3): "1",(3,4):"2",(3,5):"3",(3,6):"4",(3,7):"5",(3,8):"6",(3,9):"7",(3,10):"8",
+        }
+        
+        # 合并单元格
+        合并区域 = [
+            'C1:J1', 'C2:J2', 
+        ]
+        表头行范围 = 5
+        表头列范围 = 11
+
+
+        # 统一设置样式和值
+        for 行 in range(1, 表头行范围):  # 1到6行
+            for 列 in range(1, 表头列范围):  # 1到14列(A到M)
+                if (行, 列) in 单元格值:
+                    ws.cell(row=行, column=列, value=单元格值[(行, 列)]).style = 表头样式名
+                else:
+                    # 对于没有特定值的单元格，仍然设置样式
+                    ws.cell(row=行, column=列).style = 表头样式名
+        
+        # 合并单元格
+        for 区域 in 合并区域:
+            ws.merge_cells(区域)
+        
+        ws.cell(row=5, column=1, value="##").style = 表头样式名
+        ws.cell(row=6, column=1, value="##").style = 表头样式名
+
+        # 获取列函数映射
+        column_functions = 表格定义.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=特殊行数, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 表格定义.获取行数据范围()
+        
+        # 生成数据行，从特殊行之后开始
+        当前行号 = 特殊行数 + 3  # 表头占用3行，所以数据从第7行开始
+        
+        # 遍历行数据范围
+        for 当前值 in range(起始值, 结束值 + 1):
+            try:
+                # 创建行参数，传入关卡数据
+                row_params = 表格定义.创建行参数(ws, sheet_name, 当前值, 当前行号)
+                
+                # 创建列名到列号的映射
+                列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                
+                # 生成每列数据
+                for col_num, 列定义 in column_functions.items():
+                    # 根据参数映射创建实际的参数字典
+                    实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                    
+                    # 计算并写入单元格值
+                    raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                    
+                    # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                    if isinstance(raw_value, (int, float)):
+                        # 根据列名决定保留的小数位数
+                        if raw_value is None or raw_value == 0:
+                            cell_value = ""
+                        elif "倍率" in 列定义.列名:
+                            cell_value = round(float(raw_value), 4)
+                        else:
+                            cell_value = round(float(raw_value), 1)
+                    else:
+                        cell_value = str(raw_value) if raw_value is not None else ""
+                    
+                    cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                    cell.style = 数据样式名
+                
+                当前行号 += 1
+            except Exception as e:
+                print(f"处理关卡 {当前值} 时出错: {str(e)}")
+                raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"Excel文件已生成在：{file_path}")
+    
+    @classmethod
+    def 生成精致宝箱产出表(cls, 表格定义: Type[Any], save_folder: str = save_folder_path, 表格样式: 表格样式类型 = 表格样式类型.默认样式) -> None:
+        """生成精致宝箱产出表
+        
+        Args:
+            表格定义: 表格定义类，包含表格的所有数据定义
+            save_folder: 保存Excel文件的文件夹路径
+            表格样式: 表格的样式类型
+        """
+        # 初始化保存路径和文件名
+        os.makedirs(save_folder, exist_ok=True)
+        file_path = os.path.join(save_folder, f"#RareChestData.xlsx")
+        sheet_name = f"RareChestData"
+        
+        print(f"\n开始生成精致宝箱产出表...")
+        
+        # 获取工作表对象和样式
+        wb, ws, 表头样式名, 数据样式名 = 表格工具.更新或创建工作表(
+            file_path, sheet_name, 表格样式
+        )
+
+        特殊行数 = 4
+        特殊列数 = 1
+        # 写入特殊数据
+        # 定义单元格值的字典
+        单元格值 = {
+            (1, 1): "##var", (2, 1): "##type", (3, 1): "##var", (4, 1): "##", 
+            (1, 2): "ChestLevel", (1, 3): "ChestDict",
+            (2, 2): "int", (2, 3): "map,ChestType,int",
+            (3, 3): "1",(3,4):"2",(3,5):"3",(3,6):"4",(3,7):"5",(3,8):"6",(3,9):"7",(3,10):"8",
+        }
+        
+        # 合并单元格
+        合并区域 = [
+            'C1:J1', 'C2:J2', 
+        ]
+        表头行范围 = 5
+        表头列范围 = 11
+
+
+        # 统一设置样式和值
+        for 行 in range(1, 表头行范围):  # 1到6行
+            for 列 in range(1, 表头列范围):  # 1到14列(A到M)
+                if (行, 列) in 单元格值:
+                    ws.cell(row=行, column=列, value=单元格值[(行, 列)]).style = 表头样式名
+                else:
+                    # 对于没有特定值的单元格，仍然设置样式
+                    ws.cell(row=行, column=列).style = 表头样式名
+        
+        # 合并单元格
+        for 区域 in 合并区域:
+            ws.merge_cells(区域)
+        
+        ws.cell(row=5, column=1, value="##").style = 表头样式名
+        ws.cell(row=6, column=1, value="##").style = 表头样式名
+
+        # 获取列函数映射
+        column_functions = 表格定义.获取列函数映射()
+        
+        # 从列函数映射中提取表头
+        headers = cls.从列函数映射提取表头(column_functions)
+
+        表格工具.生成表头(ws, headers, 表头样式名, start_row=特殊行数, start_col=特殊列数+1)
+        
+        # 获取行数据范围
+        起始值, 结束值 = 表格定义.获取行数据范围()
+        
+        # 生成数据行，从特殊行之后开始
+        当前行号 = 特殊行数 + 3  # 表头占用3行，所以数据从第7行开始
+        
+        # 遍历行数据范围
+        for 当前值 in range(起始值, 结束值 + 1):
+            try:
+                # 创建行参数，传入关卡数据
+                row_params = 表格定义.创建行参数(ws, sheet_name, 当前值, 当前行号)
+                
+                # 创建列名到列号的映射
+                列号映射 = {列名: 列号 for 列号, 列名 in enumerate(headers, 特殊列数+1)}  # 从特殊列之后开始
+                
+                # 生成每列数据
+                for col_num, 列定义 in column_functions.items():
+                    # 根据参数映射创建实际的参数字典
+                    实际参数 = {映射键: row_params[实际键] for 映射键, 实际键 in 列定义.参数映射.items()}
+                    
+                    # 计算并写入单元格值
+                    raw_value = 列定义.计算值(实际参数, ws, 当前行号, 列号映射, 特殊行数+1)
+                    
+                    # 确保值是基本类型（字符串、数字等），而不是单元格对象
+                    if isinstance(raw_value, (int, float)):
+                        # 根据列名决定保留的小数位数
+                        if raw_value is None or raw_value == 0:
+                            cell_value = ""
+                        elif "倍率" in 列定义.列名:
+                            cell_value = round(float(raw_value), 4)
+                        else:
+                            cell_value = round(float(raw_value), 1)
+                    else:
+                        cell_value = str(raw_value) if raw_value is not None else ""
+                    
+                    cell = ws.cell(row=当前行号, column=col_num + 特殊列数, value=cell_value)
+                    cell.style = 数据样式名
+                
+                当前行号 += 1
+            except Exception as e:
+                print(f"处理关卡 {当前值} 时出错: {str(e)}")
+                raise
+        
+        # 调整列宽并保存文件
+        表格工具.按中文调整列宽(ws, 特殊行数, 特殊列数+1, len(headers) + 特殊列数)
+        wb.save(file_path)
+        print(f"Excel文件已生成在：{file_path}")
+
+
+
+
 
 # 调用示例
 if __name__ == "__main__":
@@ -774,6 +1230,18 @@ if __name__ == "__main__":
     # )
 
     # 生成所有关卡表格
-    生成表.生成所有关卡表格()
+    # 生成表.生成所有关卡表格()
+
+    #生成通关奖励表
+    # 生成表.生成通关奖励表(表格定义=通关奖励产出表, save_folder=save_folder_path, 表格样式=表格样式类型.默认样式)
+
+    # #生成波次宝箱产出
+    # 生成表.生成波次奖励产出表(表格定义=波次奖励产出表, save_folder=save_folder_path, 表格样式=表格样式类型.默认样式)
+
+    # #生成普通宝箱产出表，产出记得手调一下
+    # 生成表.生成普通宝箱产出表(表格定义=普通宝箱产出表,save_folder=save_folder_path, 表格样式=表格样式类型.默认样式)
+
+    # # 生成精致宝箱产出表，产出后记得手调一下
+    # 生成表.生成精致宝箱产出表(表格定义=精致宝箱产出表,save_folder=save_folder_path, 表格样式=表格样式类型.默认样式)
 
     

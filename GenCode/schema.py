@@ -11,6 +11,40 @@
 from enum import Enum
 
 
+class ChestType(Enum):
+    '''
+    绿卡
+    '''
+    Green = 1
+    '''
+    蓝卡
+    '''
+    Blue = 2
+    '''
+    紫卡
+    '''
+    Purple = 3
+    '''
+    橙卡
+    '''
+    Orange = 4
+    '''
+    红卡
+    '''
+    Red = 5
+    '''
+    金币
+    '''
+    Gold = 6
+    '''
+    宝石
+    '''
+    Gem = 7
+    '''
+    体力
+    '''
+    Energy = 8
+
 
 class 参数 :
     def __init__(self, _json_):
@@ -285,6 +319,55 @@ class 生成数据_战斗型Boss属性表_3导 :
         self.血量倍数 = _json_['血量倍数']
         self.攻击力倍数 = _json_['攻击力倍数']
 
+class 生成数据_NormalChestData :
+    def __init__(self, _json_):
+        self.ChestLevel = _json_['ChestLevel']
+        self.ChestDict = {};
+        for _elek0_, _elev0_ in _json_['ChestDict']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.ChestDict[_k0_] = _v0_
+
+class 生成数据_RareChestData :
+    def __init__(self, _json_):
+        self.ChestLevel = _json_['ChestLevel']
+        self.ChestDict = {};
+        for _elek0_, _elev0_ in _json_['ChestDict']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.ChestDict[_k0_] = _v0_
+
+class 生成数据_StageChestReward :
+    def __init__(self, _json_):
+        self.stage_id = _json_['stage_id']
+        self.FirstChestWaveIndex = _json_['FirstChestWaveIndex']
+        self.SecondChestWaveIndex = _json_['SecondChestWaveIndex']
+        self.ThirdChestWaveIndex = _json_['ThirdChestWaveIndex']
+        self.FirstChestReward = {};
+        for _elek0_, _elev0_ in _json_['FirstChestReward']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.FirstChestReward[_k0_] = _v0_
+        self.SecondChestReward = {};
+        for _elek0_, _elev0_ in _json_['SecondChestReward']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.SecondChestReward[_k0_] = _v0_
+        self.ThirdChestReward = {};
+        for _elek0_, _elev0_ in _json_['ThirdChestReward']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.ThirdChestReward[_k0_] = _v0_
+
+class 生成数据_SuccessStageReward :
+    def __init__(self, _json_):
+        self.stage_id = _json_['stage_id']
+        self.RewardDict = {};
+        for _elek0_, _elev0_ in _json_['RewardDict']:
+            _k0_ = _elek0_
+            _v0_ = _elev0_
+            self.RewardDict[_k0_] = _v0_
+
 class 资源数据 :
     def __init__(self, _json_):
         self.类型 = _json_['类型']
@@ -496,6 +579,70 @@ class 基础数据_Tb角色技能数据表:
 
     def get(self, key) : return self._dataMap.get(key)
 
+class 生成数据_TbNormalChestData:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_NormalChestData(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.ChestLevel] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 生成数据_TbRareChestData:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_RareChestData(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.ChestLevel] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 生成数据_TbStageChestReward:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_StageChestReward(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.stage_id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
+class 生成数据_TbSuccessStageReward:
+
+    def __init__(self, _json_ ):
+        self._dataMap = {}
+        self._dataList = []
+        
+        for _json2_ in _json_:
+            _v = 生成数据_SuccessStageReward(_json2_)
+            self._dataList.append(_v)
+            self._dataMap[_v.stage_id] = _v
+
+    def getDataMap(self) : return self._dataMap
+    def getDataList(self) : return self._dataList
+
+    def get(self, key) : return self._dataMap.get(key)
+
 class 生成数据_Tb关卡设计表_1导:
 
     def __init__(self, _json_ ):
@@ -606,6 +753,10 @@ class cfg_Tables:
         self.Tb肉鸽技能数据表 = 基础数据_Tb肉鸽技能数据表(loader('基础数据_tb肉鸽技能数据表')); 
         self.Tb角色初始属性表 = 基础数据_Tb角色初始属性表(loader('基础数据_tb角色初始属性表')); 
         self.Tb角色技能数据表 = 基础数据_Tb角色技能数据表(loader('基础数据_tb角色技能数据表')); 
+        self.TbNormalChestData = 生成数据_TbNormalChestData(loader('生成数据_tbnormalchestdata')); 
+        self.TbRareChestData = 生成数据_TbRareChestData(loader('生成数据_tbrarechestdata')); 
+        self.TbStageChestReward = 生成数据_TbStageChestReward(loader('生成数据_tbstagechestreward')); 
+        self.TbSuccessStageReward = 生成数据_TbSuccessStageReward(loader('生成数据_tbsuccessstagereward')); 
         self.Tb关卡设计表_1导 = 生成数据_Tb关卡设计表_1导(loader('生成数据_tb关卡设计表_1导')); 
         self.Tb怪物基础数据表_3导 = 生成数据_Tb怪物基础数据表_3导(loader('生成数据_tb怪物基础数据表_3导')); 
         self.Tb战斗型Boss属性表_3导 = 生成数据_Tb战斗型Boss属性表_3导(loader('生成数据_tb战斗型boss属性表_3导')); 
